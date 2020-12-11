@@ -25,6 +25,7 @@ import {
     DropdownItem,
     UncontrolledDropdown
 } from './../../../../components';
+import Wiz1 from './Wiz1';
 
 import { HeaderMain } from "./../../../components/HeaderMain";
 
@@ -53,40 +54,6 @@ const items = [
     }
 ];
 
-const WizardStep1 = () => (
-    <Row>
-        <Col md={ 10 }>
-            <div>
-                <h3 className="mb-4">
-                    Paste Some CSV Data 
-                </h3>
-
-                                { /* START Input */}
-                                <FormGroup row>
-                                    <Label for="textArea" sm={3}>
-                                        Textarea
-                                    </Label>
-                                    <Col sm={9}>
-                                        <Input 
-                                            type="textarea" 
-                                            name="text" 
-                                            id="textArea" 
-                                            placeholder="Enter text..." 
-                                        />
-                                    </Col>
-                                </FormGroup>
-                                { /* END Input */}
-
-                <small>
-                    Below is a sample page for your cart, 
-                    Created using pages design UI Elementes
-                </small>
-            </div>
-        </Col>
-        <Col md={ 6 }>
-        </Col>
-    </Row>
-);
 const WizardStep2 = () => (
     <Row>
         <Col md={12}>
@@ -197,7 +164,7 @@ export class DWizardExample extends React.Component {
                         (() => {
                             switch(this.state.currentStep) {
                                 case sequence[0]:
-                                    return <WizardStep1 />
+                                    return <Wiz1 />
                                 case sequence[1]:
                                     return <WizardStep2 />
                                 case sequence[2]:
