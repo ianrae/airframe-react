@@ -41,7 +41,7 @@ const DatamendDashboard = () => (
         <Row className="mb-5">
             <Col lg={ 12 }>
                 <HeaderMain 
-                    title="Paste some CSV data"
+                    title="On to the wizard"
                     className="mb-4 mb-lg-5"
                 />
                 <p>

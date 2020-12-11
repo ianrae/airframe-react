@@ -109,6 +109,12 @@ const WizardStep4 = () => (
 );
 
 export class DWizardExample extends React.Component {
+    constructor(props) {
+        super(props);
+        this.isPrev = this.isPrev.bind(this);
+        this.isNext = this.isNext.bind(this);
+    }
+
     state = {
         currentStep: _.first(sequence)
     }
@@ -164,7 +170,7 @@ export class DWizardExample extends React.Component {
                         (() => {
                             switch(this.state.currentStep) {
                                 case sequence[0]:
-                                    return <Wiz1 />
+                                    return <Wiz1  prevStep={this._prevStep} nextStep={this._nextStep} isPrev={this.isPrev} isNext={this.isNext} />
                                 case sequence[1]:
                                     return <WizardStep2 />
                                 case sequence[2]:
@@ -201,14 +207,12 @@ export class DWizardExample extends React.Component {
         );
     }
 
-   //do various side effects
-   onEndStep() {
+    //do various side effects
+    onEndStep() {
         if (this.state.currentStep === 'start') {
             //alert('here');
         }
-   }
-
-
+    }
 
     _changeStep = (stepId) => {
         this.onEndStep();
@@ -234,4 +238,11 @@ export class DWizardExample extends React.Component {
 
     _isComplete = (stepId) =>
         sequence.indexOf(stepId) < sequence.indexOf(this.state.currentStep)
+
+    isPrev() {
+        return this.state.currentStep !== sequence[0];
+    }
+    isNext() {
+        return this.state.currentStep !== sequence[sequence.length - 1];
+    }
 }

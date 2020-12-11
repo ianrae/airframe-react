@@ -65,6 +65,10 @@ const WizardStep1 = () => (
 
 class Wiz1 extends React.Component {
 
+    constructor(props) {
+        super(props);
+    }
+
     render() {
 
         return (
@@ -76,15 +80,15 @@ class Wiz1 extends React.Component {
                     <CardFooter className="p-4 bt-0">
                         <div className="d-flex">
                             {
-                                true && (
+                                this.props.isPrev() && (
                                     <Button onClick={() => {this._prevStep()}} color="link" className='mr-3'>
                                         <i className='fa fa-angle-left mr-2'></i>
-                                        xPrevious
+                                        zPrevious
                                     </Button>
                                 )
                             }
                             {
-                                true && (
+                                this.props.isNext() && (
                                     <Button color='primary' onClick={() => {this._nextStep()}} className="ml-auto px-4">
                                         xNext
                                         <i className='fa fa-angle-right ml-2'></i>
@@ -106,9 +110,11 @@ class Wiz1 extends React.Component {
 
 
     _prevStep = () => {
+        this.props.prevStep();
     }
 
     _nextStep = () => {
+        this.props.nextStep();
     }
 
 //    _isComplete = (stepId) =>
