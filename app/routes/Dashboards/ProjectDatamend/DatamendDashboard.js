@@ -24,17 +24,17 @@ import { HeaderMain } from "../../components/HeaderMain";
 
 import {
     TasksMedia
-} from "../../components/DatamendDashboards/TasksMedia";
+} from "../../components/ProjectsDashboards/TasksMedia";
 import {
     TinyDonutChart
-} from "../../components/DatamendDashboards/TinyDonutChart"
+} from "../../components/ProjectsDashboards/TinyDonutChart"
 import {
     TinyDonutChartAllProjects
-} from "../../components/DatamendDashboards/TinyDonutChartAllProjects"
+} from "../../components/ProjectsDashboards/TinyDonutChartAllProjects"
 import {
     TimelineMini
 } from "../../components/Timeline/TimelineMini"
-import { DraggableProjects } from './DraggableProjects';
+//import { DraggableProjects } from './DraggableProjects';
 
 const DatamendDashboard = () => (
     <Container>

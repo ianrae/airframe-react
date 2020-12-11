@@ -8,7 +8,7 @@ import {
 // ----------- Pages Imports ---------------
 import Analytics from './Dashboards/Analytics';
 import ProjectsDashboard from './Dashboards/Projects';
-import DatamendDashboard from './Dashboards/Projects';
+import DatamendDashboard from './Dashboards/ProjectDatamend';
 
 
 import System from './Dashboards/System';

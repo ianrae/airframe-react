@@ -41,7 +41,7 @@ const ProjectsDashboard = () => (
         <Row className="mb-5">
             <Col lg={ 12 }>
                 <HeaderMain 
-                    title="Data Cleaner"
+                    title="Data Cleanerx"
                     className="mb-4 mb-lg-5"
                 />
                 <p>
