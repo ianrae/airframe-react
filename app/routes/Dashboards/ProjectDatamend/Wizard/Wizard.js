@@ -26,6 +26,7 @@ import {
     UncontrolledDropdown
 } from './../../../../components';
 import Wiz1 from './Wiz1';
+import Wiz2 from './Wiz2';
 
 import { HeaderMain } from "./../../../components/HeaderMain";
 
@@ -54,24 +55,6 @@ const items = [
     }
 ];
 
-const WizardStep2 = () => (
-    <Row>
-        <Col md={12}>
-            <div>
-                <h3 className="mb-4">
-                    View Your Data
-                </h3>
-                <p>
-                    We respect your privacy and protect it with strong encryption, plus strict policies.
-                    Two-step verification, which we encourage all our customers to use.
-                </p>
-                <small>
-                    Fields marked as <span className="text-danger">*</span> are Required!
-                </small>
-            </div>
-        </Col>
-    </Row>
-);
 const WizardStep3 = () => (
     <Row>
         <Col md={12}>
@@ -135,28 +118,28 @@ export class DWizardExample extends React.Component {
                             onStepChanged={ this._changeStep }
                         >
                             <Wizard.Step
-                                id={ sequence[0] }
+                                id={ sequence[0] } 
                                 icon={ <i className="fa fa-shopping-basket fa-fw"></i> }
                                 complete={ this._isComplete(sequence[0]) }
                             >
                                 CSV Data
                             </Wizard.Step>
                             <Wizard.Step
-                                id={ sequence[1] }
+                                id={ sequence[1] } disabled={this._isDisabled(sequence[1])}
                                 icon={ <i className="fa fa-cube fa-fw"></i> }
                                 complete={ this._isComplete(sequence[1]) }
                             >
                                 View Raw Data
                             </Wizard.Step>
                             <Wizard.Step
-                                id={ sequence[2] }
+                                id={ sequence[2] } disabled={this._isDisabled(sequence[2])}
                                 icon={ <i className="fa fa-credit-card fa-fw"></i> }
                                 complete={ this._isComplete(sequence[2]) }
                             >
                                 Fields
                             </Wizard.Step>
                             <Wizard.Step
-                                id={ sequence[3] }
+                                id={ sequence[3] } disabled={this._isDisabled(sequence[3])}
                                 icon={ <i className="fa fa-navicon fa-fw"></i> }
                                 complete={ this._isComplete(sequence[3]) }
                             >
@@ -172,7 +155,7 @@ export class DWizardExample extends React.Component {
                                 case sequence[0]:
                                     return <Wiz1  prevStep={this._prevStep} nextStep={this._nextStep} isPrev={this.isPrev} isNext={this.isNext} />
                                 case sequence[1]:
-                                    return <WizardStep2 />
+                                    return <Wiz2  prevStep={this._prevStep} nextStep={this._nextStep} isPrev={this.isPrev} isNext={this.isNext} />
                                 case sequence[2]:
                                     return <WizardStep3 />
                                 case sequence[3]:
@@ -236,9 +219,14 @@ export class DWizardExample extends React.Component {
         });
     }
 
-    _isComplete = (stepId) =>
-        sequence.indexOf(stepId) < sequence.indexOf(this.state.currentStep)
-
+    _isComplete = (stepId) => {
+        return sequence.indexOf(stepId) < sequence.indexOf(this.state.currentStep)
+    }
+    _isDisabled = (stepId) => {
+        let x = sequence.indexOf(stepId) > sequence.indexOf(this.state.currentStep)
+        console.log("dis: " + x);
+        return x;
+    }
     isPrev() {
         return this.state.currentStep !== sequence[0];
     }
