@@ -8,6 +8,9 @@ import {
 // ----------- Pages Imports ---------------
 import Analytics from './Dashboards/Analytics';
 import ProjectsDashboard from './Dashboards/Projects';
+import DatamendDashboard from './Dashboards/Projects';
+
+
 import System from './Dashboards/System';
 import Monitor from './Dashboards/Monitor'; 
 import Financial from './Dashboards/Financial';
@@ -118,6 +121,8 @@ export const RoutedContent = () => {
             
             <Route path="/dashboards/analytics" exact component={Analytics} />
             <Route path="/dashboards/projects" exact component={ProjectsDashboard} />
+            <Route path="/dashboards/datamend" exact component={DatamendDashboard} />
+
             <Route path="/dashboards/system" exact component={System} />
             <Route path="/dashboards/monitor" exact component={Monitor} />
             <Route path="/dashboards/financial" exact component={Financial} />

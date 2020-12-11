@@ -24,31 +24,30 @@ import { HeaderMain } from "../../components/HeaderMain";
 
 import {
     TasksMedia
-} from "../../components/ProjectsDashboards/TasksMedia";
+} from "../../components/DatamendDashboards/TasksMedia";
 import {
     TinyDonutChart
-} from "../../components/ProjectsDashboards/TinyDonutChart"
+} from "../../components/DatamendDashboards/TinyDonutChart"
 import {
     TinyDonutChartAllProjects
-} from "../../components/ProjectsDashboards/TinyDonutChartAllProjects"
+} from "../../components/DatamendDashboards/TinyDonutChartAllProjects"
 import {
     TimelineMini
 } from "../../components/Timeline/TimelineMini"
 import { DraggableProjects } from './DraggableProjects';
 
-const ProjectsDashboard = () => (
+const DatamendDashboard = () => (
     <Container>
         <Row className="mb-5">
             <Col lg={ 12 }>
                 <HeaderMain 
-                    title="Data Cleaner"
+                    title="Paste some CSV data"
                     className="mb-4 mb-lg-5"
                 />
                 <p>
-                    { faker.lorem.paragraph() }
+                    { 'asdfs' }
                 </p>
-                <Button color="primary" tag={Link} to="/dashboards/datamend">Let&quot;s Get Started</Button>
-
+                
             </Col>
         </Row>
         <Row>
@@ -57,5 +56,5 @@ const ProjectsDashboard = () => (
 );
 
 export default setupPage({
-    pageTitle: 'Projects Dashboard'
-})(ProjectsDashboard);
+    pageTitle: 'Datamend Dashboard'
+})(DatamendDashboard);
