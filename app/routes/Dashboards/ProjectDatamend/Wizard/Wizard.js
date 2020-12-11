@@ -28,7 +28,7 @@ import {
 
 import { HeaderMain } from "./../../../components/HeaderMain";
 
-const sequence = ['your-cart', 'shipping', 'payment', 'summary'];
+const sequence = ['start', 'shipping', 'payment', 'summary'];
 
 const items = [
     {
@@ -55,16 +55,28 @@ const items = [
 
 const WizardStep1 = () => (
     <Row>
-        <Col md={ 6 }>
+        <Col md={ 10 }>
             <div>
                 <h3 className="mb-4">
-                    Your Bags are Ready to Check Out!
+                    Paste Some CSV Data 
                 </h3>
-                <p>
-                    Discover goods you&apos;ll love from brands that inspire.
-                    The easiest way to open your own online store.
-                    Discover amazing stuff or open your own store for free!
-                </p>
+
+                                { /* START Input */}
+                                <FormGroup row>
+                                    <Label for="textArea" sm={3}>
+                                        Textarea
+                                    </Label>
+                                    <Col sm={9}>
+                                        <Input 
+                                            type="textarea" 
+                                            name="text" 
+                                            id="textArea" 
+                                            placeholder="Enter text..." 
+                                        />
+                                    </Col>
+                                </FormGroup>
+                                { /* END Input */}
+
                 <small>
                     Below is a sample page for your cart, 
                     Created using pages design UI Elementes
@@ -72,51 +84,6 @@ const WizardStep1 = () => (
             </div>
         </Col>
         <Col md={ 6 }>
-            <Table>
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Description</th>
-                        <th>Qty</th>
-                        <th className="text-right">Total</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {
-                        _.map(items, (item, index) => (
-                            <tr key={index}>
-                                <td>
-                                    <i className="fa fa-close text-danger"></i>
-                                </td>
-                                <td>
-                                    { item.name }
-                                </td>
-                                <td>
-                                    { item.quantity }
-                                </td>
-                                <td className="text-right">
-                                    { item.price }
-                                </td>
-                            </tr>
-                        ))
-                    }
-                    <tr>
-                        <td colSpan={3}></td>
-                        <td>
-                            <Row tag="dl">
-                                <dt className="col-sm-6 text-right">Sub-Total</dt>
-                                <dd className="col-sm-6 text-right">$114.00</dd>
-
-                                <dt className="col-sm-6 text-right">VAT</dt>
-                                <dd className="col-sm-6 text-right">$876.78</dd>
-
-                                <dt className="col-sm-6 mt-3 text-right h4 mb-0">Total</dt>
-                                <dd className="col-sm-6 mt-3 text-right h4 mb-0">$986.78</dd>
-                            </Row>
-                        </td>
-                    </tr>
-                </tbody>
-            </Table>
         </Col>
     </Row>
 );
@@ -526,7 +493,7 @@ export class DWizardExample extends React.Component {
                                 icon={ <i className="fa fa-shopping-basket fa-fw"></i> }
                                 complete={ this._isComplete(sequence[0]) }
                             >
-                                Your Cart
+                                CSV Data
                             </Wizard.Step>
                             <Wizard.Step
                                 id={ sequence[1] }
@@ -594,7 +561,17 @@ export class DWizardExample extends React.Component {
         );
     }
 
+   //do various side effects
+   onEndStep() {
+        if (this.state.currentStep === 'start') {
+            alert('here');
+        }
+   }
+
+
+
     _changeStep = (stepId) => {
+        this.onEndStep();
         this.setState({
             currentStep: stepId
         });
@@ -608,6 +585,7 @@ export class DWizardExample extends React.Component {
     }
 
     _nextStep = () => {
+        this.onEndStep();
         const index = sequence.indexOf(this.state.currentStep);
         this.setState({
             currentStep: sequence[index + 1]
