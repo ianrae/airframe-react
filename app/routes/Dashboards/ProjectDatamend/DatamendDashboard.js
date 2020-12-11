@@ -47,7 +47,8 @@ const DatamendDashboard = () => (
                 <p>
                     { 'asdfs' }
                 </p>
-                
+                <Button color="secondary" tag={Link} to="/dashboards/datamend/wizard">Wizard</Button>
+
             </Col>
         </Row>
         <Row>

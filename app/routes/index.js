@@ -8,7 +8,9 @@ import {
 // ----------- Pages Imports ---------------
 import Analytics from './Dashboards/Analytics';
 import ProjectsDashboard from './Dashboards/Projects';
+//// my datamend stuff
 import DatamendDashboard from './Dashboards/ProjectDatamend';
+import DWizard from './Dashboards/ProjectDatamend/Wizard';
 
 
 import System from './Dashboards/System';
@@ -121,7 +123,9 @@ export const RoutedContent = () => {
             
             <Route path="/dashboards/analytics" exact component={Analytics} />
             <Route path="/dashboards/projects" exact component={ProjectsDashboard} />
+            ////// datamend routes
             <Route path="/dashboards/datamend" exact component={DatamendDashboard} />
+            <Route component={ DWizard } path="/dashboards/datamend/wizard" />
 
             <Route path="/dashboards/system" exact component={System} />
             <Route path="/dashboards/monitor" exact component={Monitor} />
