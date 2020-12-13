@@ -116,11 +116,22 @@ class Wiz3 extends React.Component {
         super(props);
 
         this.state = {
-            wizardState: WIZ_START
+            wizardState: WIZ_START,
+            showTable: false
         }
+    }
+    clkApplyButton = () => {
+        console.log('apply..');
+        this.setState({showTable:true});
     }
 
     render() {
+
+        let MabyeGrid = null;
+        if (this.state.showTable) {
+            MabyeGrid = <h5>sdfdd maybe</h5>
+        }
+
 
         return (
             <React.Fragment>
@@ -130,7 +141,11 @@ class Wiz3 extends React.Component {
 
 
                     <Row className="mb-5">
-                      <ApplyChangesModal />
+                      <ApplyChangesModal onShowTable={this.clkApplyButton}/>
+                    </Row>
+
+                    <Row className="">
+                      {MabyeGrid}
                     </Row>
 
                     <CardFooter className="p-4 bt-0">

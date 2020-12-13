@@ -24,12 +24,17 @@ class ApplyChangesModal extends React.Component {
         }
     }
 
-    render() {
+    clkButton = () => {
+        console.log('clkButton');
+        this.props.onShowTable();
+    }
 
+
+    render() {
     return (
         <React.Fragment>
           <Col>
-            <Button id="modalDefault203" color="primary" size="lg">
+            <Button id="modalDefault203" color="primary" size="lg"  onClick={this.clkButton}>
                 Apply Changes  <i className="fa fa-angle-right ml-1"></i>
             </Button>
             { /* START Example Modal */}
