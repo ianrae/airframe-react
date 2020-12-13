@@ -44,34 +44,29 @@ const WizardStep3 = () => (
                             </CardTitle>
                             { /* START Form */}
                             <Form inline>
+                                <FormGroup>
+                                    <CustomInput type="checkbox" id="active" label="Selected" inline />
+                                </FormGroup>
                                 <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-                                    <Input type="text" name="text" id="enterName" placeholder="Enter Name..." />
+                                    <Input type="text" name="text" id="enterName" placeholder="xxEnter Name..." />
+                                </FormGroup>
+                                <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
+                                    <p>1240 Main st. </p>
                                 </FormGroup>
                                 <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
                                     <InputGroup>
-                                        <InputGroupAddon addonType="prepend">
-                                            <i className="fa fa-key fa-fw" />
-                                        </InputGroupAddon>
-                                        <Input type="password" name="password" placeholder="Password..." />
-                                    </InputGroup>
-                                </FormGroup>
-                                <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-                                    <InputGroup>
-                                        <InputGroupAddon addonType="prepend">
-                                            Country
-                                        </InputGroupAddon>
                                         <CustomInput type="select" id="country-selector-3" name="customSelect">
                                             <option value="">Select...</option>
-                                            <option>United Kingdom</option>
-                                            <option>United States</option>
-                                            <option>Canada</option>
-                                            <option>Australia</option>
-                                            <option>New Zeland</option>
+                                            <option>string</option>
+                                            <option>int</option>
+                                            <option>long</option>
+                                            <option>boolean</option>
+                                            <option>date</option>
                                         </CustomInput>
                                     </InputGroup>
                                 </FormGroup>
                                 <FormGroup>
-                                    <CustomInput type="checkbox" id="rememberMe" label="Remember Me" inline />
+                                    <CustomInput type="checkbox" id="rememberMe" label="Primary Key" inline />
                                 </FormGroup>
                                 <Button color="primary">
                                     Submit
