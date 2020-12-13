@@ -34,7 +34,7 @@ const makeId = (name,index) => {
     return `${name}_${index}`;
 }
 
-const FieldEditorRow = ({fieldSpec, index, selectFlag, onSelFlag}) => {
+const FieldEditorRow = ({fieldSpec, index, selectFlag, onSelFlag, hasSecretPK}) => {
 //  const [selected, setSelected] = React.useState(selectFlag);
   const [name, setName] = React.useState(fieldSpec.name);
   const [optional, setOptional] = React.useState(fieldSpec.optionalFlag);
@@ -51,14 +51,17 @@ const FieldEditorRow = ({fieldSpec, index, selectFlag, onSelFlag}) => {
             value={name} onChange={(e) => setName(e.target.value)}/>                              
        </td>
        <td><i>1240 Main st.</i></td>
+
        <td>
             <CustomInput type="checkbox" id={makeId("optional",index)} inline checked={optional} disabled={!selectFlag} 
               onChange={(e) => setOptional(e.target.checked)} />
        </td>
-       <td>
-            <CustomInput type="checkbox" id={makeId("pk",index)} inline checked={isPK} disabled={!selectFlag}
-             onChange={(e) => setIsPK(e.target.checked)} />
-       </td>
+       {!hasSecretPK &&
+         <td>
+              <CustomInput type="checkbox" id={makeId("pk",index)} inline checked={isPK} disabled={!selectFlag}
+               onChange={(e) => setIsPK(e.target.checked)} />
+         </td>
+       }
        <td>
        </td>
       </tr>

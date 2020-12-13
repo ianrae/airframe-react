@@ -56,6 +56,12 @@ const WizardStep3 = ({wizardState}) => {
   }
   const [selectFlags, setSelectFlags] = React.useState(initSelAll(wizardState.allFields));
   const [selectAll, setSelectAll] = React.useState(false);
+  const [hasSecretPK, setHasSecretPK] = React.useState( () => {
+    console.log(wizardState.allFields.length);
+    const xx = wizardState.allFields.filter(x => x.name == '__pk');
+    console.log(xx);
+    return xx.length > 0;
+  });
 
 
   const onSelFlag = (i,flag) => {
@@ -66,8 +72,11 @@ const WizardStep3 = ({wizardState}) => {
     //setSelectAll(flag ? 1 : 0);
   }
   const rowEditors = wizardState.allFields.map((dish,i) => {
+    if (dish.name === '__pk') {
+        return null;
+    }
     return (
-      <FieldEditorRow fieldSpec={dish} index={i} selectFlag={selectFlags[i]} onSelFlag={onSelFlag} />
+      <FieldEditorRow fieldSpec={dish} index={i} selectFlag={selectFlags[i]} onSelFlag={onSelFlag} hasSecretPK={hasSecretPK} />
     );
   });
 
@@ -99,7 +108,9 @@ const WizardStep3 = ({wizardState}) => {
                           <th>Field</th>
                           <th>Sample Value</th>
                           <th>Value can be missing</th>
-                          <th>Primary Key</th>
+                          { !hasSecretPK && 
+                              <th>Primary Key</th>
+                          }
                           <th>Rules</th>
                         </tr>
                       </thead>
