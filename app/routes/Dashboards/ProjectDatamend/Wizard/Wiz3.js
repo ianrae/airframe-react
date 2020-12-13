@@ -28,34 +28,12 @@ import {
     CustomInput,
     FormText    
 } from './../../../../components';
-
+import FieldEditorRow from './FieldEditorRow';
 import {WIZ_START} from './../src/shared/wizstart';
 
 const makeId = (name,index) => {
     return `${name}_${index}`;
 }
-
-
-const FieldEditorRow = ({fieldSpec, index}) => (
-      <tr key={index}>
-       <td>
-       <CustomInput type="checkbox" id={makeId("active",index)} inline checked={fieldSpec.active}/>
-       </td>
-       <td>
-            <Input type="text" name={makeId("name",index)} id={makeId("name",index)} placeholder={fieldSpec.name} />                              
-       </td>
-       <td><i>1240 Main st.</i></td>
-       <td>
-            <CustomInput type="checkbox" id={makeId("optional",index)} inline checked={fieldSpec.optionalFlag} />
-       </td>
-       <td>
-            <CustomInput type="checkbox" id={makeId("pk",index)} inline />
-       </td>
-       <td>
-       </td>
-      </tr>
-
-);
 
 
 const WizardStep3 = ({wizardState}) => {
@@ -82,12 +60,14 @@ const WizardStep3 = ({wizardState}) => {
                             { /* START Form */}
                             <Table>
                               <thead>
+                                <tr>
                                   <th>Selected</th>
                                   <th>Field</th>
                                   <th>Sample Value</th>
                                   <th>Value can be missing</th>
                                   <th>Primary Key</th>
                                   <th>Rules</th>
+                                </tr>
                               </thead>
                               <tbody>
                                   {rowEditors}
