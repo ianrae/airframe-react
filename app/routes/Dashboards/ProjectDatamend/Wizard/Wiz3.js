@@ -29,15 +29,40 @@ import {
     FormText    
 } from './../../../../components';
 
+import {WIZ_START} from './../src/shared/wizstart';
 
 
-const WizardStep3 = () => (
+const FieldEditorRow = () => (
+      <tr>
+       <td>
+       <CustomInput type="checkbox" id="active" inline />
+       </td>
+       <td>
+            <Input type="text" name="text" id="enterName" placeholder="xxEnter Name..." />                              
+       </td>
+       <td><i>1240 Main st.</i></td>
+       <td>
+            <CustomInput type="checkbox" id="rememberMe" inline />
+       </td>
+       <td>
+            <CustomInput type="checkbox" id="rememberMe2" inline />
+       </td>
+       <td>
+       </td>
+      </tr>
+
+);
+
+
+const WizardStep3 = ({wizardState}) => {
+    console.log('333 ' + wizardState.typeName);
+    return (
     <Row>
                 <Col lg={ 12 }>
                     <Card className="mb-3">
                         <CardBody>
                             <CardTitle tag="h6" className="mb-4">
-                                Forms Inline: Preview Example
+                                Forms Inlixxxne: Preview - {wizardState.typeName} [{wizardState.planId}]
                                 <span className="small ml-1 text-muted">
                                     #2.01
                                 </span>
@@ -54,71 +79,25 @@ const WizardStep3 = () => (
                               </thead>
                               <tbody>
                               </tbody>
-                              <tr>
-                               <td>selected</td>
-                               <td>Category</td>
-                               <td><i>Mushrooms</i></td>
-                              </tr>
-                              <tr>
-                               <td>
-                               <CustomInput type="checkbox" id="active" inline />
-                               </td>
-                               <td>
-                                    <Input type="text" name="text" id="enterName" placeholder="xxEnter Name..." />                              
-                               </td>
-                               <td><i>1240 Main st.</i></td>
-                               <td>
-                                    <CustomInput type="checkbox" id="rememberMe" inline />
-                               </td>
-                               <td>
-                                    <CustomInput type="checkbox" id="rememberMe2" inline />
-                               </td>
-                               <td>
-                               </td>
-                              </tr>
+                              <FieldEditorRow />
+                              <FieldEditorRow />
+                              <FieldEditorRow />
                             </Table>
 
-
-                            <Form inline>
-                                <FormGroup>
-                                    <CustomInput type="checkbox" id="active" label="Selected" inline />
-                                </FormGroup>
-                                <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-                                    <Input type="text" name="text" id="enterName" placeholder="xxEnter Name..." />
-                                </FormGroup>
-                                <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-                                    <p>1240 Main st. </p>
-                                </FormGroup>
-                                <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-                                    <InputGroup>
-                                        <CustomInput type="select" id="country-selector-3" name="customSelect">
-                                            <option value="">Select...</option>
-                                            <option>string</option>
-                                            <option>int</option>
-                                            <option>long</option>
-                                            <option>boolean</option>
-                                            <option>date</option>
-                                        </CustomInput>
-                                    </InputGroup>
-                                </FormGroup>
-                                <FormGroup>
-                                    <CustomInput type="checkbox" id="rememberMe" label="Primary Key" inline />
-                                </FormGroup>
-                                <Button color="primary">
-                                    Submit
-                                </Button>
-                            </Form>
-                            { /* END Form */}
                         </CardBody>
                     </Card>
                 </Col>
     </Row>
-);
-
+    );
+}
 class Wiz3 extends React.Component {
 
     constructor(props) {
         super(props);
+
+        this.state = {
+            wizardState: WIZ_START
+        }
     }
 
     render() {
@@ -126,7 +105,7 @@ class Wiz3 extends React.Component {
         return (
             <React.Fragment>
                     <CardBody className="p-5">
-                        <WizardStep3 />
+                        <WizardStep3 wizardState={this.state.wizardState}/>
                     </CardBody>
 
                     <CardFooter className="p-4 bt-0">
@@ -166,6 +145,8 @@ class Wiz3 extends React.Component {
     }
 
     _nextStep = () => {
+        console.log("aaaaaaaaaaaaaaaaaaaa2");
+        console.log(this.wizardState.typeName);
         this.props.nextStep();
     }
 
