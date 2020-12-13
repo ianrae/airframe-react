@@ -57,11 +57,10 @@ const WizardStep3 = ({wizardState}) => {
                                     #2.01
                                 </span>
                             </CardTitle>
-                            { /* START Form */}
                             <Table>
                               <thead>
                                 <tr>
-                                  <th>Selected</th>
+                                  <th>Use this field</th>
                                   <th>Field</th>
                                   <th>Sample Value</th>
                                   <th>Value can be missing</th>
