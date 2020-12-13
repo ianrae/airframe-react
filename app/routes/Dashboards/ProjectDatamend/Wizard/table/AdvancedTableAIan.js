@@ -13,13 +13,13 @@ import {
     CustomInput,
     StarRating,
     ButtonGroup
-} from './../../../../components';
+} from './../../../../../components';
 import { CustomExportCSV } from './CustomExportButton';
 import { CustomSearch } from './CustomSearch';
 import { CustomPaginationPanel } from './CustomPaginationPanel';
 import { CustomSizePerPageButton } from './CustomSizePerPageButton';
 import { CustomPaginationTotal } from './CustomPaginationTotal';
-import { randomArray } from './../../../../utilities';
+import { randomArray } from './../../../../../utilities';
 
 const INITIAL_PRODUCTS_COUNT = 500;
 

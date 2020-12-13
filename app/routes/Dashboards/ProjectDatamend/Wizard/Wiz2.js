@@ -26,6 +26,9 @@ import {
     UncontrolledDropdown
 } from './../../../../components';
 
+import {
+    AdvancedTableAIan,
+} from './table';
 
 
 const WizardStep2 = () => (
