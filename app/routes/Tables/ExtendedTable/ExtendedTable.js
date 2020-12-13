@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Row, Col } from './../../../components';
 
 import {
-    AdvancedTableA,
+    AdvancedTableAIan,
     AdvancedTableB,
     BasicTable,
     BorderedTable,
@@ -21,7 +21,7 @@ export const ExtendedTable = () => (
         />
         <Row className="mb-5">
             <Col>
-                <AdvancedTableA />
+                <AdvancedTableAIan />
             </Col>
         </Row>
         <Row className="mb-5">

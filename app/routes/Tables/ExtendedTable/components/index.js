@@ -1,4 +1,5 @@
 export * from './AdvancedTableA';
+export * from './AdvancedTableAIan';
 export * from './AdvancedTableB';
 export * from './BasicTable';
 export * from './BorderedTable';

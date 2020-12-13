@@ -116,29 +116,18 @@ export class AdvancedTableAIan extends React.Component {
             headerFormatter: column => (
                 <React.Fragment>
                     <span className="text-nowrap">{ column.text }</span>
-                    <a
-                        href="javascript:;"
-                        className="d-block small text-decoration-none text-nowrap"
-                        onClick={ this.handleResetFilters.bind(this) }
-                    >
-                        Reset Filters <i className="fa fa-times fa-fw text-danger"></i>
-                    </a>
                 </React.Fragment>
             )
         }, {
             dataField: 'name',
-            text: 'Product Name',
+            text: 'Product Namex',
             sort: true,
             sortCaret,
             formatter: (cell) => (
                 <span className="text-inverse">
                     { cell }
                 </span>
-            ),
-            ...buildCustomTextFilter({
-                placeholder: 'Enter product name...',
-                getFilter: filter => { this.nameFilter = filter; }
-            })
+            )
         }, {
             dataField: 'quality',
             text: 'Product Quality',
@@ -172,49 +161,24 @@ export class AdvancedTableAIan extends React.Component {
                 )
             },
             sort: true,
-            sortCaret,
-            ...buildCustomSelectFilter({
-                placeholder: 'Select Quality',
-                options: [
-                    { value: ProductQuality.Good, label: 'Good' },
-                    { value: ProductQuality.Bad, label: 'Bad' },
-                    { value: ProductQuality.Unknown, label: 'Unknown' }
-                ],
-                getFilter: filter => { this.qualityFilter = filter; }
-            })
+            sortCaret
         }, {
             dataField: 'price',
             text: 'Product Price',
             sort: true,
-            sortCaret,
-            ...buildCustomNumberFilter({
-                comparators: [Comparator.EQ, Comparator.GT, Comparator.LT],
-                getFilter: filter => { this.priceFilter = filter; }
-            })
+            sortCaret
         }, {
             dataField: 'satisfaction',
             text: 'Buyer Satisfaction',
             sort: true,
             sortCaret,
             formatter: (cell) =>
-                <StarRating at={ cell } max={ 6 } />,
-            ...buildCustomSelectFilter({
-                placeholder: 'Select Satisfaction',
-                options: _.times(6, (i) => ({ value: i + 1, label: i + 1 })),
-                getFilter: filter => { this.satisfactionFilter = filter; }
-            })
+                <StarRating at={ cell } max={ 6 } />
         }, {
             dataField: 'inStockDate',
-            text: 'In Stock From',
+            text: 'In Stock Fromx',
             formatter: (cell) =>
                 moment(cell).format('DD/MM/YYYY'),
-            filter: dateFilter({
-                className: 'd-flex align-items-center',
-                comparatorClassName: 'd-none',
-                dateClassName: 'form-control form-control-sm',
-                comparator: Comparator.GT,
-                getFilter: filter => { this.stockDateFilter = filter; }
-            }),
             sort: true,
             sortCaret
         }]; 
