@@ -31,21 +31,25 @@ import {
 
 import {WIZ_START} from './../src/shared/wizstart';
 
+const makeId = (name,index) => {
+    return `${name}_${index}`;
+}
 
-const FieldEditorRow = () => (
-      <tr>
+
+const FieldEditorRow = ({fieldSpec, index}) => (
+      <tr key={index}>
        <td>
-       <CustomInput type="checkbox" id="active" inline />
+       <CustomInput type="checkbox" id={makeId("active",index)} inline checked={fieldSpec.active}/>
        </td>
        <td>
-            <Input type="text" name="text" id="enterName" placeholder="xxEnter Name..." />                              
+            <Input type="text" name={makeId("name",index)} id={makeId("name",index)} placeholder={fieldSpec.name} />                              
        </td>
        <td><i>1240 Main st.</i></td>
        <td>
-            <CustomInput type="checkbox" id="rememberMe" inline />
+            <CustomInput type="checkbox" id={makeId("optional",index)} inline checked={fieldSpec.optionalFlag} />
        </td>
        <td>
-            <CustomInput type="checkbox" id="rememberMe2" inline />
+            <CustomInput type="checkbox" id={makeId("pk",index)} inline />
        </td>
        <td>
        </td>
@@ -56,13 +60,21 @@ const FieldEditorRow = () => (
 
 const WizardStep3 = ({wizardState}) => {
     console.log('333 ' + wizardState.typeName);
+
+
+    const rowEditors = wizardState.allFields.map((dish,i) => {
+        return (
+            <FieldEditorRow fieldSpec={dish} index={i} />
+        );
+    });
+
     return (
     <Row>
                 <Col lg={ 12 }>
                     <Card className="mb-3">
                         <CardBody>
                             <CardTitle tag="h6" className="mb-4">
-                                Forms Inlixxxne: Preview - {wizardState.typeName} [{wizardState.planId}]
+                                Fields - {wizardState.typeName} [{wizardState.planId}]
                                 <span className="small ml-1 text-muted">
                                     #2.01
                                 </span>
@@ -70,18 +82,16 @@ const WizardStep3 = ({wizardState}) => {
                             { /* START Form */}
                             <Table>
                               <thead>
-                              <th>Selected</th>
-                              <th>Field</th>
-                              <th>Sample Value</th>
-                              <th>Value is Required</th>
-                              <th>Primary Key</th>
-                              <th>Rules</th>
+                                  <th>Selected</th>
+                                  <th>Field</th>
+                                  <th>Sample Value</th>
+                                  <th>Value can be missing</th>
+                                  <th>Primary Key</th>
+                                  <th>Rules</th>
                               </thead>
                               <tbody>
+                                  {rowEditors}
                               </tbody>
-                              <FieldEditorRow />
-                              <FieldEditorRow />
-                              <FieldEditorRow />
                             </Table>
 
                         </CardBody>
