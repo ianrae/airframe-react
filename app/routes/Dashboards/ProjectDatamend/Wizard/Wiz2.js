@@ -27,7 +27,7 @@ import {
 } from './../../../../components';
 
 import {
-    AdvancedTableAIan,
+    AdvancedTableAIan
 } from './table';
 
 
@@ -42,6 +42,7 @@ const WizardStep2 = () => (
                     We respect your privacy and protect it with strong encryption, plus strict policies.
                     Two-step verification, which we encourage all our customers to use.
                 </p>
+                <AdvancedTableAIan />
                 <small>
                     Fields marked as <span className="text-danger">*</span> are Required!
                 </small>
