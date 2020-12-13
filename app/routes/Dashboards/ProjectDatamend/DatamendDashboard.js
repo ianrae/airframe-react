@@ -41,7 +41,7 @@ const DatamendDashboard = () => (
         <Row className="mb-5">
             <Col lg={ 12 }>
                 <HeaderMain 
-                    title="On to the wizard"
+                    title="On to the wizardx"
                     className="mb-4 mb-lg-5"
                 />
                 <p>

@@ -28,42 +28,27 @@ import {
 
 
 
-const WizardStep1 = () => (
+const WizardStep3 = () => (
     <Row>
-        <Col md={ 10 }>
+        <Col md={12}>
             <div>
                 <h3 className="mb-4">
-                    Paste Some CSV Data xxxx
+                    Fields
                 </h3>
-
-                                { /* START Input */}
-                                <FormGroup row>
-                                    <Label for="textArea" sm={3}>
-                                        Textarea
-                                    </Label>
-                                    <Col sm={9}>
-                                        <Input 
-                                            type="textarea" 
-                                            name="text" 
-                                            id="textArea" 
-                                            placeholder="Enter text..." 
-                                        />
-                                    </Col>
-                                </FormGroup>
-                                { /* END Input */}
-
+                <p className="pb-3">
+                    Below is a sample page for your cart , Created using pages design UI Elementes.
+                </p>
                 <small>
-                    Below is a sample page for your cart, 
-                    Created using pages design UI Elementes
+                    Invoice are issued on the date of despatch. 
+                    Payment terms: Pre-orders: within 10 days of invoice date with 4% discount, 
+                    from the 11th to the 30th day net. Re-orders: non-reduced stock items are payable net after 20 days.
                 </small>
             </div>
-        </Col>
-        <Col md={ 6 }>
         </Col>
     </Row>
 );
 
-class Wiz1 extends React.Component {
+class Wiz3 extends React.Component {
 
     constructor(props) {
         super(props);
@@ -74,7 +59,7 @@ class Wiz1 extends React.Component {
         return (
             <React.Fragment>
                     <CardBody className="p-5">
-                        <WizardStep1 />
+                        <WizardStep3 />
                     </CardBody>
 
                     <CardFooter className="p-4 bt-0">
@@ -121,5 +106,5 @@ class Wiz1 extends React.Component {
 //        sequence.indexOf(stepId) < sequence.indexOf(this.state.currentStep)
 }
 
-export default Wiz1;
+export default Wiz3;
 

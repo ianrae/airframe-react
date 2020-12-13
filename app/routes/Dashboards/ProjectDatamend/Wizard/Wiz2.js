@@ -67,14 +67,14 @@ class Wiz2 extends React.Component {
                                 this.props.isPrev() && (
                                     <Button onClick={() => {this._prevStep()}} color="link" className='mr-3'>
                                         <i className='fa fa-angle-left mr-2'></i>
-                                        zPrevious
+                                        Previous
                                     </Button>
                                 )
                             }
                             {
                                 this.props.isNext() && (
                                     <Button color='primary' onClick={() => {this._nextStep()}} className="ml-auto px-4">
-                                        xNext
+                                        Next
                                         <i className='fa fa-angle-right ml-2'></i>
                                     </Button>
                                 )
