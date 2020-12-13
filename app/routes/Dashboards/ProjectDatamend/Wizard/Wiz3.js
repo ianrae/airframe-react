@@ -37,17 +37,33 @@ const makeId = (name,index) => {
 
 
 const WizardStep3 = ({wizardState}) => {
-  const [selectAll, setSelectAll] = React.useState(-1);
+  const initSelAll = (allFields) => {
+    let ar = [];
+    for(let i = 0; i < allFields.length; i++) {
+        ar.push(allFields[i].active);
+    }
+    return ar;
+  }
+  const [selectFlags, setSelectFlags] = React.useState(initSelAll(wizardState.allFields));
+  const [selectAll, setSelectAll] = React.useState(false);
 
+
+  const onSelFlag = (i,flag) => {
+    console.log(flag);
+    let ar = [...selectFlags];
+    ar[i] = false;
+    setSelectFlags(ar);
+    //setSelectAll(flag ? 1 : 0);
+  }
   const rowEditors = wizardState.allFields.map((dish,i) => {
     return (
-      <FieldEditorRow fieldSpec={dish} index={i} selectAll={selectAll} />
+      <FieldEditorRow fieldSpec={dish} index={i} selectFlag={selectFlags[i]} onSelFlag={onSelFlag} />
     );
   });
 
   const mySelAll = (flag) => {
     console.log(flag);
-    setSelectAll(flag ? 1 : 0);
+    //setSelectAll(flag ? 1 : 0);
   }
 
     return (

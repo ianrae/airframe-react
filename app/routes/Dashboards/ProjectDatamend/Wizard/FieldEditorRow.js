@@ -34,42 +34,29 @@ const makeId = (name,index) => {
     return `${name}_${index}`;
 }
 
-const FieldEditorRow = ({fieldSpec, index, selectAll}) => {
-  const initSelAll = (selectAll) => {
-    console.log("sel all " + selectAll);
-    if (selectAll >= 0) {
-       setSelected(selectAll === 1);
-    }
-  }
-
-  const [selected, setSelected] = React.useState(fieldSpec.active);
+const FieldEditorRow = ({fieldSpec, index, selectFlag, onSelFlag}) => {
+//  const [selected, setSelected] = React.useState(selectFlag);
   const [name, setName] = React.useState(fieldSpec.name);
   const [optional, setOptional] = React.useState(fieldSpec.optionalFlag);
   const [isPK, setIsPK] = React.useState(fieldSpec.isPK);
-  const [isSelAll, setIsSelAll] = React.useState(initSelAll(selectAll));
-
-  const mySel = (flag) => {
-    console.log("xssss" + flag);
-    setSelected(flag);
-  }
 
   return (
       <tr key={index}>
        <td>
-         <CustomInput type="checkbox" id={makeId("active",index)} inline checked={selected}
-            onChange={(e) => mySel(e.target.checked)} />                              
+         <CustomInput type="checkbox" id={makeId("active",index)} inline checked={selectFlag}
+            onChange={(e) => onSelFlag(index, e.target.checked)} />                              
        </td>
        <td>
-            <Input type="text" name={makeId("name",index)} id={makeId("name",index)} disabled={!selected}
+            <Input type="text" name={makeId("name",index)} id={makeId("name",index)} disabled={!selectFlag}
             value={name} onChange={(e) => setName(e.target.value)}/>                              
        </td>
        <td><i>1240 Main st.</i></td>
        <td>
-            <CustomInput type="checkbox" id={makeId("optional",index)} inline checked={optional} disabled={!selected} 
+            <CustomInput type="checkbox" id={makeId("optional",index)} inline checked={optional} disabled={!selectFlag} 
               onChange={(e) => setOptional(e.target.checked)} />
        </td>
        <td>
-            <CustomInput type="checkbox" id={makeId("pk",index)} inline checked={isPK} disabled={!selected}
+            <CustomInput type="checkbox" id={makeId("pk",index)} inline checked={isPK} disabled={!selectFlag}
              onChange={(e) => setIsPK(e.target.checked)} />
        </td>
        <td>
