@@ -36,6 +36,10 @@ import {
 import FieldEditorRow from './FieldEditorRow';
 import {WIZ_START} from './../src/shared/wizstart';
 import ApplyChangesModal from './ApplyChangesModal';
+import {
+    DataGridTable
+} from './table';
+
 
 const makeId = (name,index) => {
     return `${name}_${index}`;
@@ -129,7 +133,7 @@ class Wiz3 extends React.Component {
 
         let MabyeGrid = null;
         if (this.state.showTable) {
-            MabyeGrid = <h5>sdfdd maybe</h5>
+            MabyeGrid =  <DataGridTable />
         }
 
 
