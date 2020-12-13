@@ -43,6 +43,42 @@ const WizardStep3 = () => (
                                 </span>
                             </CardTitle>
                             { /* START Form */}
+                            <Table>
+                              <thead>
+                              <th>Selected</th>
+                              <th>Field</th>
+                              <th>Sample Value</th>
+                              <th>Value is Required</th>
+                              <th>Primary Key</th>
+                              <th>Rules</th>
+                              </thead>
+                              <tbody>
+                              </tbody>
+                              <tr>
+                               <td>selected</td>
+                               <td>Category</td>
+                               <td><i>Mushrooms</i></td>
+                              </tr>
+                              <tr>
+                               <td>
+                               <CustomInput type="checkbox" id="active" inline />
+                               </td>
+                               <td>
+                                    <Input type="text" name="text" id="enterName" placeholder="xxEnter Name..." />                              
+                               </td>
+                               <td><i>1240 Main st.</i></td>
+                               <td>
+                                    <CustomInput type="checkbox" id="rememberMe" inline />
+                               </td>
+                               <td>
+                                    <CustomInput type="checkbox" id="rememberMe2" inline />
+                               </td>
+                               <td>
+                               </td>
+                              </tr>
+                            </Table>
+
+
                             <Form inline>
                                 <FormGroup>
                                     <CustomInput type="checkbox" id="active" label="Selected" inline />
