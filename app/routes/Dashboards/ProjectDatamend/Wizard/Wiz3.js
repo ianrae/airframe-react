@@ -26,7 +26,12 @@ import {
     UncontrolledDropdown,
     CardTitle,
     CustomInput,
-    FormText    
+    FormText,
+        UncontrolledModal,
+    ModalHeader,
+    ModalBody,
+    ModalFooter
+
 } from './../../../../components';
 import FieldEditorRow from './FieldEditorRow';
 import {WIZ_START} from './../src/shared/wizstart';
@@ -121,6 +126,32 @@ class Wiz3 extends React.Component {
                     <CardBody className="p-5">
                         <WizardStep3 wizardState={this.state.wizardState}/>
                     </CardBody>
+
+
+                    <Row className="mb-5">
+                      <Col>
+                        <Button id="modalDefault203" color="primary" size="lg">
+                            Apply Chnages  <i className="fa fa-angle-right ml-1"></i>
+                        </Button>
+                        { /* START Example Modal */}
+                        <UncontrolledModal target="modalDefault203" size="lg">
+                            <ModalHeader tag="h5">
+                                Modal: Large Size
+                                <span className="small ml-1 text-muted">
+                                    #2.03
+                                </span>
+                            </ModalHeader>
+                            <ModalBody>
+                                { "sdfsdfdsfdsfdsf sfsd sfsef ze eee" }
+                            </ModalBody>
+                            <ModalFooter>
+                                <UncontrolledModal.Close color="primary" size="lg"> 
+                                    Save
+                                </UncontrolledModal.Close>
+                            </ModalFooter>
+                        </UncontrolledModal>
+                      </Col>
+                    </Row>
 
                     <CardFooter className="p-4 bt-0">
                         <div className="d-flex">
