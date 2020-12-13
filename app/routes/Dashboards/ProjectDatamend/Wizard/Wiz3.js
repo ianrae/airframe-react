@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import _ from 'lodash';
 
 import {
@@ -37,45 +37,52 @@ const makeId = (name,index) => {
 
 
 const WizardStep3 = ({wizardState}) => {
-    console.log('333 ' + wizardState.typeName);
+  const [selectAll, setSelectAll] = React.useState(-1);
 
+  const rowEditors = wizardState.allFields.map((dish,i) => {
+    return (
+      <FieldEditorRow fieldSpec={dish} index={i} selectAll={selectAll} />
+    );
+  });
 
-    const rowEditors = wizardState.allFields.map((dish,i) => {
-        return (
-            <FieldEditorRow fieldSpec={dish} index={i} />
-        );
-    });
+  const mySelAll = (flag) => {
+    console.log(flag);
+    setSelectAll(flag ? 1 : 0);
+  }
 
     return (
     <Row>
-                <Col lg={ 12 }>
-                    <Card className="mb-3">
-                        <CardBody>
-                            <CardTitle tag="h6" className="mb-4">
-                                Fields - {wizardState.typeName} [{wizardState.planId}]
-                                <span className="small ml-1 text-muted">
-                                    #2.01
-                                </span>
-                            </CardTitle>
-                            <Table>
-                              <thead>
-                                <tr>
-                                  <th>Use this field</th>
-                                  <th>Field</th>
-                                  <th>Sample Value</th>
-                                  <th>Value can be missing</th>
-                                  <th>Primary Key</th>
-                                  <th>Rules</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                  {rowEditors}
-                              </tbody>
-                            </Table>
+        <Col lg={ 12 }>
+            <Card className="mb-3">
+                <CardBody>
+                    <CardTitle tag="h6" className="mb-4">
+                        Fields - {wizardState.typeName} [{wizardState.planId}]
+                        <span className="small ml-1 text-muted">
+                            #2.01
+                        </span>
+                    </CardTitle>
+                    <Table>
+                      <thead>
+                        <tr>
+                          <th>Use this field <br/>
+                             <CustomInput type="checkbox" id="selall" inline checked={selectAll}
+                                onChange={(e) => mySelAll(e.target.checked)} />                              
+                          </th>
+                          <th>Field</th>
+                          <th>Sample Value</th>
+                          <th>Value can be missing</th>
+                          <th>Primary Key</th>
+                          <th>Rules</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                          {rowEditors}
+                      </tbody>
+                    </Table>
 
-                        </CardBody>
-                    </Card>
-                </Col>
+                </CardBody>
+            </Card>
+        </Col>
     </Row>
     );
 }

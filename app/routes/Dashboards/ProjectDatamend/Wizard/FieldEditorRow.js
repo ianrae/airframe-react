@@ -34,15 +34,22 @@ const makeId = (name,index) => {
     return `${name}_${index}`;
 }
 
-const FieldEditorRow = ({fieldSpec, index}) => {
+const FieldEditorRow = ({fieldSpec, index, selectAll}) => {
+  const initSelAll = (selectAll) => {
+    console.log("sel all " + selectAll);
+    if (selectAll >= 0) {
+       setSelected(selectAll === 1);
+    }
+  }
+
   const [selected, setSelected] = React.useState(fieldSpec.active);
   const [name, setName] = React.useState(fieldSpec.name);
   const [optional, setOptional] = React.useState(fieldSpec.optionalFlag);
   const [isPK, setIsPK] = React.useState(fieldSpec.isPK);
+  const [isSelAll, setIsSelAll] = React.useState(initSelAll(selectAll));
 
   const mySel = (flag) => {
-    console.log("ssss");
-    console.log(flag);
+    console.log("xssss" + flag);
     setSelected(flag);
   }
 
