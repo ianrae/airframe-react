@@ -51,7 +51,7 @@ const WizardStep3 = ({wizardState}) => {
   const onSelFlag = (i,flag) => {
     console.log(flag);
     let ar = [...selectFlags];
-    ar[i] = false;
+    ar[i] = flag;
     setSelectFlags(ar);
     //setSelectAll(flag ? 1 : 0);
   }
@@ -63,7 +63,9 @@ const WizardStep3 = ({wizardState}) => {
 
   const mySelAll = (flag) => {
     console.log(flag);
-    //setSelectAll(flag ? 1 : 0);
+    let ar = Array(selectFlags.length).fill(flag)
+    setSelectFlags(ar);
+    setSelectAll(flag);
   }
 
     return (
