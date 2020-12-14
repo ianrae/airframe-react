@@ -85,13 +85,11 @@ class Wiz2 extends React.Component {
     });
   }
   generateRows(hdrList, rowData) {
-    console.log('eeeeeeeeeeeeeeeeeeeeeeee');
     if (rowData === undefined || rowData.length === 0) {
         console.log("oopsu");
         return [];
     }
     console.log("genRows");
-    //console.log(rowData);
     return rowData.map((row, i) => {
         let obj = {};
         for(let j =0; j < row.data.length; j++) {
@@ -106,13 +104,6 @@ class Wiz2 extends React.Component {
     let xrowData = GridUtil.calcRows(res);
     let hdrs = GridUtil.calcHdrs(res);
     let z = this.generateRows(hdrs, xrowData);
-    console.log("hdrs");
-    console.log(hdrs);
-    console.log("z");
-    console.log(z);
-
-    //console.log("setRowData!");
-    //console.log(xrowData);
     this.setState({rowData:xrowData, rowCount:res.grid.rows.length, hdrList: hdrs, tblRows: z});
   }
 

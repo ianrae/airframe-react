@@ -86,10 +86,6 @@ export class AdvancedTableAIan extends React.Component {
 
     render() {
         const columnDefs = this.createColumnDefinitions();
-        console.log("colDefs");
-        console.log(columnDefs);
-        console.log("tblRowssss");
-        console.log(this.props.tblRows);
         const paginationDef = paginationFactory({
             paginationSize: 5,
             showTotal: true,
@@ -122,47 +118,47 @@ export class AdvancedTableAIan extends React.Component {
                 <h5>sdfdf no rows</h5>
                 );
         } else return (
-                    <ToolkitProvider
-                        keyField="id"
-                        data={ this.props.tblRows }
-                        columns={ columnDefs }
-                        search
-                        exportCSV
-                    >
-                    {
-                        props => (
-                            <React.Fragment>
-                                <div className="d-flex justify-content-end align-items-center mb-2">
-                                    <h6 className="my-0">
-                                        AdvancedTablex
-                                    </h6>
-                                    <div className="d-flex ml-auto">
-                                        <CustomSearch
-                                            className="mr-2"
-                                            { ...props.searchProps }
-                                        />
-                                        <ButtonGroup>
-                                            <CustomExportCSV
-                                                { ...props.csvProps }
-                                            >
-                                                Export
-                                            </CustomExportCSV>
-                                        </ButtonGroup>
-                                    </div>
-                                </div>
-                                <BootstrapTable
-                                    classes="table-responsive"
-                                    pagination={ paginationDef }
-                                    filter={ filterFactory() }
-                                    selectRow={ selectRowConfig }
-                                    bordered={ false }
-                                    responsive
-                                    { ...props.baseProps }
+            <ToolkitProvider
+                keyField="id"
+                data={ this.props.tblRows }
+                columns={ columnDefs }
+                search
+                exportCSV
+            >
+            {
+                props => (
+                    <React.Fragment>
+                        <div className="d-flex justify-content-end align-items-center mb-2">
+                            <h6 className="my-0">
+                                AdvancedTablex
+                            </h6>
+                            <div className="d-flex ml-auto">
+                                <CustomSearch
+                                    className="mr-2"
+                                    { ...props.searchProps }
                                 />
-                            </React.Fragment>
-                        )
-                    }
-                    </ToolkitProvider>
+                                <ButtonGroup>
+                                    <CustomExportCSV
+                                        { ...props.csvProps }
+                                    >
+                                        Export
+                                    </CustomExportCSV>
+                                </ButtonGroup>
+                            </div>
+                        </div>
+                        <BootstrapTable
+                            classes="table-responsive"
+                            pagination={ paginationDef }
+                            filter={ filterFactory() }
+                            selectRow={ selectRowConfig }
+                            bordered={ false }
+                            responsive
+                            { ...props.baseProps }
+                        />
+                    </React.Fragment>
+                )
+            }
+            </ToolkitProvider>
         );
     }
 }
