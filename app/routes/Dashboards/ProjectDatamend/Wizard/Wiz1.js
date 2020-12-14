@@ -26,6 +26,7 @@ import {
     UncontrolledDropdown
 } from './../../../../components';
 import DataStore from './../src/store/DataStore';
+import {Loading} from './../src/components/LoadingComponent';
 
 
 
@@ -71,10 +72,10 @@ class Wiz1 extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            isLoading: false,
             input: "aaa"
         }
     }
-
 
     onInputChange = (txt) => {
         console.log('apply..' + txt);
@@ -85,30 +86,33 @@ class Wiz1 extends React.Component {
 
         return (
             <React.Fragment>
-                    <CardBody className="p-5">
-                        <WizardStep1 input={this.state.input} onInputChange={this.onInputChange} />
-                    </CardBody>
+                <CardBody className="p-5">
+                    <WizardStep1 input={this.state.input} onInputChange={this.onInputChange} />
+                </CardBody>
+                { this.state.isLoading && 
+                    <Loading />
+                }
 
-                    <CardFooter className="p-4 bt-0">
-                        <div className="d-flex">
-                            {
-                                this.props.isPrev() && (
-                                    <Button onClick={() => {this._prevStep()}} color="link" className='mr-3'>
-                                        <i className='fa fa-angle-left mr-2'></i>
-                                        Previous
-                                    </Button>
-                                )
-                            }
-                            {
-                                this.props.isNext() && (
-                                    <Button color='primary' onClick={() => {this._nextStep()}} className="ml-auto px-4">
-                                        Next
-                                        <i className='fa fa-angle-right ml-2'></i>
-                                    </Button>
-                                )
-                            }
-                        </div>
-                    </CardFooter>
+                <CardFooter className="p-4 bt-0">
+                    <div className="d-flex">
+                        {
+                            this.props.isPrev() && (
+                                <Button onClick={() => {this._prevStep()}} color="link" className='mr-3'>
+                                    <i className='fa fa-angle-left mr-2'></i>
+                                    Previous
+                                </Button>
+                            )
+                        }
+                        {
+                            this.props.isNext() && (
+                                <Button color='primary' onClick={() => {this._nextStep()}} className="ml-auto px-4">
+                                    Next
+                                    <i className='fa fa-angle-right ml-2'></i>
+                                </Button>
+                            )
+                        }
+                    </div>
+                </CardFooter>
             </React.Fragment>
         );
     }
@@ -128,9 +132,7 @@ class Wiz1 extends React.Component {
     _nextStep = () => {
         console.log("end wiz1");
         console.log("submitWizStart");
-        //event.preventDefault();
-        //alert('sdfs');
-        //setIsLoading(true);
+        this.setState({isLoading:true});
         const obj = {
           //title: "Plan1", let server decide
           typeName: "Customer",
@@ -140,13 +142,13 @@ class Wiz1 extends React.Component {
         .then(res => {
           console.log('okstart');
           console.log(res);
-          //setIsLoading(false);
+            this.setState({isLoading:false});
           //doNext(res);
           //history.push('/wiz1rawdata');  
           this.props.nextStep();
         },
         (error) => {
-          setIsLoading(false);
+            this.setState({isLoading:false});
             console.log('!error');
             //this.setState({isLoading: false, input:""});    
         });
