@@ -25,10 +25,11 @@ import {
     DropdownItem,
     UncontrolledDropdown
 } from './../../../../components';
+import DataStore from './../src/store/DataStore';
 
 
 
-const WizardStep1 = () => (
+const WizardStep1 = ({input,onInputChange}) => (
     <Row>
         <Col md={ 10 }>
             <div>
@@ -47,6 +48,8 @@ const WizardStep1 = () => (
                                             name="text" 
                                             id="textArea" 
                                             placeholder="Enter text..." 
+                                            value={input}
+                                            onChange={(e) => onInputChange(e.target.value)}
                                         />
                                     </Col>
                                 </FormGroup>
@@ -67,6 +70,15 @@ class Wiz1 extends React.Component {
 
     constructor(props) {
         super(props);
+        this.state = {
+            input: "aaa"
+        }
+    }
+
+
+    onInputChange = (txt) => {
+        console.log('apply..' + txt);
+        this.setState({input:txt});
     }
 
     render() {
@@ -74,7 +86,7 @@ class Wiz1 extends React.Component {
         return (
             <React.Fragment>
                     <CardBody className="p-5">
-                        <WizardStep1 />
+                        <WizardStep1 input={this.state.input} onInputChange={this.onInputChange} />
                     </CardBody>
 
                     <CardFooter className="p-4 bt-0">
@@ -114,7 +126,32 @@ class Wiz1 extends React.Component {
     }
 
     _nextStep = () => {
-        this.props.nextStep();
+        console.log("end wiz1");
+        console.log("submitWizStart");
+        //event.preventDefault();
+        //alert('sdfs');
+        //setIsLoading(true);
+        const obj = {
+          //title: "Plan1", let server decide
+          typeName: "Customer",
+          csvContent: this.state.input
+        };
+        DataStore.postWizStart(obj)
+        .then(res => {
+          console.log('okstart');
+          console.log(res);
+          //setIsLoading(false);
+          //doNext(res);
+          //history.push('/wiz1rawdata');  
+          this.props.nextStep();
+        },
+        (error) => {
+          setIsLoading(false);
+            console.log('!error');
+            //this.setState({isLoading: false, input:""});    
+        });
+
+
     }
 
 //    _isComplete = (stepId) =>

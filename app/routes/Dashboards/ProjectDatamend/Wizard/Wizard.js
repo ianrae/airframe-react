@@ -29,6 +29,7 @@ import Wiz1 from './Wiz1';
 import Wiz2 from './Wiz2';
 import Wiz3 from './Wiz3';
 import Wiz4 from './Wiz4';
+import {DevToolbar} from './../src/components/DevToolbar';
 
 import { HeaderMain } from "./../../../components/HeaderMain";
 
@@ -55,6 +56,7 @@ export class DWizardExample extends React.Component {
                     title="DWizard"
                     className="my-4"
                 />
+                <DevToolbar />
                 <Card>
                     <CardBody className="d-flex justify-content-center pt-5">
                         <Wizard
