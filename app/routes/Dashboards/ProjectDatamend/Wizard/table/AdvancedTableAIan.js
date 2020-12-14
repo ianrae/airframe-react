@@ -72,15 +72,14 @@ export class AdvancedTableAIan extends React.Component {
             }];
         }
 
+        console.log('colxx:' + this.props.hdrList.length);
+
         return this.props.hdrList.map((colName,i) => {
             return {
                 dataField: colName,
                 text: colName,
-                headerFormatter: column => (
-                    <React.Fragment>
-                        <span className="text-nowrap">{ column.text }</span>
-                    </React.Fragment>
-                )
+                sort: true,
+                sortCaret
             }
         });
     }
@@ -89,6 +88,8 @@ export class AdvancedTableAIan extends React.Component {
         const columnDefs = this.createColumnDefinitions();
         console.log("colDefs");
         console.log(columnDefs);
+        console.log("tblRowssss");
+        console.log(this.props.tblRows);
         const paginationDef = paginationFactory({
             paginationSize: 5,
             showTotal: true,
@@ -115,48 +116,53 @@ export class AdvancedTableAIan extends React.Component {
             )
         };
 
-        return (
-            <ToolkitProvider
-                keyField="id"
-                data={ this.props.tblRows }
-                columns={ columnDefs }
-                search
-                exportCSV
-            >
-            {
-                props => (
-                    <React.Fragment>
-                        <div className="d-flex justify-content-end align-items-center mb-2">
-                            <h6 className="my-0">
-                                AdvancedTablex
-                            </h6>
-                            <div className="d-flex ml-auto">
-                                <CustomSearch
-                                    className="mr-2"
-                                    { ...props.searchProps }
+        if (this.props.tblRows.length === 0) {
+            console.log('no rows');
+            return (
+                <h5>sdfdf no rows</h5>
+                );
+        } else return (
+                    <ToolkitProvider
+                        keyField="id"
+                        data={ this.props.tblRows }
+                        columns={ columnDefs }
+                        search
+                        exportCSV
+                    >
+                    {
+                        props => (
+                            <React.Fragment>
+                                <div className="d-flex justify-content-end align-items-center mb-2">
+                                    <h6 className="my-0">
+                                        AdvancedTablex
+                                    </h6>
+                                    <div className="d-flex ml-auto">
+                                        <CustomSearch
+                                            className="mr-2"
+                                            { ...props.searchProps }
+                                        />
+                                        <ButtonGroup>
+                                            <CustomExportCSV
+                                                { ...props.csvProps }
+                                            >
+                                                Export
+                                            </CustomExportCSV>
+                                        </ButtonGroup>
+                                    </div>
+                                </div>
+                                <BootstrapTable
+                                    classes="table-responsive"
+                                    pagination={ paginationDef }
+                                    filter={ filterFactory() }
+                                    selectRow={ selectRowConfig }
+                                    bordered={ false }
+                                    responsive
+                                    { ...props.baseProps }
                                 />
-                                <ButtonGroup>
-                                    <CustomExportCSV
-                                        { ...props.csvProps }
-                                    >
-                                        Export
-                                    </CustomExportCSV>
-                                </ButtonGroup>
-                            </div>
-                        </div>
-                        <BootstrapTable
-                            classes="table-responsive"
-                            pagination={ paginationDef }
-                            filter={ filterFactory() }
-                            selectRow={ selectRowConfig }
-                            bordered={ false }
-                            responsive
-                            { ...props.baseProps }
-                        />
-                    </React.Fragment>
-                )
-            }
-            </ToolkitProvider>
+                            </React.Fragment>
+                        )
+                    }
+                    </ToolkitProvider>
         );
     }
 }
