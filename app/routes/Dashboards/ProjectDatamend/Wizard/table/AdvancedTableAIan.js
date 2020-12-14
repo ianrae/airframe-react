@@ -30,11 +30,13 @@ const sortCaret = (order) => {
 }
 
 const generateRows = (hdrList, rowData) => {
-    if (rowData === undefined) {
+    console.log('eeeeeeeeeeeeeeeeeeeeeeee');
+    if (rowData === undefined || rowData.length === 0) {
         console.log("oopsu");
         return [];
     }
-
+    console.log("genRows");
+    console.log(rowData);
     return rowData.map((row, i) => {
         let obj = {};
         for(let j =0; j < row.data.length; j++) {
@@ -77,7 +79,7 @@ export class AdvancedTableAIan extends React.Component {
 
 
     createColumnDefinitions() {
-        if (this.props.hdrList === undefined) {
+        if (this.props.hdrList === undefined || this.props.hdrList.length === 0) {
             return [{
                 dataField: 'aaa',
                 text: 'aaaa',
