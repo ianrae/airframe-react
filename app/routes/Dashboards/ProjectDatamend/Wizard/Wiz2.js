@@ -33,7 +33,7 @@ import {Loading} from './../src/components/LoadingComponent';
 import GridUtil from './../src/util/GridUtil';
 
 
-const WizardStep2 = ({wizardState, rowData, hdrList}) => (
+const WizardStep2 = ({wizardState, hdrList, tblRows}) => (
     <Row>
         <Col md={12}>
             <div>
@@ -44,7 +44,7 @@ const WizardStep2 = ({wizardState, rowData, hdrList}) => (
                     We respect your privacy and protect it with strong encryption, plus strict policies.
                     Two-step verification, which we encourage all our customers to use.
                 </p>
-                <AdvancedTableAIan wizardState={wizardState} rowData={rowData} hdrList={hdrList} />
+                <AdvancedTableAIan wizardState={wizardState} hdrList={hdrList} tblRows={tblRows}/>
                 <small>
                     Fields marked as <span className="text-danger">*</span> are Required!
                 </small>
@@ -61,7 +61,8 @@ class Wiz2 extends React.Component {
             isLoading: false,
             rowData: [],
             rowCount: 0,
-            hdrList: []
+            hdrList: [],
+            tblRows: []
         }
     }
 
@@ -83,22 +84,46 @@ class Wiz2 extends React.Component {
         this.setState({isLoading:false});
     });
   }
+  generateRows(hdrList, rowData) {
+    console.log('eeeeeeeeeeeeeeeeeeeeeeee');
+    if (rowData === undefined || rowData.length === 0) {
+        console.log("oopsu");
+        return [];
+    }
+    console.log("genRows");
+    //console.log(rowData);
+    return rowData.map((row, i) => {
+        let obj = {};
+        for(let j =0; j < row.data.length; j++) {
+            let name = hdrList[j];
+            obj[name] = row.data[j];
+        }
+        return obj;
+    });
+  }
   setDataGrid(res) {
     console.log('rows: ' + res.grid.rows.length);
     let xrowData = GridUtil.calcRows(res);
     let hdrs = GridUtil.calcHdrs(res);
+    let z = this.generateRows(hdrs, xrowData);
+    console.log("hdrs");
+    console.log(hdrs);
+    console.log("z");
+    console.log(z);
 
-    console.log("setRowData!");
-    console.log(xrowData);
-    this.setState({rowData:xrowData, rowCount:res.grid.rows.length, hdrList: hdrs});
+    //console.log("setRowData!");
+    //console.log(xrowData);
+    this.setState({rowData:xrowData, rowCount:res.grid.rows.length, hdrList: hdrs, tblRows: z});
   }
+
+
 
     render() {
 
         return (
             <React.Fragment>
                     <CardBody className="p-5">
-                        <WizardStep2 wizardState={this.props.wizardState} rowData={this.state.rowData} hdrList={this.state.hdrList} />
+                        <WizardStep2 wizardState={this.props.wizardState} hdrList={this.state.hdrList} tblRows={this.state.tblRows} />
                     </CardBody>
                     { this.state.isLoading && 
                         <Loading />

@@ -29,30 +29,11 @@ const sortCaret = (order) => {
         return <i className={`fa fa-fw text-muted fa-sort-${order}`}></i>
 }
 
-const generateRows = (hdrList, rowData) => {
-    console.log('eeeeeeeeeeeeeeeeeeeeeeee');
-    if (rowData === undefined || rowData.length === 0) {
-        console.log("oopsu");
-        return [];
-    }
-    console.log("genRows");
-    console.log(rowData);
-    return rowData.map((row, i) => {
-        let obj = {};
-        for(let j =0; j < row.data.length; j++) {
-            let name = hdrList[j];
-            obj[name] = row.data[j];
-        }
-        return obj;
-    });
-}
-
 export class AdvancedTableAIan extends React.Component {
     constructor(props) {
         super(props);
         
         this.state = {
-            products: generateRows(this.props.hdrList, this.props.rowData),
             selected: []
         };
 
@@ -106,6 +87,8 @@ export class AdvancedTableAIan extends React.Component {
 
     render() {
         const columnDefs = this.createColumnDefinitions();
+        console.log("colDefs");
+        console.log(columnDefs);
         const paginationDef = paginationFactory({
             paginationSize: 5,
             showTotal: true,
@@ -135,7 +118,7 @@ export class AdvancedTableAIan extends React.Component {
         return (
             <ToolkitProvider
                 keyField="id"
-                data={ this.state.products }
+                data={ this.props.tblRows }
                 columns={ columnDefs }
                 search
                 exportCSV
