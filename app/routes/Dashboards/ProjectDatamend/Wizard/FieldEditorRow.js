@@ -41,7 +41,7 @@ const FieldEditorRow = ({fieldSpec, index, selectFlag, onSelFlag, hasSecretPK}) 
   const [isPK, setIsPK] = React.useState(fieldSpec.isPK);
 
   return (
-      <tr key={index}>
+      <tr key={index} className={selectFlag ? "" : "table-active"}>
        <td>
          <CustomInput type="checkbox" id={makeId("active",index)} inline checked={selectFlag}
             onChange={(e) => onSelFlag(index, e.target.checked)} />                              

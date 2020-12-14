@@ -101,9 +101,11 @@ const WizardStep3 = ({wizardState}) => {
                     <Table>
                       <thead>
                         <tr>
-                          <th>Use this field <br/>
+                          <th>
                              <CustomInput type="checkbox" id="selall" inline checked={selectAll}
-                                onChange={(e) => mySelAll(e.target.checked)} />                              
+                                onChange={(e) => mySelAll(e.target.checked)}>
+                                Use this field
+                             </CustomInput>                              
                           </th>
                           <th>Field</th>
                           <th>Sample Value</th>
