@@ -25,10 +25,11 @@ import {
     DropdownItem,
     UncontrolledDropdown
 } from './../../../../components';
-
 import {
     AdvancedTableAIan
 } from './table';
+import DataStore from './../src/store/DataStore';
+import {Loading} from './../src/components/LoadingComponent';
 
 
 const WizardStep2 = () => (
@@ -56,6 +57,11 @@ class Wiz2 extends React.Component {
     constructor(props) {
         super(props);
     }
+
+  componentDidMount() {
+    //this.fetchData();
+    console.log("wiz" + this.props.wizardState.planId);
+  }
 
     render() {
 

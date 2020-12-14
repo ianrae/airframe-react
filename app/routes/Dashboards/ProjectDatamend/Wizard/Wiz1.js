@@ -83,7 +83,6 @@ class Wiz1 extends React.Component {
     }
 
     render() {
-
         return (
             <React.Fragment>
                 <CardBody className="p-5">
@@ -143,14 +142,13 @@ class Wiz1 extends React.Component {
           console.log('okstart');
           console.log(res);
             this.setState({isLoading:false});
-          //doNext(res);
+            this.props.doNext(res);
           //history.push('/wiz1rawdata');  
           this.props.nextStep();
         },
         (error) => {
             this.setState({isLoading:false});
             console.log('!error');
-            //this.setState({isLoading: false, input:""});    
         });
 
 
