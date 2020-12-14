@@ -56,11 +56,30 @@ class Wiz2 extends React.Component {
 
     constructor(props) {
         super(props);
+        this.state = {
+            isLoading: false,
+            input: "aaa"
+        }
     }
 
   componentDidMount() {
-    //this.fetchData();
+    this.setState({isLoading:true});
     console.log("wiz" + this.props.wizardState.planId);
+    const obj =  {
+      planId: this.props.wizardState.planId
+    }
+    DataStore.postWizViewData(obj)
+    .then(res => {
+      console.log('got view data');
+      console.log(res);
+      this.setState({isLoading:false});
+      //setDataGrid(res);
+    },
+    (error) => {
+        console.log('!error');
+        this.setState({isLoading:false});
+    });
+
   }
 
     render() {
@@ -70,6 +89,9 @@ class Wiz2 extends React.Component {
                     <CardBody className="p-5">
                         <WizardStep2 />
                     </CardBody>
+                    { this.state.isLoading && 
+                        <Loading />
+                    }
 
                     <CardFooter className="p-4 bt-0">
                         <div className="d-flex">

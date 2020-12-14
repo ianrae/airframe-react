@@ -79,23 +79,6 @@ export class AdvancedTableAIan extends React.Component {
         }
     }
 
-    handleAddRow() {
-        const currentSize = this.state.products.length;
-
-        this.setState({
-            products: [
-                generateRow(currentSize + 1),
-                ...this.state.products,
-            ]
-        });
-    }
-
-    handleDeleteRow() {
-        this.setState({
-            products: _.filter(this.state.products, product =>
-                !_.includes(this.state.selected, product.id))
-        })
-    }
 
     createColumnDefinitions() {
         return [{
@@ -226,20 +209,6 @@ export class AdvancedTableAIan extends React.Component {
                                     >
                                         Export
                                     </CustomExportCSV>
-                                    <Button
-                                        size="sm"
-                                        outline
-                                        onClick={ this.handleDeleteRow.bind(this) }
-                                    >
-                                        Delete
-                                    </Button>
-                                    <Button
-                                        size="sm"
-                                        outline
-                                        onClick={ this.handleAddRow.bind(this) }
-                                    >
-                                        <i className="fa fa-fw fa-plus"></i>
-                                    </Button>
                                 </ButtonGroup>
                             </div>
                         </div>
