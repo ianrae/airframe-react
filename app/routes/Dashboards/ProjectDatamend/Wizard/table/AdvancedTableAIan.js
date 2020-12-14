@@ -21,7 +21,6 @@ import { CustomSizePerPageButton } from './CustomSizePerPageButton';
 import { CustomPaginationTotal } from './CustomPaginationTotal';
 import { randomArray } from './../../../../../utilities';
 
-//const INITIAL_PRODUCTS_COUNT = 500;
 
 const sortCaret = (order) => {
     if (!order)
@@ -30,9 +29,19 @@ const sortCaret = (order) => {
         return <i className={`fa fa-fw text-muted fa-sort-${order}`}></i>
 }
 
-const generateRows = (wizardState) => {
-    return wizardState.allFields.map((dish, i) => {
-        return { id: i, name: 'bob'};
+const generateRows = (hdrList, rowData) => {
+    if (rowData === undefined) {
+        console.log("oopsu");
+        return [];
+    }
+
+    return rowData.map((row, i) => {
+        let obj = {};
+        for(let j =0; j < row.data.length; j++) {
+            let name = hdrList[j];
+            obj[name] = row.data[j];
+        }
+        return obj;
     });
 }
 
@@ -41,7 +50,7 @@ export class AdvancedTableAIan extends React.Component {
         super(props);
         
         this.state = {
-            products: generateRows(this.props.wizardState),
+            products: generateRows(this.props.hdrList, this.props.rowData),
             selected: []
         };
 
@@ -68,26 +77,29 @@ export class AdvancedTableAIan extends React.Component {
 
 
     createColumnDefinitions() {
-        return [{
-            dataField: 'id',
-            text: 'Product IDx',
-            headerFormatter: column => (
-                <React.Fragment>
-                    <span className="text-nowrap">{ column.text }</span>
-                </React.Fragment>
-            )
-        }, {
-            dataField: 'name',
-            text: 'Product Namex',
-            sort: true,
-            sortCaret,
-            formatter: (cell) => (
-                <span className="text-inverse">
-                    { cell }
-                </span>
-            )
+        if (this.props.hdrList === undefined) {
+            return [{
+                dataField: 'aaa',
+                text: 'aaaa',
+                headerFormatter: column => (
+                    <React.Fragment>
+                        <span className="text-nowrap">{ column.text }</span>
+                    </React.Fragment>
+                )
+            }];
         }
-        ]; 
+
+        return this.props.hdrList.map((colName,i) => {
+            return {
+                dataField: colName,
+                text: colName,
+                headerFormatter: column => (
+                    <React.Fragment>
+                        <span className="text-nowrap">{ column.text }</span>
+                    </React.Fragment>
+                )
+            }
+        });
     }
 
     render() {

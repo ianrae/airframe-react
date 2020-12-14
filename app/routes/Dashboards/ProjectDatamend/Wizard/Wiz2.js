@@ -33,7 +33,7 @@ import {Loading} from './../src/components/LoadingComponent';
 import GridUtil from './../src/util/GridUtil';
 
 
-const WizardStep2 = ({wizardState}) => (
+const WizardStep2 = ({wizardState, rowData, hdrList}) => (
     <Row>
         <Col md={12}>
             <div>
@@ -44,7 +44,7 @@ const WizardStep2 = ({wizardState}) => (
                     We respect your privacy and protect it with strong encryption, plus strict policies.
                     Two-step verification, which we encourage all our customers to use.
                 </p>
-                <AdvancedTableAIan wizardState={wizardState} />
+                <AdvancedTableAIan wizardState={wizardState} rowData={rowData} hdrList={hdrList} />
                 <small>
                     Fields marked as <span className="text-danger">*</span> are Required!
                 </small>
@@ -98,7 +98,7 @@ class Wiz2 extends React.Component {
         return (
             <React.Fragment>
                     <CardBody className="p-5">
-                        <WizardStep2 wizardState={this.props.wizardState} rowData={this.state.rowData} hdrs={this.state.hdrList} />
+                        <WizardStep2 wizardState={this.props.wizardState} rowData={this.state.rowData} hdrList={this.state.hdrList} />
                     </CardBody>
                     { this.state.isLoading && 
                         <Loading />
