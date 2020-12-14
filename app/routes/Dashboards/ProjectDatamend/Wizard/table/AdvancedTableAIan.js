@@ -21,13 +21,7 @@ import { CustomSizePerPageButton } from './CustomSizePerPageButton';
 import { CustomPaginationTotal } from './CustomPaginationTotal';
 import { randomArray } from './../../../../../utilities';
 
-const INITIAL_PRODUCTS_COUNT = 500;
-
-const ProductQuality = {
-    Good: 'product-quality__good',
-    Bad: 'product-quality__bad',
-    Unknown: 'product-quality__unknown'
-};
+//const INITIAL_PRODUCTS_COUNT = 500;
 
 const sortCaret = (order) => {
     if (!order)
@@ -36,25 +30,18 @@ const sortCaret = (order) => {
         return <i className={`fa fa-fw text-muted fa-sort-${order}`}></i>
 }
 
-const generateRow = (index) => ({
-    id: index,
-    name: faker.commerce.productName(),
-    quality: randomArray([
-        ProductQuality.Bad,
-        ProductQuality.Good,
-        ProductQuality.Unknown
-    ]),
-    price: (1000 + Math.random() * 1000).toFixed(2),
-    satisfaction: Math.round(Math.random() * 6),
-    inStockDate: faker.date.past()
-});
+const generateRows = (wizardState) => {
+    return wizardState.allFields.map((dish, i) => {
+        return { id: i, name: 'bob'};
+    });
+}
 
 export class AdvancedTableAIan extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         
         this.state = {
-            products: _.times(INITIAL_PRODUCTS_COUNT, generateRow),
+            products: generateRows(this.props.wizardState),
             selected: []
         };
 
@@ -83,7 +70,7 @@ export class AdvancedTableAIan extends React.Component {
     createColumnDefinitions() {
         return [{
             dataField: 'id',
-            text: 'Product ID',
+            text: 'Product IDx',
             headerFormatter: column => (
                 <React.Fragment>
                     <span className="text-nowrap">{ column.text }</span>
@@ -99,60 +86,8 @@ export class AdvancedTableAIan extends React.Component {
                     { cell }
                 </span>
             )
-        }, {
-            dataField: 'quality',
-            text: 'Product Quality',
-            formatter: (cell) => {
-                let pqProps;
-                switch (cell) {
-                    case ProductQuality.Good:
-                        pqProps = {
-                            color: 'success',
-                            text: 'Good'
-                        }
-                    break;
-                    case ProductQuality.Bad:
-                        pqProps = {
-                            color: 'danger',
-                            text: 'Bad'
-                        }
-                    break;
-                    case ProductQuality.Unknown:
-                    default:
-                        pqProps = {
-                            color: 'secondary',
-                            text: 'Unknown'
-                        }
-                }
-
-                return (
-                    <Badge color={pqProps.color}>
-                        { pqProps.text }
-                    </Badge>
-                )
-            },
-            sort: true,
-            sortCaret
-        }, {
-            dataField: 'price',
-            text: 'Product Price',
-            sort: true,
-            sortCaret
-        }, {
-            dataField: 'satisfaction',
-            text: 'Buyer Satisfaction',
-            sort: true,
-            sortCaret,
-            formatter: (cell) =>
-                <StarRating at={ cell } max={ 6 } />
-        }, {
-            dataField: 'inStockDate',
-            text: 'In Stock Fromx',
-            formatter: (cell) =>
-                moment(cell).format('DD/MM/YYYY'),
-            sort: true,
-            sortCaret
-        }]; 
+        }
+        ]; 
     }
 
     render() {
@@ -196,7 +131,7 @@ export class AdvancedTableAIan extends React.Component {
                     <React.Fragment>
                         <div className="d-flex justify-content-end align-items-center mb-2">
                             <h6 className="my-0">
-                                AdvancedTable AIan
+                                AdvancedTablex
                             </h6>
                             <div className="d-flex ml-auto">
                                 <CustomSearch

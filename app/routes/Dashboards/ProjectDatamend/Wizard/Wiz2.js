@@ -30,20 +30,21 @@ import {
 } from './table';
 import DataStore from './../src/store/DataStore';
 import {Loading} from './../src/components/LoadingComponent';
+import GridUtil from './../src/util/GridUtil';
 
 
-const WizardStep2 = () => (
+const WizardStep2 = ({wizardState}) => (
     <Row>
         <Col md={12}>
             <div>
                 <h3 className="mb-4">
-                    View Your Data
+                    View Your Data 
                 </h3>
                 <p>
                     We respect your privacy and protect it with strong encryption, plus strict policies.
                     Two-step verification, which we encourage all our customers to use.
                 </p>
-                <AdvancedTableAIan />
+                <AdvancedTableAIan wizardState={wizardState} />
                 <small>
                     Fields marked as <span className="text-danger">*</span> are Required!
                 </small>
@@ -58,7 +59,9 @@ class Wiz2 extends React.Component {
         super(props);
         this.state = {
             isLoading: false,
-            input: "aaa"
+            rowData: [],
+            rowCount: 0,
+            hdrList: []
         }
     }
 
@@ -73,13 +76,21 @@ class Wiz2 extends React.Component {
       console.log('got view data');
       console.log(res);
       this.setState({isLoading:false});
-      //setDataGrid(res);
+      this.setDataGrid(res);
     },
     (error) => {
         console.log('!error');
         this.setState({isLoading:false});
     });
+  }
+  setDataGrid(res) {
+    console.log('rows: ' + res.grid.rows.length);
+    let xrowData = GridUtil.calcRows(res);
+    let hdrs = GridUtil.calcHdrs(res);
 
+    console.log("setRowData!");
+    console.log(xrowData);
+    this.setState({rowData:xrowData, rowCount:res.grid.rows.length, hdrList: hdrs});
   }
 
     render() {
@@ -87,7 +98,7 @@ class Wiz2 extends React.Component {
         return (
             <React.Fragment>
                     <CardBody className="p-5">
-                        <WizardStep2 />
+                        <WizardStep2 wizardState={this.props.wizardState} rowData={this.state.rowData} hdrs={this.state.hdrList} />
                     </CardBody>
                     { this.state.isLoading && 
                         <Loading />
