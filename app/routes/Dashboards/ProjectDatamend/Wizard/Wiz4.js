@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import _ from 'lodash';
 
 import {
@@ -29,7 +29,8 @@ import FullRunModal from './FullRunModal';
 
 
 
-const WizardStep4 = ({wizardState, onShowTable, setDataGrid}) => (
+const WizardStep4 = ({wizardState, onShowTable, setDataGrid, inputType, setInputType}) => {
+    return (
     <Row>
         <Col md={12}>
             <div>
@@ -50,6 +51,8 @@ const WizardStep4 = ({wizardState, onShowTable, setDataGrid}) => (
                                 type="select" 
                                 name="select" 
                                 id="defaultSelect" 
+                                value={inputType}
+                                onChange={(e) => setInputType(e.target.value)}
                             >
                                 <option defaultValue="">JSON</option>
                                 <option>XML</option>
@@ -60,20 +63,23 @@ const WizardStep4 = ({wizardState, onShowTable, setDataGrid}) => (
                         </Col>
                     </FormGroup>
 
-                   <FullRunModal wizardState={wizardState} onShowTable={onShowTable} setDataGrid={setDataGrid} />
+                   <FullRunModal wizardState={wizardState} onShowTable={onShowTable} setDataGrid={setDataGrid} inputType={inputType} />
                 </Form>
             </div>
         </Col>
     </Row>
-);
+)};
 
 class Wiz4 extends React.Component {
 
     constructor(props) {
         super(props);
+        this.setDataGrid = this.setDataGrid.bind(this);
 
         this.state = {
-            showTable: false
+            showTable: false,
+            inputType: 'json',
+            outputStr: ""
         }
     }
     clkApplyButton = () => {
@@ -81,18 +87,21 @@ class Wiz4 extends React.Component {
         this.setState({showTable:true});
     }
     setDataGrid(res) {
+        this.state.outputStr = res.outputStr;
     }
 
     render() {
         let MabyeGrid = null;
         if (this.state.showTable) {
-            MabyeGrid = <h3> sdfddd ee </h3>
+            MabyeGrid = <h3> {this.state.outputStr} </h3>
         }
 
         return (
             <React.Fragment>
                     <CardBody className="p-5">
-                        <WizardStep4 wizardState={this.props.wizardState} onShowTable={this.clkApplyButton} setDataGrid={this.setDataGrid} />
+                        <WizardStep4 wizardState={this.props.wizardState} onShowTable={this.clkApplyButton} 
+                            setDataGrid={this.setDataGrid}
+                            inputType={this.state.inputType} setInputType={this.setInputType} />
                     </CardBody>
 
 

@@ -29,11 +29,11 @@ class FullRunModal extends React.Component {
     
     doFullRun() {
         this.setState({isLoading:true});
-        console.log("wiz" + this.props.wizardState.planId);
+        console.log("wiz" + this.props.wizardState.planId + ", " + this.props.inputType);
         const obj =  {
           planId: this.props.wizardState.planId,
           fullRun: true,
-          outputType: "csv" //json,xml,sql,delia,plain
+          outputType: this.props.inputType //json,xml,sql,delia,plain
         }
         DataStore.postWizDryRun(obj)
         .then(res => {
