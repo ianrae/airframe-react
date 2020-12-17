@@ -63,6 +63,10 @@ class Wiz4 extends React.Component {
     }
 
     render() {
+        let MabyeGrid = null;
+        if (this.state.showTable) {
+            MabyeGrid = <h3> sdfddd ee </h3>
+        }
 
         return (
             <React.Fragment>
@@ -73,6 +77,10 @@ class Wiz4 extends React.Component {
 
                     <Row className="mb-5">
                       <FullRunModal wizardState={this.props.wizardState} onShowTable={this.clkApplyButton} setDataGrid={this.setDataGrid} />
+                    </Row>
+
+                    <Row className="">
+                      {MabyeGrid}
                     </Row>
 
                     <CardFooter className="p-4 bt-0">

@@ -22,11 +22,12 @@ class FullRunModal extends React.Component {
         super(props);
 
         this.state = {
-            isLoading: false
+            isLoading: false,
+            isOpen: false
         }
     }
     
-    componentDidMount() {
+    doFullRun() {
         this.setState({isLoading:true});
         console.log("wiz" + this.props.wizardState.planId);
         const obj =  {
@@ -40,6 +41,7 @@ class FullRunModal extends React.Component {
           console.log(res);
           this.setState({isLoading:false});
           this.props.setDataGrid(res);
+          this.props.onShowTable();
         },
         (error) => {
             console.log('!error');
@@ -49,7 +51,8 @@ class FullRunModal extends React.Component {
 
     clkButton = () => {
         console.log('clkButton');
-        this.props.onShowTable();
+        this.setState({isOpen:true});
+        this.doFullRun();
     }
 
 
@@ -57,11 +60,11 @@ class FullRunModal extends React.Component {
     return (
         <React.Fragment>
           <Col>
-            <Button id="modalDefault203" color="primary" size="lg"  onClick={this.clkButton}>
-                Apply Changes  <i className="fa fa-angle-right ml-1"></i>
+            <Button id="modalDefault204" color="primary" size="lg"  onClick={this.clkButton}>
+                Run  <i className="fa fa-angle-right ml-1"></i>
             </Button>
             { /* START Example Modal */}
-            <UncontrolledModal target="modalDefault203" size="lg">
+            <UncontrolledModal target="modalDefault204" size="lg">
                 <ModalHeader tag="h5">
                     Modal: Large Size
                     <span className="small ml-1 text-muted">
@@ -69,7 +72,9 @@ class FullRunModal extends React.Component {
                     </span>
                 </ModalHeader>
                 <ModalBody>
-                   <Loading />
+                    { this.state.isLoading && 
+                      <Loading />
+                    }
                     { "Do full run" }
                 </ModalBody>
                 <ModalFooter>

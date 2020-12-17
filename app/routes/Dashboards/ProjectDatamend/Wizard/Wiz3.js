@@ -168,13 +168,10 @@ class Wiz3 extends React.Component {
     }
 
     render() {
-
         let MabyeGrid = null;
         if (this.state.showTable) {
             MabyeGrid = <DataGridTable wizardState={this.props.wizardState} hdrList={this.state.hdrList} tblRows={this.state.tblRows}/>
-
         }
-
 
         return (
             <React.Fragment>
