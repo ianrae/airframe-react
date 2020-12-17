@@ -29,7 +29,7 @@ import FullRunModal from './FullRunModal';
 
 
 
-const WizardStep4 = () => (
+const WizardStep4 = ({wizardState, onShowTable, setDataGrid}) => (
     <Row>
         <Col md={12}>
             <div>
@@ -40,7 +40,28 @@ const WizardStep4 = () => (
                     Below is a sample page for your cart , Created using pages design UI Elementes.
                 </p>
                 <small>Invoice are issued on the date of despatch. Payment terms: Pre-orders: within 10 days of invoice date with 4% discount, from the 11th to the 30th day net. Re-orders: non-reduced stock items are payable net after 20 days.</small>
+                <Form>
+                    <FormGroup row>
+                        <Label for="defaultSelect" sm={3}>
+                            Default Select
+                        </Label>
+                        <Col sm={9}>
+                            <Input 
+                                type="select" 
+                                name="select" 
+                                id="defaultSelect" 
+                            >
+                                <option defaultValue="">JSON</option>
+                                <option>XML</option>
+                                <option>SQL</option>
+                                <option>Delia</option>
+                                <option>Plain</option>
+                            </Input>
+                        </Col>
+                    </FormGroup>
 
+                   <FullRunModal wizardState={wizardState} onShowTable={onShowTable} setDataGrid={setDataGrid} />
+                </Form>
             </div>
         </Col>
     </Row>
@@ -71,12 +92,11 @@ class Wiz4 extends React.Component {
         return (
             <React.Fragment>
                     <CardBody className="p-5">
-                        <WizardStep4 />
+                        <WizardStep4 wizardState={this.props.wizardState} onShowTable={this.clkApplyButton} setDataGrid={this.setDataGrid} />
                     </CardBody>
 
 
                     <Row className="mb-5">
-                      <FullRunModal wizardState={this.props.wizardState} onShowTable={this.clkApplyButton} setDataGrid={this.setDataGrid} />
                     </Row>
 
                     <Row className="">
