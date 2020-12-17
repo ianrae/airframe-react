@@ -39,6 +39,8 @@ import ApplyChangesModal from './ApplyChangesModal';
 import {
     DataGridTable
 } from './table';
+import DataStore from './../src/store/DataStore';
+import GridUtil from './../src/util/GridUtil';
 
 
 const makeId = (name,index) => {
@@ -131,34 +133,61 @@ class Wiz3 extends React.Component {
 
     constructor(props) {
         super(props);
+        this.setDataGrid = this.setDataGrid.bind(this);
 
         this.state = {
-            wizardState: WIZ_START,
-            showTable: false
+            //wizardState: WIZ_START,
+            showTable: false,
+            rowData: [],
+            rowCount: 0,
+            hdrList: [],
+            tblRows: []
         }
     }
     clkApplyButton = () => {
         console.log('apply..');
         this.setState({showTable:true});
     }
+    generateRows(hdrList, rowData) {
+      if (rowData === undefined || rowData.length === 0) {
+          console.log("oopsu");
+          return [];
+      }
+      console.log("genRows");
+      return rowData.map((row, i) => {
+          let obj = {};
+          for(let j =0; j < row.data.length; j++) {
+              let name = hdrList[j];
+              obj[name] = row.data[j];
+          }
+          return obj;
+      });
+    }
+    setDataGrid(res) {
+      console.log('rows: ' + res.grid.rows.length);
+      let xrowData = GridUtil.calcRows(res);
+      let hdrs = GridUtil.calcHdrs(res);
+      let z = this.generateRows(hdrs, xrowData);
+      this.setState({rowData:xrowData, rowCount:res.grid.rows.length, hdrList: hdrs, tblRows: z});
+    }
 
     render() {
 
         let MabyeGrid = null;
         if (this.state.showTable) {
-            MabyeGrid =  <DataGridTable />
+            MabyeGrid =  <h3>data .... </h3>
         }
 
 
         return (
             <React.Fragment>
                     <CardBody className="p-5">
-                        <WizardStep3 wizardState={this.state.wizardState}/>
+                        <WizardStep3 wizardState={this.props.wizardState}/>
                     </CardBody>
 
 
                     <Row className="mb-5">
-                      <ApplyChangesModal onShowTable={this.clkApplyButton}/>
+                      <ApplyChangesModal wizardState={this.props.wizardState} onShowTable={this.clkApplyButton} setDataGrid={this.setDataGrid} />
                     </Row>
 
                     <Row className="">
@@ -203,7 +232,7 @@ class Wiz3 extends React.Component {
 
     _nextStep = () => {
         console.log("aaaaaaaaaaaaaaaaaaaa2");
-        console.log(this.wizardState.typeName);
+        console.log(this.props.wizardState.typeName);
         this.props.nextStep();
     }
 

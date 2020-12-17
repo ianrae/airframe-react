@@ -1,0 +1,414 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"READY",
+				"READY_TO_EXPORT"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+		],
+		"width": 392.0
+	},
+	"console":
+	{
+		"height": 0.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/ian/iannotes/flexible-search-queries.txt",
+		"/D/DAILY/2018/NovDec/dec5alltypes/aldo-all-types-2.txt",
+		"/C/ian/iannotes/oracle-notes.txt",
+		"/C/ian/iannotes/hybris-cheat-sheet.txt",
+		"/C/ian/iannotes/iannotes-3.txt",
+		"/C/ian/iannotes/iannotes-1.txt",
+		"/D/DAILY/WINSCP/aldo/uat/b/console-20190128.log",
+		"/C/ian/iannotes/junk7.txt",
+		"/C/ian/iannotes/tgif-branch-history.txt",
+		"/C/ian/iannotes/junk33",
+		"/D/hybrisALDO/hybris/bin/ext-platform-optional/platformwebservices/web/gensrc/de/hybris/platform/catalog/resource/CompanyResource.java",
+		"/D/hybrisALDO/hybris/bin/ext-platform-optional/platformwebservices/web/gensrc/de/hybris/platform/oauth2/resource/OAuthAuthorizationCodeResource.java",
+		"/D/hybrisALDO/hybris/bin/platform/ruleset.xml",
+		"/C/ian/iannotes/hybris-certification-notes.txt",
+		"/C/ian/iannotes/hybris-training-dev-level1.txt",
+		"/C/ian/iannotes/benc-branch-history.txt",
+		"/C/ian/iannotes/tgif-info.txt",
+		"/C/ian/iannotes/benc-notes.txt",
+		"/C/ian/iannotes/tgif-apib-branch-history.txt",
+		"/C/tmp/othernotes.txt",
+		"/C/ian/iannotes/gardening.txt",
+		"/C/ian/iannotes/dev-process.txt",
+		"/C/tmp/notes1.txt",
+		"/C/ian/iannotes/gg-branch-history.txt",
+		"/C/ian/iannotes/wsoo-branch-history.txt",
+		"/C/ian/iannotes/w",
+		"/C/ian/iannotes/gigya-notes.txt",
+		"/C/ian/iannotes/wsoo-https-notes.txt",
+		"/C/ian/iannotes/iannotes-2.txt",
+		"/C/ian/iannotes/data-proposal.txt",
+		"/D/hybrisTGIF/hybris/bin/custom/fridays/tgifamazonrws/extensioninfo.xml",
+		"/C/ian/iannotes/vue-notes.txt",
+		"/C/ian/iannotes/twflash-information.txt",
+		"/C/ian/iannotes/tgif-api-docs.txt",
+		"/C/projects/bitbucket/hcopywebapp/src/main/java/com/thinkwrap/hcopywebap/controller/CopyController.java",
+		"/C/ian/iannotes/data-schema-tool.txt",
+		"/C/ian/iannotes/hcopy-branch-history.txt",
+		"/C/ian/iannotes/sample.md",
+		"/D/hybrisTGIF/hybris/bin/custom/fridays/tgifinitialdata/src/com/tgifridays/initialdata/setup/Release8SystemSetup.java",
+		"/D/hybrisTGIF/hybris/bin/custom/fridays/tgifinitialdata/src/com/tgifridays/initialdata/setup/ForterReleasePatch.java",
+		"/C/ian/iannotes/gardening.csv",
+		"/C/DAILY/jan10/histdata/1327190034.txt",
+		"/C/ian/iannotes/hcopy-notes.txt",
+		"/C/ian/iannotes/createprepaid-request.txt",
+		"/C/ian/iannotes/checklists.txt",
+		"/C/ian/iannotes/twflash-branch-history.txt",
+		"/C/ian/iannotes/forter-notes.txt",
+		"/C/ian/iannotes/flow-based-programming-notes.txt",
+		"/C/DAILY/nov1/improved-json-format.txt",
+		"/C/ian/iannotes/groovy33.txt",
+		"/C/ian/iannotes/wsoo-test-info.txt",
+		"/C/ian/iannotes/java-notes.txt",
+		"/C/ian/iannotes/hdoc-notes.txt",
+		"/C/ian/iannotes/tw-datahub.txt",
+		"/C/ian/other/naksys-notes.txt",
+		"/C/ian/iannotes/unit-test-factories.txt",
+		"/C/ian/iannotes/wsoo-exact-target.txt",
+		"/C/ian/iannotes/naksys-notes.txt",
+		"/C/Users/irae/Downloads/export (7).csv",
+		"/C/ian/iannotes/security-traning-notes.txt",
+		"/C/ian/iannotes/feature305-opm-integration.txt",
+		"/C/ian/iannotes/unittesting-nut.txt",
+		"/C/ian/iannotes/wsoo-2081-reports.txt",
+		"/C/ian/iannotes/huey-notes.txt",
+		"/C/Users/irae/Downloads/RE BOGO 2ns test.msg",
+		"/C/ian/iannotes/tw-incubator-ideas.txt",
+		"/C/ian/iannotes/buffalo-jeans-notes.txt",
+		"/C/ian/iannotes/dovico-tasks.txt",
+		"/C/tmp/downloadedSrc/axon-spring-tutorial-master/axon-playground.iml",
+		"/C/hybrisGG/hybris/data/build.number",
+		"/C/tmp/downloadedSrc/pmd-eclipse-plugin-master/ReleaseNotes.md",
+		"/C/ian/iannotes/tw-retry.txt",
+		"/C/hybrisTWFLASH/hybris/bin/custom/twflash/twflash-addon/twwishlistaddon/acceleratoraddon/web/webroot/_ui/responsive/common/js/twwishlistaddon.js",
+		"/C/DAILY/nov28/asciidoc/dnal-guide.txt",
+		"/C/DAILY/nov24/my-enhancements/twdynamicconfig/extensioninfo.xml",
+		"/C/DAILY/nov24/my-enhancements/twdynamicconfig/hmc/resources/com/thinkwrap/dynamicconfig/hmc/locales_en.properties",
+		"/C/ian/iannotes/gg-prod-releases.txt",
+		"/C/ian/iannotes/wsoo-prod-releases.txt",
+		"/C/ian/iannotes/iannotes.txt",
+		"/C/ian/iannotes/yaas-notes",
+		"/C/ian/iannotes/git-howto.txt",
+		"/C/ian/iannotes/supercopy.txt",
+		"/C/ian/iannotes/WSOO-BRANCH HISTORY.txt",
+		"/C/ian/iannotes/tw-sidecar.txt",
+		"/C/ian/iannotes/scribble-tree-editor-notes.txt",
+		"/C/projects/fridays/fridays/README.md",
+		"/C/projects/gitstuff/groovy/spock/spock-example/gradlew.bat",
+		"/C/ian/iannotes/react-notes.txt",
+		"/C/ian/iannotes/GGAPPCARE-1981.txt",
+		"/C/ian/iannotes/KNOWLEDGE-TRANSFER-TO-FRASER.txt",
+		"/C/ian/iannotes/gg-prod-releases",
+		"/C/ian/iannotes/flexible-search-queries",
+		"/C/DAILY/aug26/jul25/app3/console-20160725.log",
+		"/C/ian/iannotes/hybris-training-dev-level1",
+		"/C/ian/iannotes/checklists",
+		"/C/hybrisGG/hybris/bin/custom/grocerygateway/docker-compose.yml",
+		"/C/hybrisGG/init_java8_for_sonar.bat",
+		"/C/projects/gitstuff/java/TrayApp/hwatch.properties",
+		"/C/hybrisGG/hybris/bin/custom/grocerygateway/ggfacades/src/com/grocerygateway/facades/delivery/impl/DefaultDeliveryWindowCacheFacade.java",
+		"/C/DAILY/QALogs/PRODAdmin/access.2016-06-15.log",
+		"/C/ian/iannotes/twws.txt",
+		"/C/ian/iannotes/scribble-tree-editor-notes",
+		"/C/projects/gitstuff/java/TrayApp/build.xml",
+		"/C/DAILY/QALogs/PRODAdmin/order-processing.log",
+		"/C/projects/gitstuff/rename_bundlefile.bat",
+		"/C/ian/iannotes/dyn-config.txt",
+		"/C/Users/irae/.bashrc",
+		"/C/tmp/downloadedSrc/concursus-master/LICENSE",
+		"/C/projects/tsl/tslcore/src/com/tsl/core/model/dynamic/ExpiredAuthenticationTokenHandler.java",
+		"/C/hybrisGG/hybris/bin/custom/grocerygateway/twcommon/extensioninfo.xml",
+		"/C/ian/iannotes/twws-notes.txt",
+		"/C/DAILY/QALogs/qa1/assistedservicestorefront.js",
+		"/C/projects/gitstuff/update_files.bat",
+		"/C/Users/irae/AppData/Roaming/Sublime Text 2/Packages/User/Default (Windows).sublime-keymap",
+		"/C/Users/irae/AppData/Roaming/Sublime Text 2/Packages/Default/Default (Windows).sublime-keymap",
+		"/C/hybrisGG/hybris/bin/custom/grocerygateway/ggstorefront/platformhome.properties",
+		"/C/tmp/downloadedSrc/Jinq-master/pom.xml",
+		"/C/projects/gitstuff/java/TrayApp/runTrayApp.bat",
+		"/C/hybrisGG/hybris/bin/custom/grocerygateway/Dockerfile",
+		"/C/hybrisGG/hybris/bin/custom/grocerygateway/ggproject/project.properties",
+		"/C/hybrisGG/hybris/bin/custom/grocerygateway/.git/description",
+		"/C/Users/irae/Downloads/desktop.ini",
+		"/C/ian/iannotes/feature285-modify-order.txt",
+		"/C/DAILY/apr5/security-scan-gg/OWASP-ZAP-Tool/MonApr4SessionA.html",
+		"/C/hybrisGG/hybris/bin/custom/grocerygateway/jnk.txt",
+		"/C/ian/iannotes/feature291-finalize-order-submission.txt",
+		"/C/ian/iannotes/feature299-close-order-feed.txt",
+		"/C/DAILY/JanFeb/jan29/qa2/feb19/bashrc.txt"
+	],
+	"find":
+	{
+		"height": 69.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			"*.txt",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"pg",
+			"postg",
+			"psql",
+			"sx",
+			"undo",
+			"undow",
+			"vue",
+			"r4",
+			"f4",
+			"r4",
+			"payme",
+			"indie",
+			"hacker",
+			"modelserv",
+			"sx",
+			"r4",
+			"dev1",
+			"assert",
+			"aldosho",
+			"coll",
+			"r4",
+			"file",
+			"backof",
+			"engli",
+			"no",
+			"englis",
+			"r4",
+			"all-",
+			"all_",
+			"json",
+			"hoy",
+			"points",
+			"RegularPriceMinQtyPercentageDiscountPromotion",
+			"r4",
+			"job",
+			"tutor",
+			"514",
+			"clean",
+			"--ha",
+			"bundle",
+			"occ",
+			"7836",
+			"joan",
+			"occ_",
+			"raml",
+			"toron",
+			"r4",
+			"heroku",
+			"ccs",
+			"-186",
+			"importjo",
+			"173",
+			"dev1",
+			"dev3",
+			"havi",
+			"r4",
+			"cybersour",
+			"ipAddress",
+			"raml",
+			"carlos",
+			"415",
+			"pro",
+			"126",
+			"redire",
+			"userpriceg",
+			"consignm",
+			"consign",
+			"r4",
+			"shipped",
+			"carlos",
+			"r4",
+			"3ds",
+			"carm",
+			"car",
+			"350",
+			"r4",
+			"caAldoSapUserPriceGroup",
+			"caaldosa",
+			"sapPriceZoneJobPerformable",
+			"sapPriceImportJobPerformable",
+			"pricez",
+			"--the",
+			"428",
+			"r4",
+			"0000",
+			"totalrefundamount",
+			"core",
+			"ordermanagementbackoffice",
+			"baseco",
+			"desi",
+			"createreturnrequest",
+			"refund",
+			"maili",
+			"tee",
+			"ant ",
+			"jsonwe",
+			"plannin",
+			"r4",
+			"\\",
+			"jsonwe",
+			"--thei",
+			"fc",
+			"-34",
+			"r4",
+			"single",
+			"cybers",
+			"all",
+			"SAPPriceImportServiceImpl",
+			".mem",
+			"-142",
+			"142",
+			"SAPProductPrices",
+			"cherry",
+			"undo",
+			"git und",
+			"r4",
+			"mailinr",
+			"sequ",
+			"156",
+			"pipe",
+			"caaldo",
+			"sk",
+			"pricezonei",
+			"SAPImportCronJob",
+			"ProductPricesImportCronJob",
+			"-34",
+			"34",
+			"r4"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"/",
+			"EXPORT",
+			"/",
+			"MED ",
+			"gg2",
+			"WS",
+			"sta",
+			""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 39.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.unsaved_changes":
+	{
+		"height": 178.0
+	},
+	"replace":
+	{
+		"height": 70.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"expired",
+				"tslcore/src/com/tsl/core/model/dynamic/ExpiredAuthenticationTokenHandler.java"
+			],
+			[
+				"oracle",
+				"tslcockpits/resources/tslcockpits/reportcockpit/import/oracle_jasperreports.impex"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 337.0,
+	"status_bar_visible": true
+}

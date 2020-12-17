@@ -13,6 +13,7 @@ import {
 
 } from './../../../../components';
 import {Loading} from './../src/components/LoadingComponent';
+import DataStore from './../src/store/DataStore';
 
 
 class ApplyChangesModal extends React.Component {
@@ -21,7 +22,27 @@ class ApplyChangesModal extends React.Component {
         super(props);
 
         this.state = {
+            isLoading: false
         }
+    }
+    
+    componentDidMount() {
+        this.setState({isLoading:true});
+        console.log("wiz" + this.props.wizardState.planId);
+        const obj =  {
+          planId: this.props.wizardState.planId
+        }
+        DataStore.postWizRawData(obj)
+        .then(res => {
+          console.log('got view data');
+          console.log(res);
+          this.setState({isLoading:false});
+          this.props.setDataGrid(res);
+        },
+        (error) => {
+            console.log('!error');
+            this.setState({isLoading:false});
+        });
     }
 
     clkButton = () => {

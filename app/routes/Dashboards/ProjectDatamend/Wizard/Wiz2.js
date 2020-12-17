@@ -72,7 +72,7 @@ class Wiz2 extends React.Component {
     const obj =  {
       planId: this.props.wizardState.planId
     }
-    DataStore.postWizViewData(obj)
+    DataStore.postWizRawData(obj)
     .then(res => {
       console.log('got view data');
       console.log(res);
