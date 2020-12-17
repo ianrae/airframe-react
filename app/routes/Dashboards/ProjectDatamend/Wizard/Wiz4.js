@@ -25,6 +25,7 @@ import {
     DropdownItem,
     UncontrolledDropdown
 } from './../../../../components';
+import FullRunModal from './FullRunModal';
 
 
 
@@ -49,6 +50,16 @@ class Wiz4 extends React.Component {
 
     constructor(props) {
         super(props);
+
+        this.state = {
+            showTable: false
+        }
+    }
+    clkApplyButton = () => {
+        console.log('apply..');
+        this.setState({showTable:true});
+    }
+    setDataGrid(res) {
     }
 
     render() {
@@ -58,6 +69,11 @@ class Wiz4 extends React.Component {
                     <CardBody className="p-5">
                         <WizardStep4 />
                     </CardBody>
+
+
+                    <Row className="mb-5">
+                      <FullRunModal wizardState={this.props.wizardState} onShowTable={this.clkApplyButton} setDataGrid={this.setDataGrid} />
+                    </Row>
 
                     <CardFooter className="p-4 bt-0">
                         <div className="d-flex">

@@ -21,13 +21,6 @@ import { CustomSizePerPageButton } from './CustomSizePerPageButton';
 import { CustomPaginationTotal } from './CustomPaginationTotal';
 import { randomArray } from './../../../../../utilities';
 
-const INITIAL_PRODUCTS_COUNT = 500;
-
-const ProductQuality = {
-    Good: 'product-quality__good',
-    Bad: 'product-quality__bad',
-    Unknown: 'product-quality__unknown'
-};
 
 const sortCaret = (order) => {
     if (!order)
@@ -36,25 +29,11 @@ const sortCaret = (order) => {
         return <i className={`fa fa-fw text-muted fa-sort-${order}`}></i>
 }
 
-const generateRow = (index) => ({
-    id: index,
-    name: faker.commerce.productName(),
-    quality: randomArray([
-        ProductQuality.Bad,
-        ProductQuality.Good,
-        ProductQuality.Unknown
-    ]),
-    price: (1000 + Math.random() * 1000).toFixed(2),
-    satisfaction: Math.round(Math.random() * 6),
-    inStockDate: faker.date.past()
-});
-
 export class DataGridTable extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         
         this.state = {
-            products: _.times(INITIAL_PRODUCTS_COUNT, generateRow),
             selected: []
         };
 
@@ -79,97 +58,30 @@ export class DataGridTable extends React.Component {
         }
     }
 
-    handleAddRow() {
-        const currentSize = this.state.products.length;
-
-        this.setState({
-            products: [
-                generateRow(currentSize + 1),
-                ...this.state.products,
-            ]
-        });
-    }
-
-    handleDeleteRow() {
-        this.setState({
-            products: _.filter(this.state.products, product =>
-                !_.includes(this.state.selected, product.id))
-        })
-    }
 
     createColumnDefinitions() {
-        return [{
-            dataField: 'id',
-            text: 'Product ID',
-            headerFormatter: column => (
-                <React.Fragment>
-                    <span className="text-nowrap">{ column.text }</span>
-                </React.Fragment>
-            )
-        }, {
-            dataField: 'name',
-            text: 'Product Namex',
-            sort: true,
-            sortCaret,
-            formatter: (cell) => (
-                <span className="text-inverse">
-                    { cell }
-                </span>
-            )
-        }, {
-            dataField: 'quality',
-            text: 'Product Quality',
-            formatter: (cell) => {
-                let pqProps;
-                switch (cell) {
-                    case ProductQuality.Good:
-                        pqProps = {
-                            color: 'success',
-                            text: 'Good'
-                        }
-                    break;
-                    case ProductQuality.Bad:
-                        pqProps = {
-                            color: 'danger',
-                            text: 'Bad'
-                        }
-                    break;
-                    case ProductQuality.Unknown:
-                    default:
-                        pqProps = {
-                            color: 'secondary',
-                            text: 'Unknown'
-                        }
-                }
-
-                return (
-                    <Badge color={pqProps.color}>
-                        { pqProps.text }
-                    </Badge>
+        if (this.props.hdrList === undefined || this.props.hdrList.length === 0) {
+            return [{
+                dataField: 'aaa',
+                text: 'aaaa',
+                headerFormatter: column => (
+                    <React.Fragment>
+                        <span className="text-nowrap">{ column.text }</span>
+                    </React.Fragment>
                 )
-            },
-            sort: true,
-            sortCaret
-        }, {
-            dataField: 'price',
-            text: 'Product Price',
-            sort: true,
-            sortCaret
-        }, {
-            dataField: 'satisfaction',
-            text: 'Buyer Satisfaction',
-            sort: true,
-            sortCaret,
-            formatter: (cell) =>
-                <StarRating at={ cell } max={ 6 } />
-        }, {
-            dataField: 'inStockDate',
-            text: 'In Stock Fromx',
-            formatter: (cell) =>
-                moment(cell).format('DD/MM/YYYY'),
-            sort: true,
-            sortCaret
-        }]; 
+            }];
+        }
+
+        console.log('colxx:' + this.props.hdrList.length);
+
+        return this.props.hdrList.map((colName,i) => {
+            return {
+                dataField: colName,
+                text: colName,
+                sort: true,
+                sortCaret
+            }
+        });
     }
 
     render() {
@@ -193,17 +105,22 @@ export class DataGridTable extends React.Component {
             onSelect: this.handleSelect.bind(this),
             onSelectAll: this.handleSelectAll.bind(this),
             selectionRenderer: ({ mode, checked, disabled }) => (
-                <CustomInput type={ mode } checked={ checked } disabled={ disabled } />
+                <CustomInput id="a11" type={ mode } checked={ checked } disabled={ disabled } />
             ),
             selectionHeaderRenderer: ({ mode, checked, indeterminate }) => (
-                <CustomInput type={ mode } checked={ checked } innerRef={el => el && (el.indeterminate = indeterminate)} />
+                <CustomInput id="a12" type={ mode } checked={ checked } innerRef={el => el && (el.indeterminate = indeterminate)} />
             )
         };
 
-        return (
+        if (this.props.tblRows.length === 0) {
+            console.log('no rows');
+            return (
+                <h5>sdfdf no rows</h5>
+                );
+        } else return (
             <ToolkitProvider
                 keyField="id"
-                data={ this.state.products }
+                data={ this.props.tblRows }
                 columns={ columnDefs }
                 search
                 exportCSV
@@ -213,7 +130,7 @@ export class DataGridTable extends React.Component {
                     <React.Fragment>
                         <div className="d-flex justify-content-end align-items-center mb-2">
                             <h6 className="my-0">
-                                AdvancedTable AIan
+                                AdvancedTablex
                             </h6>
                             <div className="d-flex ml-auto">
                                 <CustomSearch
@@ -226,20 +143,6 @@ export class DataGridTable extends React.Component {
                                     >
                                         Export
                                     </CustomExportCSV>
-                                    <Button
-                                        size="sm"
-                                        outline
-                                        onClick={ this.handleDeleteRow.bind(this) }
-                                    >
-                                        Delete
-                                    </Button>
-                                    <Button
-                                        size="sm"
-                                        outline
-                                        onClick={ this.handleAddRow.bind(this) }
-                                    >
-                                        <i className="fa fa-fw fa-plus"></i>
-                                    </Button>
                                 </ButtonGroup>
                             </div>
                         </div>

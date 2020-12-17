@@ -34,11 +34,8 @@ import {
 
 } from './../../../../components';
 import FieldEditorRow from './FieldEditorRow';
-import {WIZ_START} from './../src/shared/wizstart';
 import ApplyChangesModal from './ApplyChangesModal';
-import {
-    DataGridTable
-} from './table';
+import { DataGridTable } from './table';
 import DataStore from './../src/store/DataStore';
 import GridUtil from './../src/util/GridUtil';
 
@@ -136,7 +133,6 @@ class Wiz3 extends React.Component {
         this.setDataGrid = this.setDataGrid.bind(this);
 
         this.state = {
-            //wizardState: WIZ_START,
             showTable: false,
             rowData: [],
             rowCount: 0,
@@ -175,7 +171,8 @@ class Wiz3 extends React.Component {
 
         let MabyeGrid = null;
         if (this.state.showTable) {
-            MabyeGrid =  <h3>data .... </h3>
+            MabyeGrid = <DataGridTable wizardState={this.props.wizardState} hdrList={this.state.hdrList} tblRows={this.state.tblRows}/>
+
         }
 
 
