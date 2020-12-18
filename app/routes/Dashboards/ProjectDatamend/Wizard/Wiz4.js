@@ -93,7 +93,21 @@ class Wiz4 extends React.Component {
     render() {
         let MabyeGrid = null;
         if (this.state.showTable) {
-            MabyeGrid = <h3> {this.state.outputStr} </h3>
+            MabyeGrid = <FormGroup row>
+                        <Label for="textArea" sm={3}>
+                            Results
+                        </Label>
+                        <Col sm={12}>
+                            <Input  readonly
+                                type="textarea" 
+                                name="text" 
+                                id="textArea" 
+                                placeholder=""
+                                rows="10"
+                                value={this.state.outputStr}
+                            />
+                        </Col>
+                    </FormGroup>
         }
 
         return (
@@ -109,7 +123,9 @@ class Wiz4 extends React.Component {
                     </Row>
 
                     <Row className="">
-                      {MabyeGrid}
+                      <Col lg={ 12 }>
+                        {MabyeGrid}
+                      </Col>
                     </Row>
 
                     <CardFooter className="p-4 bt-0">

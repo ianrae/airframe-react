@@ -23,7 +23,8 @@ class FullRunModal extends React.Component {
 
         this.state = {
             isLoading: false,
-            isOpen: false
+            isOpen: false,
+            runResults: null
         }
     }
     
@@ -39,7 +40,7 @@ class FullRunModal extends React.Component {
         .then(res => {
           console.log('got dry run');
           console.log(res);
-          this.setState({isLoading:false});
+          this.setState({isLoading:false, runResults:res});
           this.props.setDataGrid(res);
           this.props.onShowTable();
         },
@@ -57,7 +58,15 @@ class FullRunModal extends React.Component {
 
 
     render() {
-    return (
+        let runResult = null;
+        if (this.state.runResults) {
+            runResult = <div>
+               Number of rows processed: {this.state.runResults.numRowsProcessed} <br/>
+               Number of errors: {this.state.runResults.errors.length}
+             </div>
+        }    
+
+        return (
         <React.Fragment>
           <Col>
             <Button id="modalDefault204" color="primary" size="lg"  onClick={this.clkButton}>
@@ -75,7 +84,7 @@ class FullRunModal extends React.Component {
                     { this.state.isLoading && 
                       <Loading />
                     }
-                    { "Do full run" }
+                    {runResult}
                 </ModalBody>
                 <ModalFooter>
                     <UncontrolledModal.Close color="primary" size="lg"> 

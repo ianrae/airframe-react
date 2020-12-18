@@ -23,7 +23,8 @@ class ApplyChangesModal extends React.Component {
 
         this.state = {
             isLoading: false,
-            isOpen: false
+            isOpen: false,
+            runResults: null
         }
     }
     
@@ -31,14 +32,15 @@ class ApplyChangesModal extends React.Component {
         this.setState({isLoading:true});
         console.log("wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwiz" + this.props.wizardState.planId);
         const obj =  {
-          planId: this.props.wizardState.planId
+          planId: this.props.wizardState.planId,
+          fullRun: false
         }
-        DataStore.postWizRawData(obj)
+        DataStore.postWizDryRun(obj)
         .then(res => {
-          console.log('got view data');
+          console.log('got dry run data');
           console.log(res);
-          this.setState({isLoading:false});
-          this.props.setDataGrid(res);
+          this.setState({isLoading:false, runResults:res});
+          //this.props.setDataGrid(res);
           this.props.onShowTable();
         },
         (error) => {
@@ -55,6 +57,14 @@ class ApplyChangesModal extends React.Component {
 
 
     render() {
+
+    let runResult = null;
+    if (this.state.runResults) {
+        runResult = <div>
+           Number of rows processed: {this.state.runResults.numRowsProcessed} <br/>
+           Number of errors: {this.state.runResults.errors.length}
+         </div>
+    }    
     return (
         <React.Fragment>
           <Col>
@@ -64,16 +74,16 @@ class ApplyChangesModal extends React.Component {
             { /* START Example Modal */}
             <UncontrolledModal target="modalDefault203" size="lg">
                 <ModalHeader tag="h5">
-                    Modal: Large Size
+                    Running
                     <span className="small ml-1 text-muted">
-                        #2.03
+                        Processing your data..
                     </span>
                 </ModalHeader>
                 <ModalBody>
                     { this.state.isLoading && 
                       <Loading />
                     }
-                    { "sdfsdfdsfdsfdsf sfsd sfsef ze eee" }
+                    {runResult}
                 </ModalBody>
                 <ModalFooter>
                     <UncontrolledModal.Close color="primary" size="lg"> 
