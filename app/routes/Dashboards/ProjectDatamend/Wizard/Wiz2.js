@@ -31,7 +31,7 @@ import {
 import DataStore from './../src/store/DataStore';
 import {Loading} from './../src/components/LoadingComponent';
 import GridUtil from './../src/util/GridUtil';
-
+import NextPrevButtons from './NextPrevButtons';
 
 const WizardStep2 = ({wizardState, hdrList, tblRows}) => (
     <Row>
@@ -106,36 +106,18 @@ class Wiz2 extends React.Component {
 
 
     render() {
+        const nextPrevButtons = <NextPrevButtons isPrev={this.props.isPrev} isNext={this.props.isNext} doPrev={this._prevStep} doNext={this._nextStep} />
 
         return (
             <React.Fragment>
-                    <CardBody className="p-5">
-                        <WizardStep2 wizardState={this.props.wizardState} hdrList={this.state.hdrList} tblRows={this.state.tblRows} />
-                    </CardBody>
-                    { this.state.isLoading && 
-                        <Loading />
-                    }
+                <CardBody className="p-5">
+                    <WizardStep2 wizardState={this.props.wizardState} hdrList={this.state.hdrList} tblRows={this.state.tblRows} />
+                </CardBody>
+                { this.state.isLoading && 
+                    <Loading />
+                }
 
-                    <CardFooter className="p-4 bt-0">
-                        <div className="d-flex">
-                            {
-                                this.props.isPrev() && (
-                                    <Button onClick={() => {this._prevStep()}} color="link" className='mr-3'>
-                                        <i className='fa fa-angle-left mr-2'></i>
-                                        Previous
-                                    </Button>
-                                )
-                            }
-                            {
-                                this.props.isNext() && (
-                                    <Button color='primary' onClick={() => {this._nextStep()}} className="ml-auto px-4">
-                                        Next
-                                        <i className='fa fa-angle-right ml-2'></i>
-                                    </Button>
-                                )
-                            }
-                        </div>
-                    </CardFooter>
+                {nextPrevButtons}
             </React.Fragment>
         );
     }
