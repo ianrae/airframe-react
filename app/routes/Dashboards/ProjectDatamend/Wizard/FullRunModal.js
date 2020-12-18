@@ -69,7 +69,7 @@ class FullRunModal extends React.Component {
         return (
         <React.Fragment>
           <Col>
-            <Button id="modalDefault204" color="primary" size="lg"  onClick={this.clkButton}>
+            <Button id="modalDefault204" color="success" size="lg"  onClick={this.clkButton}>
                 Run  <i className="fa fa-angle-right ml-1"></i>
             </Button>
             { /* START Example Modal */}

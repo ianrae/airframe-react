@@ -68,7 +68,7 @@ class ApplyChangesModal extends React.Component {
     return (
         <React.Fragment>
           <Col>
-            <Button id="modalDefault203" color="primary" size="lg"  onClick={this.clkButton}>
+            <Button id="modalDefault203" color="success" size="lg"  onClick={this.clkButton}>
                 Apply Changes  <i className="fa fa-angle-right ml-1"></i>
             </Button>
             { /* START Example Modal */}

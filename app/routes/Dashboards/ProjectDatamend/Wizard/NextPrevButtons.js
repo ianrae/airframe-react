@@ -15,7 +15,7 @@ const NextPrevButtons = ({isPrev, isNext, doPrev, doNext}) => (
         <div className="d-flex">
             {
                 isPrev() && (
-                    <Button onClick={() => {doPrev()}} color="link" className='mr-3'>
+                    <Button onClick={() => {doPrev()}} outline color="secondary" className='mr-3'>
                         <i className='fa fa-angle-left mr-2'></i>
                         Previous
                     </Button>
