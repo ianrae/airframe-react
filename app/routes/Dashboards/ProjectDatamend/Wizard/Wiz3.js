@@ -106,10 +106,11 @@ const WizardStep3 = ({wizardState, nextPrevButtons, onUpdateField}) => {
                           <th>
                              <CustomInput type="checkbox" id="selall" inline checked={selectAll}
                                 onChange={(e) => mySelAll(e.target.checked)}>
-                                Use this field
+                                Use field
                              </CustomInput>                              
                           </th>
                           <th>Field</th>
+                          <th>Type</th>
                           <th>Sample Value</th>
                           <th>Value can be missing</th>
                           { !hasSecretPK && 
@@ -135,6 +136,7 @@ class Wiz3 extends React.Component {
         super(props);
         this.setDataGrid = this.setDataGrid.bind(this);
         this.onUpdateField = this.onUpdateField.bind(this);
+        this.onPlanUpdate = this.onPlanUpdate.bind(this);
 
         this.state = {
             showTable: false,
@@ -185,6 +187,11 @@ class Wiz3 extends React.Component {
 
       this.setState({updateFields: ar});
     }
+    onPlanUpdate(res) {
+      console.log('on plan update');
+      this.props.doNext(res);
+      this.setState({updateFields: []});
+    }
 
     render() {
         let MabyeGrid = null;
@@ -202,7 +209,8 @@ class Wiz3 extends React.Component {
 
                     <Row className="mb-5">
                       <ApplyChangesModal wizardState={this.props.wizardState} onShowTable={this.clkApplyButton} 
-                        setDataGrid={this.setDataGrid} updateFields={this.state.updateFields} />
+                        setDataGrid={this.setDataGrid} updateFields={this.state.updateFields}
+                        onPlanUpdate={this.onPlanUpdate} />
                     </Row>
 
                     <Row className="">

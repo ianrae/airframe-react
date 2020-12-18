@@ -45,6 +45,7 @@ class ApplyChangesModal extends React.Component {
           console.log('okstart');
           console.log(res);
             this.setState({isLoading:false});
+            this.props.onPlanUpdate(res);
             this.doDryRun();
         },
         (error) => {
