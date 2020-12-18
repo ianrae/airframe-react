@@ -30,32 +30,52 @@ import {Loading} from './../src/components/LoadingComponent';
 
 
 
-const WizardStep1 = ({input,onInputChange}) => (
+const WizardStep1 = ({input,onInputChange,delim,onDelimChange}) => (
     <Row>
         <Col md={ 10 }>
             <div>
                 <h3 className="mb-4">
                     Paste Some CSV Data Here
                 </h3>
+                    <FormGroup row>
+                        <Label for="defaultSelect" sm={3}>
+                            Delimiter character
+                        </Label>
+                        <Col sm={2}>
+                            <Input 
+                                type="select" 
+                                name="select" 
+                                id="defaultSelect" 
+                                value={delim}
+                                onChange={(e) => setInputType(e.target.value)}
+                            >
+                                <option defaultValue="">,</option>
+                                <option>;</option>
+                                <option>tab</option>
+                                <option>|</option>
+                                <option>^</option>
+                            </Input>
+                        </Col>
+                    </FormGroup>
 
-                                { /* START Input */}
-                                <FormGroup row>
-                                    <Label for="textArea" sm={3}>
-                                        CSV Data
-                                    </Label>
-                                    <Col sm={9}>
-                                        <Input 
-                                            type="textarea" 
-                                            name="text" 
-                                            id="textArea" 
-                                            placeholder=""
-                                            rows="10"
-                                            value={input}
-                                            onChange={(e) => onInputChange(e.target.value)}
-                                        />
-                                    </Col>
-                                </FormGroup>
-                                { /* END Input */}
+                    { /* START Input */}
+                    <FormGroup row>
+                        <Label for="textArea" sm={3}>
+                            CSV Data
+                        </Label>
+                        <Col sm={9}>
+                            <Input 
+                                type="textarea" 
+                                name="text" 
+                                id="textArea" 
+                                placeholder=""
+                                rows="10"
+                                value={input}
+                                onChange={(e) => onInputChange(e.target.value)}
+                            />
+                        </Col>
+                    </FormGroup>
+                    { /* END Input */}
 
                 <small>
                     Step 1 of 4. Import your CSV data.
@@ -134,13 +154,14 @@ class Wiz1 extends React.Component {
     }
 
     _nextStep = () => {
-        console.log("end wiz1");
+        console.log("end wiz1: delim " + this.state.delim);
         console.log("submitWizStart");
         this.setState({isLoading:true});
         const obj = {
           //title: "Plan1", let server decide
           typeName: "Customer",
-          csvContent: this.state.input
+          csvContent: this.state.input,
+          delim: this.state.delim
         };
         DataStore.postWizStart(obj)
         .then(res => {
