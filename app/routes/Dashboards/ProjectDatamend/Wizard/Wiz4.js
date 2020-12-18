@@ -79,7 +79,9 @@ class Wiz4 extends React.Component {
         this.state = {
             showTable: false,
             inputType: 'json',
-            outputStr: ""
+            outputStr: "",
+            numLines: 0,
+            textAreaRows: 0
         }
     }
     clkApplyButton = () => {
@@ -87,7 +89,20 @@ class Wiz4 extends React.Component {
         this.setState({showTable:true});
     }
     setDataGrid(res) {
-        this.state.outputStr = res.outputStr;
+        var numLines = 0;
+        var textAreaRows = numLines;
+        if (res.outputStr) {
+            var lines = res.outputStr.split("\n"); 
+            var numLines = lines.length;
+            textAreaRows = numLines;
+            if (lines.length > 0) {
+                if (lines[0].length > 40) {
+                    textAreaRows = numLines * 2;
+                }                
+            }
+        }
+
+        this.setState({outputStr:res.outputStr, numLines:numLines, textAreaRows:textAreaRows});
     }
 
     render() {
@@ -103,7 +118,7 @@ class Wiz4 extends React.Component {
                                 name="text" 
                                 id="textArea" 
                                 placeholder=""
-                                rows="10"
+                                rows={this.state.textAreaRows}
                                 value={this.state.outputStr}
                             />
                         </Col>
