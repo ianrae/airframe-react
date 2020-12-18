@@ -54,14 +54,18 @@ const FieldEditorRow = ({fieldSpec, index, selectFlag, onSelFlag, hasSecretPK, o
   }
   const onOnSelFlag = (index,flag) => {
     onSelFlag(index, flag);
-    doOnChangeField();
+    doOnChangeField(flag);
   }
-  const doOnChangeField = () => {
+  const doOnChangeField = (maybeSelFlag) => {
     let spec = {...fieldSpec};
     spec.outputName = name;
     spec.optionalFlag = optional;
     spec.isPK = isPK;
-    spec.active = selectFlag;
+    if (maybeSelFlag === undefined) {
+      spec.active = selectFlag;
+    } else {
+      spec.active = maybeSelFlag;
+    }    
     onChangeField(spec);
   }
 

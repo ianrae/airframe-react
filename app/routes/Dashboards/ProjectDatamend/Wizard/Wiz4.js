@@ -98,10 +98,8 @@ class Wiz4 extends React.Component {
             var numLines = lines.length;
             textAreaRows = numLines;
             if (lines.length > 0) {
-
-                if (lines[0].length > 40) {
-                    textAreaRows = numLines * 2;
-                }                
+                let wid = lines[0].length / 100;
+                textAreaRows = numLines * wid;
             }
         }
 
@@ -125,7 +123,7 @@ class Wiz4 extends React.Component {
                                 placeholder=""
                                 rows={this.state.textAreaRows}
                                 value={this.state.outputStr}
-                                onChange={(e) => onDoNothing(e.target.value)
+                                onChange={(e) => onDoNothing(e.target.value)}
                             />
                         </Col>
                     </FormGroup>
