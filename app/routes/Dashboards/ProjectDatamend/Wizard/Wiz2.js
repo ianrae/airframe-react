@@ -33,9 +33,10 @@ import {Loading} from './../src/components/LoadingComponent';
 import GridUtil from './../src/util/GridUtil';
 import NextPrevButtons from './NextPrevButtons';
 
-const WizardStep2 = ({wizardState, hdrList, tblRows}) => (
+const WizardStep2 = ({wizardState, hdrList, tblRows,nextPrevButtons}) => (
     <Row>
         <Col md={12}>
+                {nextPrevButtons}
             <div>
                 <h3 className="mb-4">
                     View Your Data 
@@ -111,7 +112,8 @@ class Wiz2 extends React.Component {
         return (
             <React.Fragment>
                 <CardBody className="p-5">
-                    <WizardStep2 wizardState={this.props.wizardState} hdrList={this.state.hdrList} tblRows={this.state.tblRows} />
+                    <WizardStep2 wizardState={this.props.wizardState} hdrList={this.state.hdrList} tblRows={this.state.tblRows} 
+                       nextPrevButtons={nextPrevButtons} />
                 </CardBody>
                 { this.state.isLoading && 
                     <Loading />

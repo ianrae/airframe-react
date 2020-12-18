@@ -38,6 +38,7 @@ import ApplyChangesModal from './ApplyChangesModal';
 import { DataGridTable } from './table';
 import DataStore from './../src/store/DataStore';
 import GridUtil from './../src/util/GridUtil';
+import NextPrevButtons from './NextPrevButtons';
 
 
 const makeId = (name,index) => {
@@ -45,7 +46,7 @@ const makeId = (name,index) => {
 }
 
 
-const WizardStep3 = ({wizardState}) => {
+const WizardStep3 = ({wizardState, nextPrevButtons}) => {
   const initSelAll = (allFields) => {
     let ar = [];
     for(let i = 0; i < allFields.length; i++) {
@@ -89,6 +90,7 @@ const WizardStep3 = ({wizardState}) => {
     return (
     <Row>
         <Col lg={ 12 }>
+                   {nextPrevButtons}
             <Card className="mb-3">
                 <CardBody>
                     <CardTitle tag="h6" className="mb-4">
@@ -172,11 +174,12 @@ class Wiz3 extends React.Component {
         if (this.state.showTable) {
             MabyeGrid = <DataGridTable wizardState={this.props.wizardState} hdrList={this.state.hdrList} tblRows={this.state.tblRows}/>
         }
+        const nextPrevButtons = <NextPrevButtons isPrev={this.props.isPrev} isNext={this.props.isNext} doPrev={this._prevStep} doNext={this._nextStep} />
 
         return (
             <React.Fragment>
                     <CardBody className="p-5">
-                        <WizardStep3 wizardState={this.props.wizardState}/>
+                        <WizardStep3 wizardState={this.props.wizardState} nextPrevButtons={nextPrevButtons}/>
                     </CardBody>
 
 
@@ -188,26 +191,7 @@ class Wiz3 extends React.Component {
                       {MabyeGrid}
                     </Row>
 
-                    <CardFooter className="p-4 bt-0">
-                        <div className="d-flex">
-                            {
-                                this.props.isPrev() && (
-                                    <Button onClick={() => {this._prevStep()}} color="link" className='mr-3'>
-                                        <i className='fa fa-angle-left mr-2'></i>
-                                        Previous
-                                    </Button>
-                                )
-                            }
-                            {
-                                this.props.isNext() && (
-                                    <Button color='primary' onClick={() => {this._nextStep()}} className="ml-auto px-4">
-                                        Next
-                                        <i className='fa fa-angle-right ml-2'></i>
-                                    </Button>
-                                )
-                            }
-                        </div>
-                    </CardFooter>
+                    {nextPrevButtons}
             </React.Fragment>
         );
     }

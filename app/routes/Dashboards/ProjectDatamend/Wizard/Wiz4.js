@@ -26,13 +26,15 @@ import {
     UncontrolledDropdown
 } from './../../../../components';
 import FullRunModal from './FullRunModal';
+import NextPrevButtons from './NextPrevButtons';
 
 
 
-const WizardStep4 = ({wizardState, onShowTable, setDataGrid, inputType, setInputType}) => {
+const WizardStep4 = ({wizardState, onShowTable, setDataGrid, inputType, setInputType, nextPrevButtons}) => {
     return (
     <Row>
         <Col md={12}>
+            {nextPrevButtons}
             <div>
                 <h3 className="mb-4">
                     Output
@@ -96,6 +98,7 @@ class Wiz4 extends React.Component {
             var numLines = lines.length;
             textAreaRows = numLines;
             if (lines.length > 0) {
+
                 if (lines[0].length > 40) {
                     textAreaRows = numLines * 2;
                 }                
@@ -124,13 +127,15 @@ class Wiz4 extends React.Component {
                         </Col>
                     </FormGroup>
         }
+        const nextPrevButtons = <NextPrevButtons isPrev={this.props.isPrev} isNext={this.props.isNext} doPrev={this._prevStep} doNext={this._nextStep} />
 
         return (
             <React.Fragment>
                     <CardBody className="p-5">
                         <WizardStep4 wizardState={this.props.wizardState} onShowTable={this.clkApplyButton} 
                             setDataGrid={this.setDataGrid}
-                            inputType={this.state.inputType} setInputType={this.setInputType} />
+                            inputType={this.state.inputType} setInputType={this.setInputType}
+                            nextPrevButtons={nextPrevButtons} />
                     </CardBody>
 
 
@@ -143,26 +148,7 @@ class Wiz4 extends React.Component {
                       </Col>
                     </Row>
 
-                    <CardFooter className="p-4 bt-0">
-                        <div className="d-flex">
-                            {
-                                this.props.isPrev() && (
-                                    <Button onClick={() => {this._prevStep()}} color="link" className='mr-3'>
-                                        <i className='fa fa-angle-left mr-2'></i>
-                                        Previous
-                                    </Button>
-                                )
-                            }
-                            {
-                                this.props.isNext() && (
-                                    <Button color='primary' onClick={() => {this._nextStep()}} className="ml-auto px-4">
-                                        Next
-                                        <i className='fa fa-angle-right ml-2'></i>
-                                    </Button>
-                                )
-                            }
-                        </div>
-                    </CardFooter>
+                    {nextPrevButtons}
             </React.Fragment>
         );
     }
