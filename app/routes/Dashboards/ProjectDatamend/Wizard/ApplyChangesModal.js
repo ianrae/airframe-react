@@ -27,6 +27,31 @@ class ApplyChangesModal extends React.Component {
             runResults: null
         }
     }
+
+    doApplyChangesFirst() {
+      if (this.props.updateFields.length === 0) {
+        this.doDryRun();
+        return;
+      }
+
+      //note. are two copies of this code!
+        this.setState({isLoading:true});
+        const obj = {
+          planId: this.props.wizardState.planId,
+          fieldL: this.props.updateFields
+        };
+        DataStore.postWizFieldUpdate(obj)
+        .then(res => {
+          console.log('okstart');
+          console.log(res);
+            this.setState({isLoading:false});
+            this.doDryRun();
+        },
+        (error) => {
+            this.setState({isLoading:false});
+            console.log('!error');
+        });
+    }    
     
     doDryRun() {
         this.setState({isLoading:true});
@@ -52,7 +77,7 @@ class ApplyChangesModal extends React.Component {
     clkButton = () => {
         console.log('clkButton');
         this.setState({isOpen:true});
-        this.doDryRun();
+        this.doApplyChangesFirst();
     }
 
 

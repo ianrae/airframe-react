@@ -201,7 +201,8 @@ class Wiz3 extends React.Component {
 
 
                     <Row className="mb-5">
-                      <ApplyChangesModal wizardState={this.props.wizardState} onShowTable={this.clkApplyButton} setDataGrid={this.setDataGrid} />
+                      <ApplyChangesModal wizardState={this.props.wizardState} onShowTable={this.clkApplyButton} 
+                        setDataGrid={this.setDataGrid} updateFields={this.state.updateFields} />
                     </Row>
 
                     <Row className="">
@@ -231,6 +232,7 @@ class Wiz3 extends React.Component {
         if (this.state.updateFields.length === 0) {
           this.props.nextStep();
         } else {
+          //note. are two copies of this code!
             this.setState({isLoading:true});
             const obj = {
               planId: this.props.wizardState.planId,
