@@ -35,20 +35,21 @@ const WizardStep1 = ({input,onInputChange}) => (
         <Col md={ 10 }>
             <div>
                 <h3 className="mb-4">
-                    Paste Some CSV Data xxxx
+                    Paste Some CSV Data Here
                 </h3>
 
                                 { /* START Input */}
                                 <FormGroup row>
                                     <Label for="textArea" sm={3}>
-                                        Textarea
+                                        CSV Data
                                     </Label>
                                     <Col sm={9}>
                                         <Input 
                                             type="textarea" 
                                             name="text" 
                                             id="textArea" 
-                                            placeholder="Enter text..." 
+                                            placeholder=""
+                                            rows="10"
                                             value={input}
                                             onChange={(e) => onInputChange(e.target.value)}
                                         />
@@ -57,8 +58,7 @@ const WizardStep1 = ({input,onInputChange}) => (
                                 { /* END Input */}
 
                 <small>
-                    Below is a sample page for your cart, 
-                    Created using pages design UI Elementes
+                    Step 1 of 4. Import your CSV data.
                 </small>
             </div>
         </Col>
@@ -73,7 +73,8 @@ class Wiz1 extends React.Component {
         super(props);
         this.state = {
             isLoading: false,
-            input: "aaa"
+            input: "",
+            delim: ","
         }
     }
 
@@ -81,12 +82,16 @@ class Wiz1 extends React.Component {
         console.log('apply..' + txt);
         this.setState({input:txt});
     }
+    onDelimChange = (txt) => {
+        console.log('apply..' + txt);
+        this.setState({delim:txt});
+    }
 
     render() {
         return (
             <React.Fragment>
                 <CardBody className="p-5">
-                    <WizardStep1 input={this.state.input} onInputChange={this.onInputChange} />
+                    <WizardStep1 input={this.state.input} onInputChange={this.onInputChange} delim={this.state.delim} onDelimChange={this.onDelimChange} />
                 </CardBody>
                 { this.state.isLoading && 
                     <Loading />

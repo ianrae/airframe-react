@@ -41,13 +41,9 @@ const WizardStep2 = ({wizardState, hdrList, tblRows}) => (
                     View Your Data 
                 </h3>
                 <p>
-                    We respect your privacy and protect it with strong encryption, plus strict policies.
-                    Two-step verification, which we encourage all our customers to use.
+                    Review your data. If it has not been imported correctly, please go back to the previous step.
                 </p>
                 <AdvancedTableAIan wizardState={wizardState} hdrList={hdrList} tblRows={tblRows}/>
-                <small>
-                    Fields marked as <span className="text-danger">*</span> are Required!
-                </small>
             </div>
         </Col>
     </Row>

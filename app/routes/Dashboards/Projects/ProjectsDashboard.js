@@ -41,13 +41,13 @@ const ProjectsDashboard = () => (
         <Row className="mb-5">
             <Col lg={ 12 }>
                 <HeaderMain 
-                    title="Data Cleanerx"
+                    title="CSV Converter and Cleaner"
                     className="mb-4 mb-lg-5"
                 />
                 <p>
-                    { faker.lorem.paragraph() }
+                    Validate CSV data according to rules you setup. Convert the data to JSON, XML, or other formats.
                 </p>
-                <Button color="primary" tag={Link} to="/dashboards/datamend">Let&quot;s Get Started</Button>
+                <Button color="primary" tag={Link} to="/dashboards/datamend">Let&apos;s Get Started</Button>
 
             </Col>
         </Row>
