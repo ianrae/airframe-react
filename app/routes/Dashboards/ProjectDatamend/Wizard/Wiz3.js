@@ -181,6 +181,8 @@ class Wiz3 extends React.Component {
           ar.push(x);
         }
       }
+      ar.push(field);
+
       this.setState({updateFields: ar});
     }
 
@@ -224,9 +226,28 @@ class Wiz3 extends React.Component {
     }
 
     _nextStep = () => {
-        console.log("aaaaaaaaaaaaaaaaaaaa2");
-        console.log(this.props.wizardState.typeName);
-        this.props.nextStep();
+        console.log("aaaaaaaaaaaaaaaaaaaa3");
+        console.log(this.state.updateFields.length);
+        if (this.state.updateFields.length === 0) {
+          this.props.nextStep();
+        } else {
+            this.setState({isLoading:true});
+            const obj = {
+              planId: this.props.wizardState.planId,
+              fieldL: this.state.updateFields
+            };
+            DataStore.postWizFieldUpdate(obj)
+            .then(res => {
+              console.log('okstart');
+              console.log(res);
+                this.setState({isLoading:false});
+                this.props.nextStep();
+            },
+            (error) => {
+                this.setState({isLoading:false});
+                console.log('!error');
+            });
+        }
     }
 
 //    _isComplete = (stepId) =>

@@ -81,6 +81,21 @@ const DataStore = {
       return DataStore.innerPost(url, obj);
     }
   },
+  postWizFieldUpdate: (obj) => {
+    if (isMock) {
+      var promise = new Promise((resolve,reject) => {
+        if (isFail) {
+          reject(Error("mock xnotes failed"));
+        } else {
+          resolve({});
+        }
+      });
+      return promise;
+    } else {
+      let url = "http://localhost:8080/api/wizard/update";
+      return DataStore.innerPost(url, obj);
+    }
+  },
   postWizDryRun: (obj) => {
     if (isMock) {
       var promise = new Promise((resolve,reject) => {

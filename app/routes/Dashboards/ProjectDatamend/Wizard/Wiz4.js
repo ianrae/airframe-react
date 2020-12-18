@@ -107,6 +107,8 @@ class Wiz4 extends React.Component {
 
         this.setState({outputStr:res.outputStr, numLines:numLines, textAreaRows:textAreaRows});
     }
+    onDoNothing(e) {
+    }
 
     render() {
         let MabyeGrid = null;
@@ -116,13 +118,14 @@ class Wiz4 extends React.Component {
                             Results
                         </Label>
                         <Col sm={12}>
-                            <Input  readonly
+                            <Input  readOnly
                                 type="textarea" 
                                 name="text" 
                                 id="textArea" 
                                 placeholder=""
                                 rows={this.state.textAreaRows}
                                 value={this.state.outputStr}
+                                onChange={(e) => onDoNothing(e.target.value)
                             />
                         </Col>
                     </FormGroup>
