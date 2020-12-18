@@ -46,7 +46,7 @@ const makeId = (name,index) => {
 }
 
 
-const WizardStep3 = ({wizardState, nextPrevButtons}) => {
+const WizardStep3 = ({wizardState, nextPrevButtons, onUpdateField}) => {
   const initSelAll = (allFields) => {
     let ar = [];
     for(let i = 0; i < allFields.length; i++) {
@@ -76,7 +76,8 @@ const WizardStep3 = ({wizardState, nextPrevButtons}) => {
         return null;
     }
     return (
-      <FieldEditorRow fieldSpec={dish} index={i} selectFlag={selectFlags[i]} onSelFlag={onSelFlag} hasSecretPK={hasSecretPK} />
+      <FieldEditorRow fieldSpec={dish} index={i} selectFlag={selectFlags[i]} onSelFlag={onSelFlag} 
+        hasSecretPK={hasSecretPK} onChangeField={onUpdateField} />
     );
   });
 
@@ -133,13 +134,15 @@ class Wiz3 extends React.Component {
     constructor(props) {
         super(props);
         this.setDataGrid = this.setDataGrid.bind(this);
+        this.onUpdateField = this.onUpdateField.bind(this);
 
         this.state = {
             showTable: false,
             rowData: [],
             rowCount: 0,
             hdrList: [],
-            tblRows: []
+            tblRows: [],
+            updateFields: []
         }
     }
     clkApplyButton = () => {
@@ -168,6 +171,18 @@ class Wiz3 extends React.Component {
       let z = this.generateRows(hdrs, xrowData);
       this.setState({rowData:xrowData, rowCount:res.grid.rows.length, hdrList: hdrs, tblRows: z});
     }
+    onUpdateField(field) {
+      console.log(field);
+      var ar = [];
+      for(let i = 0; i < this.state.updateFields.length; i++) {
+        let x = this.state.updateFields[i];
+        if (x.name === field.name) {         
+        } else {
+          ar.push(x);
+        }
+      }
+      this.setState({updateFields: ar});
+    }
 
     render() {
         let MabyeGrid = null;
@@ -179,7 +194,7 @@ class Wiz3 extends React.Component {
         return (
             <React.Fragment>
                     <CardBody className="p-5">
-                        <WizardStep3 wizardState={this.props.wizardState} nextPrevButtons={nextPrevButtons}/>
+                        <WizardStep3 wizardState={this.props.wizardState} nextPrevButtons={nextPrevButtons} onUpdateField={this.onUpdateField}/>
                     </CardBody>
 
 
