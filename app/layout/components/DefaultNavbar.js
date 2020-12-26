@@ -34,20 +34,17 @@ export const DefaultNavbar = () => (
                     <i className="fa fa-angle-right"></i>
                 </span>
                 <span className="navbar-text">
-                    <Link to="/">Startx</Link>
+                    <Link to="/">CSV</Link>
                 </span>
                 <span className="navbar-text px-2">
                     <i className="fa fa-angle-right"></i>
                 </span>
                 <span className="navbar-text">
-                    Page Link
+                    Convert CSV Data
                 </span>
             </NavItem>
         </Nav>
         <Nav navbar className="ml-auto">
-            <NavbarActivityFeed />
-            <NavbarMessages className="ml-2" />
-            <NavbarUser className="ml-2" />
         </Nav>
     </Navbar>
 );
