@@ -40,9 +40,8 @@ const WizardStep4 = ({wizardState, onShowTable, setDataGrid, inputType, setInput
                     Output
                 </h3>
                 <p className="mb-5">
-                    Below is a sample page for your cart , Created using pages design UI Elementes.
+                    Convert your data to one of the following formats.
                 </p>
-                <small>Invoice are issued on the date of despatch. Payment terms: Pre-orders: within 10 days of invoice date with 4% discount, from the 11th to the 30th day net. Re-orders: non-reduced stock items are payable net after 20 days.</small>
                 <Form>
                     <FormGroup row>
                         <Label for="defaultSelect" sm={3}>

@@ -66,10 +66,6 @@ export class DWizardExample extends React.Component {
 
         return (
             <Container>
-                <HeaderMain 
-                    title="DWizard"
-                    className="my-4"
-                />
                 <DevToolbar />
                 <Card>
                     <CardBody className="d-flex justify-content-center pt-5">

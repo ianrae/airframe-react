@@ -70,21 +70,35 @@ class FullRunModal extends React.Component {
         <React.Fragment>
           <Col>
             <Button id="modalDefault204" color="success" size="lg"  onClick={this.clkButton}>
-                Run  <i className="fa fa-angle-right ml-1"></i>
+                Run  &nbsp; <i className="fa fa-angle-right ml-1"></i>
             </Button>
             { /* START Example Modal */}
             <UncontrolledModal target="modalDefault204" size="lg">
                 <ModalHeader tag="h5">
-                    Modal: Large Size
-                    <span className="small ml-1 text-muted">
-                        #2.03
-                    </span>
+                    { !this.state.isLoading && 
+                        <span>Run Finished</span>
+                    }
+                    { this.state.isLoading && 
+                        <span className="small ml-1 text-muted">
+                            Processing your data..
+                        </span>
+                    }
                 </ModalHeader>
                 <ModalBody>
                     { this.state.isLoading && 
                       <Loading />
                     }
                     {runResult}
+                    <Row>&nbsp;</Row>
+                    <Row>
+                    { !this.state.isLoading && 
+                        <Col lg={ 9 }>
+                            <div class="alert alert-info" role="alert">
+                              Success! Press the Close button to see the output data.
+                            </div>
+                        </Col>
+                    }
+                    </Row>
                 </ModalBody>
                 <ModalFooter>
                     <UncontrolledModal.Close color="primary" size="lg"> 

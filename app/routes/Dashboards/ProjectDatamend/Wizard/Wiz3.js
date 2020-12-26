@@ -89,7 +89,6 @@ const WizardStep3 = ({wizardState, nextPrevButtons, onUpdateField, updateFields}
     setSelectAll(flag);
   }
   const isTooManyPKs = () => {
-    console.log('isTooManyPKs');
     let ar1 = wizardState.allFields;
     let ar2 = updateFields;
     let dupCount = 0;
@@ -113,7 +112,6 @@ const WizardStep3 = ({wizardState, nextPrevButtons, onUpdateField, updateFields}
       }
 
     }
-    console.log("dupCount " + dupCount);
     return (dupCount) > 1;
   }
 

@@ -100,10 +100,14 @@ class ApplyChangesModal extends React.Component {
             { /* START Example Modal */}
             <UncontrolledModal target="modalDefault203" size="lg">
                 <ModalHeader tag="h5">
-                    Running
-                    <span className="small ml-1 text-muted">
-                        Processing your data..
-                    </span>
+                    { !this.state.isLoading && 
+                        <span>Results</span>
+                    }
+                    { this.state.isLoading && 
+                        <span className="small ml-1 text-muted">
+                            Processing your data..
+                        </span>
+                    }
                 </ModalHeader>
                 <ModalBody>
                     { this.state.isLoading && 
