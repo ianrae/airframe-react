@@ -30,7 +30,8 @@ import {
         UncontrolledModal,
     ModalHeader,
     ModalBody,
-    ModalFooter
+    ModalFooter,
+    Alert
 
 } from './../../../../components';
 import FieldEditorRow from './FieldEditorRow';
@@ -46,7 +47,7 @@ const makeId = (name,index) => {
 }
 
 
-const WizardStep3 = ({wizardState, nextPrevButtons, onUpdateField}) => {
+const WizardStep3 = ({wizardState, nextPrevButtons, onUpdateField, updateFields}) => {
   const initSelAll = (allFields) => {
     let ar = [];
     for(let i = 0; i < allFields.length; i++) {
@@ -87,6 +88,34 @@ const WizardStep3 = ({wizardState, nextPrevButtons, onUpdateField}) => {
     setSelectFlags(ar);
     setSelectAll(flag);
   }
+  const isTooManyPKs = () => {
+    console.log('isTooManyPKs');
+    let ar1 = wizardState.allFields;
+    let ar2 = updateFields;
+    let dupCount = 0;
+    for(let i = 0; i < ar1.length; i++) {
+      let obj = ar1[i];
+      let found = false;
+      for(let k = 0; k < ar2.length; k++) {
+        let obj2 = ar2[k];
+        if (obj2.name === obj.name) {
+          if (obj2.isPK) {
+            dupCount++;
+          }
+          found = true;
+        }
+      }
+
+      if (! found) {
+        if (obj.isPK) {
+          dupCount++;
+        }
+      }
+
+    }
+    console.log("dupCount " + dupCount);
+    return (dupCount) > 1;
+  }
 
     return (
     <Row>
@@ -124,6 +153,14 @@ const WizardStep3 = ({wizardState, nextPrevButtons, onUpdateField}) => {
                       </tbody>
                     </Table>
 
+                    { isTooManyPKs() && 
+                      <Alert color="danger">
+                            <i className="fa fa-times-circle mr-1 alert-icon"></i> 
+                            <span> 
+                                <strong className="alert-heading">Error:</strong> Only one field can be the Primary Key.
+                            </span>
+                        </Alert>
+                    }
                 </CardBody>
             </Card>
         </Col>
@@ -203,7 +240,8 @@ class Wiz3 extends React.Component {
         return (
             <React.Fragment>
                     <CardBody className="p-5">
-                        <WizardStep3 wizardState={this.props.wizardState} nextPrevButtons={nextPrevButtons} onUpdateField={this.onUpdateField}/>
+                        <WizardStep3 wizardState={this.props.wizardState} nextPrevButtons={nextPrevButtons} onUpdateField={this.onUpdateField}
+                           updateFields={this.state.updateFields} />
                     </CardBody>
 
 

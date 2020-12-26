@@ -4,6 +4,30 @@
 		"selected_items":
 		[
 			[
+				"u",
+				"updateFields"
+			],
+			[
+				"ma",
+				"maybeSelFlag"
+			],
+			[
+				"next",
+				"nextPrevButtons"
+			],
+			[
+				"text",
+				"textAreaRows"
+			],
+			[
+				"run",
+				"runResults"
+			],
+			[
+				"set",
+				"setDataGrid"
+			],
+			[
 				"READY",
 				"READY_TO_EXPORT"
 			]
@@ -11,6 +35,62 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "app/routes/Dashboards/ProjectDatamend/Wizard/ApplyChangesModal.js",
+			"settings":
+			{
+				"buffer_size": 3482,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/routes/Dashboards/ProjectDatamend/Wizard/Wiz2.js",
+			"settings":
+			{
+				"buffer_size": 3710,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/routes/Dashboards/ProjectDatamend/Wizard/Wiz3.js",
+			"settings":
+			{
+				"buffer_size": 7845,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/routes/Dashboards/ProjectDatamend/Wizard/Wiz4.js",
+			"settings":
+			{
+				"buffer_size": 5505,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/routes/Dashboards/ProjectDatamend/src/store/DataStore.js",
+			"settings":
+			{
+				"buffer_size": 3887,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/routes/Dashboards/ProjectDatamend/Wizard/Wiz1.js",
+			"settings":
+			{
+				"buffer_size": 5558,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/routes/Dashboards/ProjectDatamend/Wizard/FieldEditorRow.js",
+			"settings":
+			{
+				"buffer_size": 3502,
+				"line_ending": "Windows"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -36,6 +116,14 @@
 	},
 	"file_history":
 	[
+		"/C/Users/irae/Documents/GitHub/jsstuff/airframe-react/app/routes/Dashboards/ProjectDatamend/Wizard/FullRunModal.js",
+		"/C/Users/irae/Documents/GitHub/jsstuff/airframe-react/app/routes/Dashboards/ProjectDatamend/Wizard/NextPrevButtons.js",
+		"/C/Users/irae/Documents/GitHub/jsstuff/airframe-react/app/routes/Dashboards/Projects/ProjectsDashboard.js",
+		"/C/Users/irae/Documents/GitHub/jsstuff/airframe-react/app/routes/Dashboards/ProjectDatamend/Wizard/table/AdvancedTableAIan.js",
+		"/C/Users/irae/Documents/GitHub/jsstuff/airframe-react/app/routes/Forms/Forms/Forms.js",
+		"/C/Users/irae/Documents/GitHub/jsstuff/airframe-react/app/components/UncontrolledModal/UncontrolledModal.js",
+		"/C/Users/irae/Documents/GitHub/jsstuff/airframe-react/app/routes/Dashboards/ProjectDatamend/Wizard/table/DataGridTable.js",
+		"/C/Users/irae/Documents/GitHub/jsstuff/airframe-react/app/routes/Dashboards/ProjectDatamend/Wizard/Wizard.js",
 		"/C/ian/iannotes/flexible-search-queries.txt",
 		"/D/DAILY/2018/NovDec/dec5alltypes/aldo-all-types-2.txt",
 		"/C/ian/iannotes/oracle-notes.txt",
@@ -155,15 +243,7 @@
 		"/C/tmp/downloadedSrc/Jinq-master/pom.xml",
 		"/C/projects/gitstuff/java/TrayApp/runTrayApp.bat",
 		"/C/hybrisGG/hybris/bin/custom/grocerygateway/Dockerfile",
-		"/C/hybrisGG/hybris/bin/custom/grocerygateway/ggproject/project.properties",
-		"/C/hybrisGG/hybris/bin/custom/grocerygateway/.git/description",
-		"/C/Users/irae/Downloads/desktop.ini",
-		"/C/ian/iannotes/feature285-modify-order.txt",
-		"/C/DAILY/apr5/security-scan-gg/OWASP-ZAP-Tool/MonApr4SessionA.html",
-		"/C/hybrisGG/hybris/bin/custom/grocerygateway/jnk.txt",
-		"/C/ian/iannotes/feature291-finalize-order-submission.txt",
-		"/C/ian/iannotes/feature299-close-order-feed.txt",
-		"/C/DAILY/JanFeb/jan29/qa2/feb19/bashrc.txt"
+		"/C/hybrisGG/hybris/bin/custom/grocerygateway/ggproject/project.properties"
 	],
 	"find":
 	{
@@ -171,9 +251,10 @@
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 93.0,
 		"where_history":
 		[
+			"*.js",
 			"*.txt",
 			""
 		]
@@ -183,6 +264,18 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"don",
+			"planid",
+			"<button outli",
+			"ispre",
+			"cleanerx",
+			"useeffe",
+			"default select",
+			"UncontrolledModal",
+			"modalDefault203",
+			"wizards",
+			".bind(",
+			"isload",
 			"pg",
 			"postg",
 			"psql",
@@ -298,18 +391,6 @@
 			"cherry",
 			"undo",
 			"git und",
-			"r4",
-			"mailinr",
-			"sequ",
-			"156",
-			"pipe",
-			"caaldo",
-			"sk",
-			"pricezonei",
-			"SAPImportCronJob",
-			"ProductPricesImportCronJob",
-			"-34",
-			"34",
 			"r4"
 		],
 		"highlight": true,
@@ -336,8 +417,205 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "app/routes/Dashboards/ProjectDatamend/Wizard/ApplyChangesModal.js",
+					"settings":
+					{
+						"buffer_size": 3482,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2365,
+								2365
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1425.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app/routes/Dashboards/ProjectDatamend/Wizard/Wiz2.js",
+					"settings":
+					{
+						"buffer_size": 3710,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2501,
+								2501
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1539.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "app/routes/Dashboards/ProjectDatamend/Wizard/Wiz3.js",
+					"settings":
+					{
+						"buffer_size": 7845,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3917,
+								3917
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2396.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "app/routes/Dashboards/ProjectDatamend/Wizard/Wiz4.js",
+					"settings":
+					{
+						"buffer_size": 5505,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2924,
+								2924
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2261.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "app/routes/Dashboards/ProjectDatamend/src/store/DataStore.js",
+					"settings":
+					{
+						"buffer_size": 3887,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2073,
+								2091
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1145.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "app/routes/Dashboards/ProjectDatamend/Wizard/Wiz1.js",
+					"settings":
+					{
+						"buffer_size": 5558,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								745,
+								1669
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 570.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "app/routes/Dashboards/ProjectDatamend/Wizard/FieldEditorRow.js",
+					"settings":
+					{
+						"buffer_size": 3502,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1658,
+								1658
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 912.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],
