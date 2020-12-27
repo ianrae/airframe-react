@@ -44,10 +44,10 @@ const WizardStep4 = ({wizardState, onShowTable, setDataGrid, inputType, setInput
                 </p>
                 <Form>
                     <FormGroup row>
-                        <Label for="defaultSelect" sm={3}>
+                        <Label for="defaultSelect" sm={2}>
                             Default Select
                         </Label>
-                        <Col sm={9}>
+                        <Col sm={2}>
                             <Input 
                                 type="select" 
                                 name="select" 
@@ -76,6 +76,7 @@ class Wiz4 extends React.Component {
     constructor(props) {
         super(props);
         this.setDataGrid = this.setDataGrid.bind(this);
+        this.setInputType = this.setInputType.bind(this);
 
         this.state = {
             showTable: false,
@@ -105,6 +106,10 @@ class Wiz4 extends React.Component {
         this.setState({outputStr:res.outputStr, numLines:numLines, textAreaRows:textAreaRows});
     }
     onDoNothing(e) {
+    }
+    setInputType(val) {
+        console.log("vvvv" + val);
+        this.setState({inputType: val.toLowerCase()});
     }
 
     render() {

@@ -98,7 +98,7 @@ export class DWizardExample extends React.Component {
                                 icon={ <i className="fa fa-credit-card fa-fw"></i> }
                                 complete={ this._isComplete(sequence[2]) }
                             >
-                                Fields
+                                Set Fields
                             </Wizard.Step>
                             <Wizard.Step
                                 id={ sequence[3] } disabled={this._isDisabled(sequence[3])}

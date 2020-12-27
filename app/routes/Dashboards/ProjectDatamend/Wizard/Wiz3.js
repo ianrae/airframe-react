@@ -237,13 +237,13 @@ class Wiz3 extends React.Component {
 
         return (
             <React.Fragment>
-                    <CardBody className="p-5">
+                    <CardBody className="p-3">
                         <WizardStep3 wizardState={this.props.wizardState} nextPrevButtons={nextPrevButtons} onUpdateField={this.onUpdateField}
                            updateFields={this.state.updateFields} />
                     </CardBody>
 
 
-                    <Row className="mb-5">
+                    <Row className="ml-3 mb-5">
                       <ApplyChangesModal wizardState={this.props.wizardState} onShowTable={this.clkApplyButton} 
                         setDataGrid={this.setDataGrid} updateFields={this.state.updateFields}
                         onPlanUpdate={this.onPlanUpdate} />
