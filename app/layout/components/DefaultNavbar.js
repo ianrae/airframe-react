@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
 
 import {
@@ -12,8 +12,17 @@ import { NavbarActivityFeed } from './NavbarActivityFeed';
 import { NavbarMessages } from './NavbarMessages';
 import { NavbarUser } from './NavbarUser';
 import { LogoThemed } from './../../routes/components/LogoThemed/LogoThemed';
+import DataStore from './../../routes/Dashboards/ProjectDatamend/src/store/DataStore';
 
-export const DefaultNavbar = () => (
+export const DefaultNavbar = () => {
+  const [inputType, setInputType] = React.useState(DataStore.getCurrentInputType());
+  DataStore.setCurrentInputTypeHook(setInputType);
+
+  const getInputTypeName = () => {
+    return inputType === 'csv' ? "CSV" : "JSON";
+  }
+
+  return (
     <Navbar light expand="xs" fluid>
         <Nav navbar>
             <NavItem className="mr-3">
@@ -34,7 +43,7 @@ export const DefaultNavbar = () => (
                     <i className="fa fa-angle-right"></i>
                 </span>
                 <span className="navbar-text">
-                    <Link to="/">CSV</Link>
+                    <Link to="/">{getInputTypeName()}</Link>
                 </span>
                 <span className="navbar-text px-2">
                     <i className="fa fa-angle-right"></i>
@@ -48,3 +57,4 @@ export const DefaultNavbar = () => (
         </Nav>
     </Navbar>
 );
+}

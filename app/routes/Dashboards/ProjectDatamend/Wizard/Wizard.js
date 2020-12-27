@@ -31,6 +31,7 @@ import Wiz2 from './Wiz2';
 import Wiz3 from './Wiz3';
 import Wiz4 from './Wiz4';
 import {DevToolbar} from './../src/components/DevToolbar';
+import DataStore from './../src/store/DataStore';
 
 import { HeaderMain } from "./../../../components/HeaderMain";
 
@@ -43,15 +44,16 @@ export class DWizardExample extends React.Component {
         this.isPrev = this.isPrev.bind(this);
         this.isNext = this.isNext.bind(this);
         //let { type } = useParams();  
-    }
+        this.state = {
+            currentStep: _.first(sequence),
+            wizardState: {
+              planId: 0,
+              allFields: []
+            },
+            inputType: props.match.params.inputType
+        }
 
-    state = {
-        currentStep: _.first(sequence),
-        wizardState: {
-          planId: 0,
-          allFields: []
-        },
-        inputType: props.match.params.inputType
+        DataStore.setCurrentInputType(props.match.params.inputType);
     }
 
     doWizSetState = (res) => {

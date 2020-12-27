@@ -6,6 +6,8 @@ import {WIZ_RAWDATA} from '../shared/wizrawdata';
 
 var isMock = true;
 const isFail = false;
+var currentInputType = 'csv';
+var inputTypeHook = null;
 
 const DataStore = {
   getIsMock: () => {
@@ -15,6 +17,20 @@ const DataStore = {
     isMock = flag;
     console.log("MockFlag now: " + isMock);
   },
+  getCurrentInputType: () => {
+    return currentInputType;
+  },
+  setCurrentInputType: (val) => {
+    currentInputType = val;
+    console.log("currentInputType now: " + currentInputType);
+    if (inputTypeHook) {
+      inputTypeHook(currentInputType);
+    }
+  },
+  setCurrentInputTypeHook: (fn) => {
+    inputTypeHook = fn;
+  },
+
 
   fetchNotes: (pgNum) => {
     if (isMock) {
