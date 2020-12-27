@@ -25,6 +25,7 @@ import {
     DropdownItem,
     UncontrolledDropdown
 } from './../../../../components';
+//import { useParams } from "react-router-dom";
 import Wiz1 from './Wiz1';
 import Wiz2 from './Wiz2';
 import Wiz3 from './Wiz3';
@@ -41,6 +42,7 @@ export class DWizardExample extends React.Component {
         super(props);
         this.isPrev = this.isPrev.bind(this);
         this.isNext = this.isNext.bind(this);
+        //let { type } = useParams();  
     }
 
     state = {
@@ -48,7 +50,8 @@ export class DWizardExample extends React.Component {
         wizardState: {
           planId: 0,
           allFields: []
-        }
+        },
+        inputType: props.match.params.inputType
     }
 
     doWizSetState = (res) => {
@@ -67,7 +70,7 @@ export class DWizardExample extends React.Component {
         return (
             <Container>
                 <DevToolbar />
-                <Card>
+                <Card>  
                     <CardBody className="d-flex justify-content-center pt-5">
                         <Wizard
                             activeStep={ currentStep }
@@ -104,22 +107,22 @@ export class DWizardExample extends React.Component {
                         </Wizard>
                     </CardBody>
 
-                    <CardBody className="p-5">
+                    <CardBody className="p-1">
                     {
                         (() => {
                             switch(this.state.currentStep) {
                                 case sequence[0]:
                                     return <Wiz1  prevStep={this._prevStep} nextStep={this._nextStep} isPrev={this.isPrev} isNext={this.isNext} 
-                                      doNext={this.doWizSetState} />
+                                      doNext={this.doWizSetState} inputType={this.state.inputType} />
                                 case sequence[1]:
                                     return <Wiz2  prevStep={this._prevStep} nextStep={this._nextStep} isPrev={this.isPrev} isNext={this.isNext} 
-                                      doNext={this.doWizSetState} wizardState={this.state.wizardState} />
+                                      doNext={this.doWizSetState} wizardState={this.state.wizardState} inputType={this.state.inputType} />
                                 case sequence[2]:
                                     return <Wiz3  prevStep={this._prevStep} nextStep={this._nextStep} isPrev={this.isPrev} isNext={this.isNext} 
-                                      doNext={this.doWizSetState} wizardState={this.state.wizardState} />
+                                      doNext={this.doWizSetState} wizardState={this.state.wizardState} inputType={this.state.inputType} />
                                 case sequence[3]:
                                     return <Wiz4  prevStep={this._prevStep} nextStep={this._nextStep} isPrev={this.isPrev} isNext={this.isNext} 
-                                      doNext={this.doWizSetState} wizardState={this.state.wizardState} />
+                                      doNext={this.doWizSetState} wizardState={this.state.wizardState} inputType={this.state.inputType} />
                             }
                         })()
                     }

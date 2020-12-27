@@ -125,7 +125,7 @@ export const RoutedContent = () => {
             <Route path="/dashboards/projects" exact component={ProjectsDashboard} />
             ////// datamend routes
             <Route path="/dashboards/datamend" exact component={DatamendDashboard} />
-            <Route component={ DWizard } path="/dashboards/datamend/wizard" />
+            <Route component={ DWizard } path="/dashboards/datamend/wizard/:inputType" />
 
             <Route path="/dashboards/system" exact component={System} />
             <Route path="/dashboards/monitor" exact component={Monitor} />

@@ -30,12 +30,12 @@ import {Loading} from './../src/components/LoadingComponent';
 
 
 
-const WizardStep1 = ({input,onInputChange,delim,onDelimChange}) => (
+const WizardStep1 = ({input,onInputChange,delim,onDelimChange,inputTypeName}) => (
     <Row>
         <Col md={ 10 }>
             <div>
                 <h3 className="mb-4">
-                    Paste Some CSV Data Here
+                    Paste Some {inputTypeName} Data Here
                 </h3>
                     <FormGroup row>
                         <Label for="defaultSelect" sm={3}>
@@ -106,12 +106,16 @@ class Wiz1 extends React.Component {
         console.log('apply..' + txt);
         this.setState({delim:txt});
     }
+    getInputTypeName() {
+        return this.props.inputType === 'csv' ? "CSV" : "JSON";
+    }
 
     render() {
         return (
             <React.Fragment>
                 <CardBody className="p-5">
-                    <WizardStep1 input={this.state.input} onInputChange={this.onInputChange} delim={this.state.delim} onDelimChange={this.onDelimChange} />
+                    <WizardStep1 input={this.state.input} onInputChange={this.onInputChange} delim={this.state.delim} 
+                       onDelimChange={this.onDelimChange} inputTypeName={ this.getInputTypeName()} />
                 </CardBody>
                 { this.state.isLoading && 
                     <Loading />
