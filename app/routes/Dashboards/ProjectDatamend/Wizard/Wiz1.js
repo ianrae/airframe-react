@@ -61,7 +61,7 @@ const WizardStep1 = ({input,onInputChange,delim,onDelimChange,inputTypeName}) =>
                     { /* START Input */}
                     <FormGroup row>
                         <Label for="textArea" sm={3}>
-                            CSV Data
+                            {inputTypeName} Data
                         </Label>
                         <Col sm={9}>
                             <Input 
@@ -78,7 +78,7 @@ const WizardStep1 = ({input,onInputChange,delim,onDelimChange,inputTypeName}) =>
                     { /* END Input */}
 
                 <small>
-                    Step 1 of 4. Import your CSV data.
+                    Step 1 of 4. Import your {inputTypeName} data.
                 </small>
             </div>
         </Col>
@@ -165,7 +165,8 @@ class Wiz1 extends React.Component {
           //title: "Plan1", let server decide
           typeName: "Customer",
           csvContent: this.state.input,
-          delim: this.state.delim
+          delim: this.state.delim,
+          inputType: this.props.inputType
         };
         DataStore.postWizStart(obj)
         .then(res => {

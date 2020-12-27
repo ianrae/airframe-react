@@ -63,6 +63,9 @@ export class DWizardExample extends React.Component {
       }
       this.setState({wizardState:wizardState});   
     }
+    getInputTypeName() {
+        return this.state.inputType === 'csv' ? "CSV" : "JSON";
+    }
  
     render() {
         const { currentStep } = this.state;
@@ -81,7 +84,7 @@ export class DWizardExample extends React.Component {
                                 icon={ <i className="fa fa-shopping-basket fa-fw"></i> }
                                 complete={ this._isComplete(sequence[0]) }
                             >
-                                CSV Data
+                                {this.getInputTypeName()}  Data
                             </Wizard.Step>
                             <Wizard.Step
                                 id={ sequence[1] } disabled={this._isDisabled(sequence[1])}
