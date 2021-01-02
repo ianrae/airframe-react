@@ -53,6 +53,9 @@ class Wiz2 extends React.Component {
 
     constructor(props) {
         super(props);
+        this.fetchData = this.fetchData.bind(this);
+        this.onPageChangex = this.onPageChangex.bind(this);
+
         this.state = {
             isLoading: false,
             rowData: [],
@@ -66,11 +69,14 @@ class Wiz2 extends React.Component {
     }
 
   componentDidMount() {
-    this.setState({isLoading:true});
+    this.fetchData(0);
+  }
+  fetchData(pgNum) {
+    this.setState({isLoading:true, pgNum:pgNum});
     console.log("wiz" + this.props.wizardState.planId);
     const obj =  {
       planId: this.props.wizardState.planId,
-      pgNum: this.state.pgNum,
+      pgNum: pgNum,
       pgSize: this.state.pgSize
     }
     DataStore.postWizRawData(obj)
@@ -105,10 +111,12 @@ class Wiz2 extends React.Component {
     let xrowData = GridUtil.calcRows(res);
     let hdrs = GridUtil.calcHdrs(res);
     let z = this.generateRows(hdrs, xrowData);
+    console.log("genRows2");
     this.setState({rowData:xrowData, rowCount:res.grid.rows.length, hdrList: hdrs, tblRows: z, totalRows: res.grid.totalRows});
   }
   onPageChangex(pp) {
-    console.log('xxonPgChange: ' + pp);
+    console.log('onPgChange: ' + pp);
+    this.fetchData(pp - 1); //convert to 0.based
   }
 
 
