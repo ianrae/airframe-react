@@ -28,6 +28,7 @@ import {
 } from './../../../../components';
 import FullRunModal from './FullRunModal';
 import NextPrevButtons from './NextPrevButtons';
+import DataStore from './../src/store/DataStore';
 
 
 
@@ -117,7 +118,20 @@ class Wiz4 extends React.Component {
         var blob = new Blob([this.state.outputStr], {type: "text/plain;charset=utf-8"});
         FileSaver.saveAs(blob, "output.json");
     }
-
+/* doesn't work. not utf-8. european chars get messed up. better to use json    clkDownload2() {
+      DataStore.fetchTestCSV()
+        .then(res => {
+          console.log('got csv data');
+          //console.log(res);
+            console.log('download2..');
+            var blob = new Blob([res], {type: "text/plain;charset=utf-8"});
+            FileSaver.saveAs(blob, "output.csv");
+        },
+        (error) => {
+            console.log('!error');
+        });
+    }
+*/
     render() {
         let MabyeGrid = null;
         if (this.state.showTable) {

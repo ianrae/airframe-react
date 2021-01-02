@@ -32,7 +32,7 @@ const DataStore = {
   },
 
 
-  fetchNotes: (pgNum) => {
+  fetchTestCSV: () => {
     if (isMock) {
 			var promise = new Promise((resolve,reject) => {
 				if (isFail) {
@@ -43,12 +43,8 @@ const DataStore = {
 			});
     	return promise;
     } else {
-    	let file=null; 
-    	let parms = (isFail) ? "/?fail=1" : "";
-      parms = parms.length > 0 ? parms + "&" : "?";
-      parms = parms + "pg=" + pgNum;
-    	let url = "http://localhost:8080/api/notes/" + file + parms;
-    	return DataStore.innerFetch(url);
+    	let url = "http://localhost:8080/testcsv";
+    	return DataStore.innerFetchText(url);
     }
   },
 
@@ -165,6 +161,22 @@ const DataStore = {
       } else {
     		return res.json();
     	}
+    })
+    .then(responseData => responseData)
+  },
+  innerFetchText: (url) => {
+    console.log("fetching: " + url);
+    return fetch(url)
+    .then(res => {
+      if (false) {
+        //console.log(res);
+        if (res.status === 500) {
+          throw Error("500 error. " + res.statusText);
+        }
+        throw Error(res.statusText);
+      } else {
+        return res.text();
+      }
     })
     .then(responseData => responseData)
   }
