@@ -5,7 +5,7 @@ import FileSaver from 'file-saver';
 import {
     Container,
     Wizard,
-    Card,
+    Card,CardTitle,
     Nav,
     NavItem,
     NavLink,
@@ -132,29 +132,11 @@ class Wiz4 extends React.Component {
         });
     }
 */
+
     render() {
         let MabyeGrid = null;
         if (this.state.showTable) {
-            MabyeGrid = <FormGroup row>
-                        <Label for="textArea" sm={3}>
-                            Results
-                                <Button color="info" size="lg"  onClick={this.clkDownload}>
-                                    Download
-                                </Button>
-
-                        </Label>
-                        <Col sm={12}>
-                            <Input  readOnly
-                                type="textarea" 
-                                name="text" 
-                                id="textArea" 
-                                placeholder=""
-                                rows={this.state.textAreaRows}
-                                value={this.state.outputStr}
-                                onChange={(e) => onDoNothing(e.target.value)}
-                            />
-                        </Col>
-                    </FormGroup>
+            MaybeGrid = <h3>sdfdsffsdfdf</h3>
         }
         const nextPrevButtons = <NextPrevButtons isPrev={this.props.isPrev} isNext={this.props.isNext} doPrev={this._prevStep} doNext={this._nextStep} />
 
