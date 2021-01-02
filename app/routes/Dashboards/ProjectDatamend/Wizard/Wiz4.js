@@ -118,25 +118,36 @@ class Wiz4 extends React.Component {
         var blob = new Blob([this.state.outputStr], {type: "text/plain;charset=utf-8"});
         FileSaver.saveAs(blob, "output.json");
     }
-/* doesn't work. not utf-8. european chars get messed up. better to use json    clkDownload2() {
-      DataStore.fetchTestCSV()
-        .then(res => {
-          console.log('got csv data');
-          //console.log(res);
-            console.log('download2..');
-            var blob = new Blob([res], {type: "text/plain;charset=utf-8"});
-            FileSaver.saveAs(blob, "output.csv");
-        },
-        (error) => {
-            console.log('!error');
-        });
-    }
-*/
 
     render() {
-        let MabyeGrid = null;
+        let MaybeGrid = null;
         if (this.state.showTable) {
-            MaybeGrid = <h3>sdfdsffsdfdf</h3>
+            MaybeGrid = <Card>
+                  <CardBody>
+                    <CardTitle>Results</CardTitle>
+                    <Row className="">
+                      <Col lg={ 10 }>
+                        <h6 class="card-subtitle text-muted">Output data</h6>
+                      </Col>
+                      <Col lg={ 2 }>
+                         <Button color="info" size="sm"  onClick={this.clkDownload}>Download</Button>
+                      </Col>
+                    </Row>
+                    <Row className="">
+                    <Col sm={12}>
+                            <Input  readOnly
+                                type="textarea" 
+                                name="text" 
+                                id="textArea" 
+                                placeholder=""
+                                rows={this.state.textAreaRows}
+                                value={this.state.outputStr}
+                                onChange={(e) => onDoNothing(e.target.value)}
+                            />
+                    </Col>
+                    </Row>
+                  </CardBody>
+                </Card>
         }
         const nextPrevButtons = <NextPrevButtons isPrev={this.props.isPrev} isNext={this.props.isNext} doPrev={this._prevStep} doNext={this._nextStep} />
 
@@ -155,7 +166,7 @@ class Wiz4 extends React.Component {
 
                     <Row className="">
                       <Col lg={ 12 }>
-                        {MabyeGrid}
+                        {MaybeGrid}
                       </Col>
                     </Row>
 
