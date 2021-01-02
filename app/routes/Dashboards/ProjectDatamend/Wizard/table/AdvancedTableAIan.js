@@ -89,6 +89,7 @@ export class AdvancedTableAIan extends React.Component {
         const paginationDef = paginationFactory({
             paginationSize: 5,
             showTotal: true,
+            totalSize: this.props.totalRows,
             pageListRenderer: (props) => (
                 <CustomPaginationPanel { ...props } size="sm" className="ml-md-auto mt-2 mt-md-0" />
             ),

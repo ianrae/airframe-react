@@ -33,7 +33,7 @@ import {Loading} from './../src/components/LoadingComponent';
 import GridUtil from './../src/util/GridUtil';
 import NextPrevButtons from './NextPrevButtons';
 
-const WizardStep2 = ({wizardState, hdrList, tblRows,nextPrevButtons}) => (
+const WizardStep2 = ({wizardState, hdrList, tblRows,nextPrevButtons, totalRows}) => (
     <Row>
         <Col md={12}>
             <div>
@@ -43,7 +43,7 @@ const WizardStep2 = ({wizardState, hdrList, tblRows,nextPrevButtons}) => (
                 <p>
                     Review your data. If it has not been imported correctly, please go back to the previous step.
                 </p>
-                <AdvancedTableAIan wizardState={wizardState} hdrList={hdrList} tblRows={tblRows}/>
+                <AdvancedTableAIan wizardState={wizardState} hdrList={hdrList} tblRows={tblRows} totalRows={totalRows} />
             </div>
         </Col>
     </Row>
@@ -58,7 +58,10 @@ class Wiz2 extends React.Component {
             rowData: [],
             rowCount: 0,
             hdrList: [],
-            tblRows: []
+            tblRows: [],
+            totalRows: 0,
+            pgNum: 0,
+            pgSize: 10
         }
     }
 
@@ -66,7 +69,9 @@ class Wiz2 extends React.Component {
     this.setState({isLoading:true});
     console.log("wiz" + this.props.wizardState.planId);
     const obj =  {
-      planId: this.props.wizardState.planId
+      planId: this.props.wizardState.planId,
+      pgNum: this.state.pgNum,
+      pgSize: this.state.pgSize
     }
     DataStore.postWizRawData(obj)
     .then(res => {
@@ -100,7 +105,7 @@ class Wiz2 extends React.Component {
     let xrowData = GridUtil.calcRows(res);
     let hdrs = GridUtil.calcHdrs(res);
     let z = this.generateRows(hdrs, xrowData);
-    this.setState({rowData:xrowData, rowCount:res.grid.rows.length, hdrList: hdrs, tblRows: z});
+    this.setState({rowData:xrowData, rowCount:res.grid.rows.length, hdrList: hdrs, tblRows: z, totalRows: res.grid.totalRows});
   }
 
 
@@ -112,7 +117,7 @@ class Wiz2 extends React.Component {
             <React.Fragment>
                 <CardBody className="p-5">
                     <WizardStep2 wizardState={this.props.wizardState} hdrList={this.state.hdrList} tblRows={this.state.tblRows} 
-                       nextPrevButtons={nextPrevButtons} />
+                       nextPrevButtons={nextPrevButtons} totalRows={this.state.totalRows} />
                 </CardBody>
                 { this.state.isLoading && 
                     <Loading />

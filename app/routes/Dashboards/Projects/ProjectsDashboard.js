@@ -47,7 +47,7 @@ const ProjectsDashboard = () => (
                 <p>
                     Validate CSV data according to rules you setup. Convert the data to JSON, XML, or other formats.
                 </p>
-                <Button color="primary" tag={Link} to="/dashboards/datamend">Let&apos;s Get Started</Button>
+                <Button color="primary" tag={Link} to="/dashboards/datamend/wizard/csv">Let&apos;s Get Started</Button>
 
             </Col>
         </Row>
