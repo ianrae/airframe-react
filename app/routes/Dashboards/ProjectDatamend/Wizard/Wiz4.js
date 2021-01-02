@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import _ from 'lodash';
+import FileSaver from 'file-saver';
 
 import {
     Container,
@@ -113,6 +114,8 @@ class Wiz4 extends React.Component {
     }
     clkDownload = () => {
         console.log('download..');
+        var blob = new Blob([this.state.outputStr], {type: "text/plain;charset=utf-8"});
+        FileSaver.saveAs(blob, "output.json");
     }
 
     render() {
