@@ -4,6 +4,18 @@
 		"selected_items":
 		[
 			[
+				"update",
+				"updateFields"
+			],
+			[
+				"al",
+				"allFields"
+			],
+			[
+				"le",
+				"length"
+			],
+			[
 				"u",
 				"updateFields"
 			],
@@ -39,7 +51,7 @@
 			"file": "app/routes/Dashboards/ProjectDatamend/Wizard/ApplyChangesModal.js",
 			"settings":
 			{
-				"buffer_size": 3482,
+				"buffer_size": 3650,
 				"line_ending": "Windows"
 			}
 		},
@@ -55,7 +67,15 @@
 			"file": "app/routes/Dashboards/ProjectDatamend/Wizard/Wiz3.js",
 			"settings":
 			{
-				"buffer_size": 7845,
+				"buffer_size": 8907,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/routes/index.js",
+			"settings":
+			{
+				"buffer_size": 12687,
 				"line_ending": "Windows"
 			}
 		},
@@ -63,15 +83,31 @@
 			"file": "app/routes/Dashboards/ProjectDatamend/Wizard/Wiz4.js",
 			"settings":
 			{
-				"buffer_size": 5505,
+				"buffer_size": 5402,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "app/routes/Dashboards/ProjectDatamend/src/store/DataStore.js",
+			"file": "app/layout/components/SidebarMiddleNav.js",
 			"settings":
 			{
-				"buffer_size": 3887,
+				"buffer_size": 486,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/routes/Dashboards/ProjectDatamend/DatamendDashboard.js",
+			"settings":
+			{
+				"buffer_size": 1481,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/routes/Dashboards/ProjectDatamend/Wizard/Wizard.js",
+			"settings":
+			{
+				"buffer_size": 6595,
 				"line_ending": "Windows"
 			}
 		},
@@ -79,15 +115,33 @@
 			"file": "app/routes/Dashboards/ProjectDatamend/Wizard/Wiz1.js",
 			"settings":
 			{
-				"buffer_size": 5558,
+				"buffer_size": 5811,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "app/routes/Dashboards/ProjectDatamend/Wizard/FieldEditorRow.js",
+			"contents": "Searching 34996 files for \"convert csv\"\n\nC:\\Users\\irae\\Documents\\GitHub\\jsstuff\\airframe-react\\app\\layout\\components\\DefaultNavbar.js:\n   41                  </span>\n   42                  <span className=\"navbar-text\">\n   43:                     Convert CSV Data\n   44                  </span>\n   45              </NavItem>\n\n1 match in 1 file\n",
 			"settings":
 			{
-				"buffer_size": 3502,
+				"buffer_size": 344,
+				"line_ending": "Windows",
+				"name": "Find Results",
+				"scratch": true
+			}
+		},
+		{
+			"file": "app/layout/components/DefaultNavbar.js",
+			"settings":
+			{
+				"buffer_size": 1950,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/routes/Dashboards/ProjectDatamend/src/store/DataStore.js",
+			"settings":
+			{
+				"buffer_size": 4274,
 				"line_ending": "Windows"
 			}
 		}
@@ -117,13 +171,29 @@
 	"file_history":
 	[
 		"/C/Users/irae/Documents/GitHub/jsstuff/airframe-react/app/routes/Dashboards/ProjectDatamend/Wizard/FullRunModal.js",
+		"/C/Users/irae/Documents/GitHub/jsstuff/airframe-react/app/routes/Dashboards/ProjectDatamend/Wizard/index.js",
+		"/C/Users/irae/Documents/GitHub/jsstuff/airframe-react/app/routes/components/LogoThemed/LogoThemed.js",
+		"/C/Users/irae/Documents/GitHub/jsstuff/airframe-react/app/routes/components/Sidebar/SidebarTopA.js",
+		"/C/Users/irae/Documents/GitHub/jsstuff/airframe-react/app/routes/components/Sidebar/SidebarBottomA.js",
+		"/C/Users/irae/Documents/GitHub/jsstuff/airframe-react/app/layout/components/DefaultSidebar.js",
+		"/C/Users/irae/Documents/GitHub/jsstuff/airframe-react/app/routes/Layouts/SidebarWithNavbar/index.js",
+		"/C/Users/irae/Documents/GitHub/jsstuff/airframe-react/app/components/SidebarMenu/index.js",
+		"/C/Users/irae/Documents/GitHub/jsstuff/airframe-react/app/layout/components/SidebarMiddleNav.js",
+		"/C/Users/irae/Documents/GitHub/jsstuff/airframe-react/app/routes/index.js",
+		"/C/Users/irae/Documents/GitHub/jsstuff/airframe-react/app/routes/Dashboards/ProjectDatamend/Wizard/FieldEditorRow.js",
+		"/C/Users/irae/Documents/GitHub/jsstuff/airframe-react/app/layout/components/DefaultNavbar.js",
+		"/C/Users/irae/Documents/GitHub/jsstuff/airframe-react/app/routes/components/FooterText.js",
+		"/C/Users/irae/Documents/GitHub/jsstuff/airframe-react/app/routes/Interface/Alerts/Alerts.js",
+		"/C/Users/irae/Documents/GitHub/jsstuff/airframe-react/app/routes/components/Sidebar/SidebarBottomB.js",
+		"/C/Users/irae/Documents/GitHub/jsstuff/airframe-react/app/routes/Dashboards/ProjectDatamend/Wizard/Wizard.js",
+		"/C/Users/irae/Documents/GitHub/jsstuff/airframe-react/app/routes/Dashboards/ProjectDatamend/src/store/DataStore.js",
+		"/C/Users/irae/Documents/GitHub/jsstuff/airframe-react/app/routes/Dashboards/ProjectDatamend/Wizard/Wiz1.js",
 		"/C/Users/irae/Documents/GitHub/jsstuff/airframe-react/app/routes/Dashboards/ProjectDatamend/Wizard/NextPrevButtons.js",
 		"/C/Users/irae/Documents/GitHub/jsstuff/airframe-react/app/routes/Dashboards/Projects/ProjectsDashboard.js",
 		"/C/Users/irae/Documents/GitHub/jsstuff/airframe-react/app/routes/Dashboards/ProjectDatamend/Wizard/table/AdvancedTableAIan.js",
 		"/C/Users/irae/Documents/GitHub/jsstuff/airframe-react/app/routes/Forms/Forms/Forms.js",
 		"/C/Users/irae/Documents/GitHub/jsstuff/airframe-react/app/components/UncontrolledModal/UncontrolledModal.js",
 		"/C/Users/irae/Documents/GitHub/jsstuff/airframe-react/app/routes/Dashboards/ProjectDatamend/Wizard/table/DataGridTable.js",
-		"/C/Users/irae/Documents/GitHub/jsstuff/airframe-react/app/routes/Dashboards/ProjectDatamend/Wizard/Wizard.js",
 		"/C/ian/iannotes/flexible-search-queries.txt",
 		"/D/DAILY/2018/NovDec/dec5alltypes/aldo-all-types-2.txt",
 		"/C/ian/iannotes/oracle-notes.txt",
@@ -227,23 +297,7 @@
 		"/C/ian/iannotes/twws.txt",
 		"/C/ian/iannotes/scribble-tree-editor-notes",
 		"/C/projects/gitstuff/java/TrayApp/build.xml",
-		"/C/DAILY/QALogs/PRODAdmin/order-processing.log",
-		"/C/projects/gitstuff/rename_bundlefile.bat",
-		"/C/ian/iannotes/dyn-config.txt",
-		"/C/Users/irae/.bashrc",
-		"/C/tmp/downloadedSrc/concursus-master/LICENSE",
-		"/C/projects/tsl/tslcore/src/com/tsl/core/model/dynamic/ExpiredAuthenticationTokenHandler.java",
-		"/C/hybrisGG/hybris/bin/custom/grocerygateway/twcommon/extensioninfo.xml",
-		"/C/ian/iannotes/twws-notes.txt",
-		"/C/DAILY/QALogs/qa1/assistedservicestorefront.js",
-		"/C/projects/gitstuff/update_files.bat",
-		"/C/Users/irae/AppData/Roaming/Sublime Text 2/Packages/User/Default (Windows).sublime-keymap",
-		"/C/Users/irae/AppData/Roaming/Sublime Text 2/Packages/Default/Default (Windows).sublime-keymap",
-		"/C/hybrisGG/hybris/bin/custom/grocerygateway/ggstorefront/platformhome.properties",
-		"/C/tmp/downloadedSrc/Jinq-master/pom.xml",
-		"/C/projects/gitstuff/java/TrayApp/runTrayApp.bat",
-		"/C/hybrisGG/hybris/bin/custom/grocerygateway/Dockerfile",
-		"/C/hybrisGG/hybris/bin/custom/grocerygateway/ggproject/project.properties"
+		"/C/DAILY/QALogs/PRODAdmin/order-processing.log"
 	],
 	"find":
 	{
@@ -264,6 +318,27 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"convert csv",
+			"inputt",
+			"DWizardExample",
+			"DWizard",
+			"DatamendDashboard",
+			"sidebarmenu",
+			"sidebarmenui",
+			"logothemed",
+			"SidebarWithNavbar",
+			"DefaultSidebar",
+			"RoutedSidebars",
+			"DefaultSidebar",
+			"SidebarBottomA",
+			"v0.9",
+			"randomava",
+			"SidebarBottomA",
+			"FooterText",
+			"ian rae",
+			"startx",
+			"Alerts Icon Small",
+			"yarn",
 			"don",
 			"planid",
 			"<button outli",
@@ -370,28 +445,7 @@
 			"refund",
 			"maili",
 			"tee",
-			"ant ",
-			"jsonwe",
-			"plannin",
-			"r4",
-			"\\",
-			"jsonwe",
-			"--thei",
-			"fc",
-			"-34",
-			"r4",
-			"single",
-			"cybers",
-			"all",
-			"SAPPriceImportServiceImpl",
-			".mem",
-			"-142",
-			"142",
-			"SAPProductPrices",
-			"cherry",
-			"undo",
-			"git und",
-			"r4"
+			"ant "
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -417,7 +471,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 11,
 			"sheets":
 			[
 				{
@@ -425,15 +479,15 @@
 					"file": "app/routes/Dashboards/ProjectDatamend/Wizard/ApplyChangesModal.js",
 					"settings":
 					{
-						"buffer_size": 3482,
+						"buffer_size": 3650,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2365,
-								2365
+								3444,
+								3444
 							]
 						],
 						"settings":
@@ -443,7 +497,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1425.0,
+						"translation.y": 1596.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -460,8 +514,8 @@
 						"selection":
 						[
 							[
-								2501,
-								2501
+								453,
+								503
 							]
 						],
 						"settings":
@@ -471,7 +525,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1539.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -481,15 +535,15 @@
 					"file": "app/routes/Dashboards/ProjectDatamend/Wizard/Wiz3.js",
 					"settings":
 					{
-						"buffer_size": 7845,
+						"buffer_size": 8907,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3917,
-								3917
+								1160,
+								1251
 							]
 						],
 						"settings":
@@ -499,25 +553,25 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2396.0,
+						"translation.y": 1710.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 3,
-					"file": "app/routes/Dashboards/ProjectDatamend/Wizard/Wiz4.js",
+					"file": "app/routes/index.js",
 					"settings":
 					{
-						"buffer_size": 5505,
+						"buffer_size": 12687,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2924,
-								2924
+								5079,
+								5088
 							]
 						],
 						"settings":
@@ -527,53 +581,25 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2261.0,
+						"translation.y": 2225.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 4,
-					"file": "app/routes/Dashboards/ProjectDatamend/src/store/DataStore.js",
+					"file": "app/routes/Dashboards/ProjectDatamend/Wizard/Wiz4.js",
 					"settings":
 					{
-						"buffer_size": 3887,
+						"buffer_size": 5402,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2073,
-								2091
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1145.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "app/routes/Dashboards/ProjectDatamend/Wizard/Wiz1.js",
-					"settings":
-					{
-						"buffer_size": 5558,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								745,
-								1669
+								1157,
+								1157
 							]
 						],
 						"settings":
@@ -583,25 +609,206 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 570.0,
+						"translation.y": 610.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 6,
-					"file": "app/routes/Dashboards/ProjectDatamend/Wizard/FieldEditorRow.js",
+					"buffer": 5,
+					"file": "app/layout/components/SidebarMiddleNav.js",
 					"settings":
 					{
-						"buffer_size": 3502,
+						"buffer_size": 486,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1658,
-								1658
+								424,
+								424
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "app/routes/Dashboards/ProjectDatamend/DatamendDashboard.js",
+					"settings":
+					{
+						"buffer_size": 1481,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								555,
+								555
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 342.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "app/routes/Dashboards/ProjectDatamend/Wizard/Wizard.js",
+					"settings":
+					{
+						"buffer_size": 6595,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								655,
+								655
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 171.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "app/routes/Dashboards/ProjectDatamend/Wizard/Wiz1.js",
+					"settings":
+					{
+						"buffer_size": 5811,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								653,
+								653
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1482.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"settings":
+					{
+						"buffer_size": 344,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										247,
+										258
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								254,
+								254
+							]
+						],
+						"settings":
+						{
+							"detect_indentation": false,
+							"output_tag": 1,
+							"result_base_dir": "",
+							"result_file_regex": "^([A-Za-z\\\\/<].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "app/layout/components/DefaultNavbar.js",
+					"settings":
+					{
+						"buffer_size": 1950,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								614,
+								665
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 114.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "app/routes/Dashboards/ProjectDatamend/src/store/DataStore.js",
+					"settings":
+					{
+						"buffer_size": 4274,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								770,
+								770
 							]
 						],
 						"settings":
@@ -611,7 +818,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 912.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"

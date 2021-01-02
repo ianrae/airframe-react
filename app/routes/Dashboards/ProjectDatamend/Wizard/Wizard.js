@@ -86,28 +86,28 @@ export class DWizardExample extends React.Component {
                                 icon={ <i className="fa fa-shopping-basket fa-fw"></i> }
                                 complete={ this._isComplete(sequence[0]) }
                             >
-                                {this.getInputTypeName()}  Data
+                                <small>Step 1</small> <br/> {this.getInputTypeName()}  Data
                             </Wizard.Step>
                             <Wizard.Step
                                 id={ sequence[1] } disabled={this._isDisabled(sequence[1])}
                                 icon={ <i className="fa fa-cube fa-fw"></i> }
                                 complete={ this._isComplete(sequence[1]) }
                             >
-                                View Raw Data
+                                <small>Step 2</small> <br/> View Raw Data
                             </Wizard.Step>
                             <Wizard.Step
                                 id={ sequence[2] } disabled={this._isDisabled(sequence[2])}
                                 icon={ <i className="fa fa-credit-card fa-fw"></i> }
                                 complete={ this._isComplete(sequence[2]) }
                             >
-                                Set Fields
+                                <small>Step 3</small> <br/> Set Fields
                             </Wizard.Step>
                             <Wizard.Step
                                 id={ sequence[3] } disabled={this._isDisabled(sequence[3])}
                                 icon={ <i className="fa fa-navicon fa-fw"></i> }
                                 complete={ this._isComplete(sequence[3]) }
                             >
-                                Output
+                                <small>Step 4</small> <br/> Output
                             </Wizard.Step>
                         </Wizard>
                     </CardBody>

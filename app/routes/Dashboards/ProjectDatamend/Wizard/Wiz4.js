@@ -111,6 +111,9 @@ class Wiz4 extends React.Component {
         console.log("vvvv" + val);
         this.setState({inputType: val.toLowerCase()});
     }
+    clkDownload = () => {
+        console.log('download..');
+    }
 
     render() {
         let MabyeGrid = null;
@@ -118,6 +121,10 @@ class Wiz4 extends React.Component {
             MabyeGrid = <FormGroup row>
                         <Label for="textArea" sm={3}>
                             Results
+                                <Button color="info" size="lg"  onClick={this.clkDownload}>
+                                    Download
+                                </Button>
+
                         </Label>
                         <Col sm={12}>
                             <Input  readOnly
