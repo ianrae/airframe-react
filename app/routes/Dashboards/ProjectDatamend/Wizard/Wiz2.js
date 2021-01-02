@@ -33,7 +33,7 @@ import {Loading} from './../src/components/LoadingComponent';
 import GridUtil from './../src/util/GridUtil';
 import NextPrevButtons from './NextPrevButtons';
 
-const WizardStep2 = ({wizardState, hdrList, tblRows,nextPrevButtons, totalRows}) => (
+const WizardStep2 = ({wizardState, hdrList, tblRows,nextPrevButtons, totalRows, onPageChange}) => (
     <Row>
         <Col md={12}>
             <div>
@@ -43,7 +43,7 @@ const WizardStep2 = ({wizardState, hdrList, tblRows,nextPrevButtons, totalRows})
                 <p>
                     Review your data. If it has not been imported correctly, please go back to the previous step.
                 </p>
-                <AdvancedTableAIan wizardState={wizardState} hdrList={hdrList} tblRows={tblRows} totalRows={totalRows} />
+                <AdvancedTableAIan wizardState={wizardState} hdrList={hdrList} tblRows={tblRows} totalRows={totalRows} onPageChange={onPageChange} />
             </div>
         </Col>
     </Row>
@@ -107,7 +107,9 @@ class Wiz2 extends React.Component {
     let z = this.generateRows(hdrs, xrowData);
     this.setState({rowData:xrowData, rowCount:res.grid.rows.length, hdrList: hdrs, tblRows: z, totalRows: res.grid.totalRows});
   }
-
+  onPageChangex(pp) {
+    console.log('xxonPgChange: ' + pp);
+  }
 
 
     render() {
@@ -117,7 +119,7 @@ class Wiz2 extends React.Component {
             <React.Fragment>
                 <CardBody className="p-5">
                     <WizardStep2 wizardState={this.props.wizardState} hdrList={this.state.hdrList} tblRows={this.state.tblRows} 
-                       nextPrevButtons={nextPrevButtons} totalRows={this.state.totalRows} />
+                       nextPrevButtons={nextPrevButtons} totalRows={this.state.totalRows} onPageChange={this.onPageChangex} />
                 </CardBody>
                 { this.state.isLoading && 
                     <Loading />

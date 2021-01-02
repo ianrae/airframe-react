@@ -91,7 +91,7 @@ export class AdvancedTableAIan extends React.Component {
             showTotal: true,
             totalSize: this.props.totalRows,
             pageListRenderer: (props) => (
-                <CustomPaginationPanel { ...props } size="sm" className="ml-md-auto mt-2 mt-md-0" />
+                <CustomPaginationPanel { ...props } onPageChange={this.props.onPageChange}  size="sm" className="ml-md-auto mt-2 mt-md-0" />
             ),
             sizePerPageRenderer: (props) => (
                 <CustomSizePerPageButton { ...props } />
