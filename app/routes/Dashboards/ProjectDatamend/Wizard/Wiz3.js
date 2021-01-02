@@ -118,7 +118,6 @@ const WizardStep3 = ({wizardState, nextPrevButtons, onUpdateField, updateFields}
     return (
     <Row>
         <Col lg={ 12 }>
-                   {nextPrevButtons}
             <Card className="mb-3">
                 <CardBody>
                     <CardTitle tag="h6" className="mb-4">

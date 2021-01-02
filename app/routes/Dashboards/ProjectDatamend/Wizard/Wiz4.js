@@ -36,7 +36,6 @@ const WizardStep4 = ({wizardState, onShowTable, setDataGrid, inputType, setInput
     return (
     <Row>
         <Col md={12}>
-            {nextPrevButtons}
             <div>
                 <h3 className="mb-4">
                     Output
@@ -122,15 +121,15 @@ class Wiz4 extends React.Component {
     render() {
         let MaybeGrid = null;
         if (this.state.showTable) {
-            MaybeGrid = <Card>
+            MaybeGrid = <Card className="m-3">
                   <CardBody>
-                    <CardTitle>Results</CardTitle>
+                    <CardTitle><h4>Results</h4></CardTitle>
                     <Row className="">
-                      <Col lg={ 10 }>
-                        <h6 class="card-subtitle text-muted">Output data</h6>
+                      <Col lg={ 4 } className="mb-2">
+                         <Button color="info" size="sm" onClick={this.clkDownload}>Download</Button>
+                        <span class="card-subtitle text-muted">&nbsp;&nbsp; Output data ({this.state.numLines} lines)</span>
                       </Col>
-                      <Col lg={ 2 }>
-                         <Button color="info" size="sm"  onClick={this.clkDownload}>Download</Button>
+                      <Col lg={3}>
                       </Col>
                     </Row>
                     <Row className="">

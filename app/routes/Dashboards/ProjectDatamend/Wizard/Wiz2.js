@@ -36,7 +36,6 @@ import NextPrevButtons from './NextPrevButtons';
 const WizardStep2 = ({wizardState, hdrList, tblRows,nextPrevButtons}) => (
     <Row>
         <Col md={12}>
-                {nextPrevButtons}
             <div>
                 <h3 className="mb-4">
                     View Your Data 

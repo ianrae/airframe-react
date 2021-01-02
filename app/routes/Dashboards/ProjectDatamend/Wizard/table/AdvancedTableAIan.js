@@ -136,13 +136,6 @@ export class AdvancedTableAIan extends React.Component {
                                     className="mr-2"
                                     { ...props.searchProps }
                                 />
-                                <ButtonGroup>
-                                    <CustomExportCSV
-                                        { ...props.csvProps }
-                                    >
-                                        Export
-                                    </CustomExportCSV>
-                                </ButtonGroup>
                             </div>
                         </div>
                         <BootstrapTable
